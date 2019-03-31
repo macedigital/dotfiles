@@ -9,6 +9,7 @@ export EDITOR=vim
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PATH=$HOME/.local/bin:$PATH
 
+export LESSHISTFILE=/dev/null
 export HISTSIZE=1000
 export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:pacman *:jrnl *:[ \t]*"
