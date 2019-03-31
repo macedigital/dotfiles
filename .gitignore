@@ -11,8 +11,9 @@
 *~
 Thumbs.db
 
-# git secrets
+# local overrides
 .gitconfig.local
+.tmux.conf.local
 
 # vim:set ft=config:ts=4:sw=4:et
 
