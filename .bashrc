@@ -6,10 +6,10 @@
 [[ $- != *i* ]] && return
 
 # Beautiful shell command line colors
-[[ -f "~/.local/bin/shell_prompt.sh" ]] && source "~/.local/bin/shell_prompt.sh"
+[[ -f "$HOME/.local/bin/shell_prompt.sh" ]] && source "$HOME/.local/bin/shell_prompt.sh"
 
 # Solarized dark LS_COLORS
-[[ -f "~/.dircolors" ]] && command -v "dircolors">/dev/null && eval "$(dircolors -b ~/.dircolors)"
+[[ -f "$HOME/.dircolors" ]] && command -v "dircolors">/dev/null && eval "$(dircolors -b $HOME/.dircolors)"
 
 # Double check window resize
 shopt -s checkwinsize
