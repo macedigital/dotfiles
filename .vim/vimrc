@@ -1,0 +1,70 @@
+" always show bottom footer
+set laststatus=2
+
+" 256 colors
+set t_Co=256
+
+" show line numbers
+" set number
+
+" ignore case in search
+set ignorecase
+
+" necessary for advanced stuff
+set nocompatible
+
+" show what you are typing as a command
+set showcmd
+
+" folding setting
+set foldmethod=marker
+
+" syntax highlighting
+filetype on
+filetype plugin on
+syntax enable
+
+" Who doesn't like autoindent?
+set autoindent
+
+" Spaces are better than a tab character
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces#1878983
+set expandtab
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+" Cool tab completion stuff
+set wildmenu
+set wildmode=list:longest,full
+
+" Enable mouse support in console
+set mouse=a
+
+" And so is Artificial Intelligence!
+set smartcase
+
+" Unix line-ending
+set ff=unix
+
+" Spelling in markdown files
+if v:version >= 700
+    autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en
+endif
+
+" Show matching brackets
+set showmatch
+
+" find trailing whitespace
+match ErrorMsg '\s\+$'
+
+" map local directories
+"set backupdir=$HOME/.vim/backup
+"set directory=$HOME/.vim/swap
+"set undodir=$HOME/.vim/undo
+"set undolevels=1000
+"set undoreload=10000
+
+" persistent undo
+"set undofile
