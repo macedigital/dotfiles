@@ -1,0 +1,39 @@
+[include]
+    # Include for username / creds / etc
+    path = ~/.gitconfig.local
+[alias]
+    up = "!git remote update -p; git merge --ff-only @{u}"
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+    fulllog = log --all --decorate --graph --oneline --date=short
+    checksig = log --pretty="format:%h %G? %aN  %s"
+    count = shortlog -sn
+[color]
+    ui = auto
+    status = auto
+    interactive = always
+[commit]
+    gpgsign = true
+[core]
+    editor = vim
+    autocrlf = input
+    safecrlf = true
+    eol = native
+    quotepath = false
+    fileMode = false
+[diff "jpg"]
+    textconv = exif
+    cachetextconv = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[pull]
+    rebase = preserve
+[push]
+    default = current
+
+# vim:set ts=4:sw=4:et
+

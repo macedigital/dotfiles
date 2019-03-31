@@ -1,0 +1,18 @@
+# editors and IDEs
+.idea/
+.code/
+.vscode/
+
+# temp files
+._*
+.DS_Store
+.Trash*
+*.swp
+*~
+Thumbs.db
+
+# git secrets
+.gitconfig.local
+
+# vim:set ft=config:ts=4:sw=4:et
+
