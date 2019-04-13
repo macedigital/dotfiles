@@ -1,0 +1,20 @@
+
+# shells
+alias ls='ls --color=auto'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+
+# helpers
+alias psc='ps xawf -eo pid,user,cgroup,args'
+alias gpg='gpg2'
+
+# archlinux
+alias pacman-orphans='pacman -Qtdq'
+alias pacman-leaves='pacman -Qm'
+
+# docker
+alias docker-rmi='docker images --filter dangling=true -qa | xargs -r docker rmi'
+alias docker-rm='docker ps -aq --filter status=dead | xargs -r docker rm'
+
+# vim:set ts=4:sw=4:et
+
