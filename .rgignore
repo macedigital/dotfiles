@@ -1,0 +1,10 @@
+.cache
+.conf
+.DS_Store
+.git
+.local
+.node-gyp
+.rustup
+.v8flags*
+.vim
+tmp
