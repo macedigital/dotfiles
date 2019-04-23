@@ -13,6 +13,10 @@
     ui = auto
     status = auto
     interactive = always
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = blue
 [commit]
     gpgsign = true
 [core]
