@@ -14,5 +14,10 @@ export HISTSIZE=1000
 export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:pacman *:jrnl *:[ \t]*"
 
+# setup rg in combination with fzf
+if [[ -x "$(command -v rg)" ]]; then
+    export FZF_DEFAULT_OPTS="--extended --cycle"
+    export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+fi
 # vim:set ts=4:sw=4:et
 
