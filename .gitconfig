@@ -38,6 +38,8 @@
     rebase = preserve
 [push]
     default = current
-
+[rerere]
+	enabled = true
+	autoupdate = true
 # vim:set ts=4:sw=4:et
 
