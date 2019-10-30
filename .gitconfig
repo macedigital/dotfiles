@@ -13,6 +13,15 @@
     ui = auto
     status = auto
     interactive = always
+[color "branch"]
+    current = yellow reverse
+    local = green
+    remote = red
+[color "diff"]
+    meta = yellow dim
+    frag = magenta
+    old = red
+    new = green
 [color "status"]
     added = green
     changed = yellow
