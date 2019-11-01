@@ -9,6 +9,7 @@
     fulllog = log --all --decorate --graph --oneline --date=short
     checksig = log --pretty="format:%h %G? %aN  %s"
     count = shortlog -sn
+    find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 [color]
     ui = auto
     status = auto
