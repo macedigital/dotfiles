@@ -6,7 +6,6 @@ alias grep='grep --color=auto'
 
 # helpers
 alias psc='ps xawf -eo pid,user,cgroup,args'
-alias gpg='gpg2'
 
 # archlinux
 alias pacman-orphans='pacman -Qtdq'
