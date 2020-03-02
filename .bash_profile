@@ -6,6 +6,7 @@
 
 export LANG=en_US.UTF-8
 export EDITOR=vim
+export BROWSER=lynx
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PATH=$HOME/.local/bin:$PATH
 
