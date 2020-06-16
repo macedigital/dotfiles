@@ -15,5 +15,8 @@ alias pacman-leaves='pacman -Qm'
 alias docker-rmi='docker images --filter dangling=true -qa | xargs -r docker rmi'
 alias docker-rm='docker ps -aq --filter status=dead | xargs -r docker rm'
 
+# python
+pip list --outdated --not-required --local --format=freeze | cut -d '=' -f1 | xargs pip install -U
+
 # vim:set ts=4:sw=4:et
 
