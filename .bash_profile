@@ -34,6 +34,10 @@ if [[ -x $(command -v pyenv) ]]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# Setup bat for man page
+if [[ -x "$(type -p bat)" ]]; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
 
 # setup rg in combination with fzf
 if [[ -x "$(command -v rg)" ]]; then
