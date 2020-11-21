@@ -1,9 +1,11 @@
-#
-# ~/.bash_profile
-#
+# .bash_profile
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
 
+# User specific environment and startup programs
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export BROWSER=lynx
@@ -14,6 +16,11 @@ export LESSHISTFILE=/dev/null
 export HISTSIZE=1000
 export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:jrnl *:[ \t]*"
+
+# setup starship
+if [[ -x $(type -p starship) ]]; then
+    eval "$(starship init bash)"
+fi
 
 # setup direnv
 if [[ -x $(command -v direnv) ]]; then
