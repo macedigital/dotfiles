@@ -50,10 +50,12 @@ set smartcase
 
 " Unix line-ending
 set ff=unix
+set scriptencoding utf-8
 
 " Spelling in markdown files
 if v:version >= 700
     autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en
+    autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
 endif
 
 " Show matching brackets
@@ -61,6 +63,9 @@ set showmatch
 
 " find trailing whitespace
 match ErrorMsg '\s\+$'
+
+" save long history
+set history=1000
 
 " map local directories
 "set backupdir=$HOME/.vim/backup
