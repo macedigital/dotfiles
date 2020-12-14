@@ -64,14 +64,18 @@ set backup              " force writing backups
 set noswapfile          " disable swap file
 if has('writebackup')
     set backupdir=$HOME/.vim/backup
-    call mkdir(&backupdir, 'p', 0700)
+    if filewritable(&backupdir) != 2
+        call mkdir(&backupdir, 'p', 0700) " create backup directory if it doesn't exist
+    endif
 endif
 
 " undo setting
 if has('persistent_undo')
     set undofile
     set undodir=$HOME/.vim/undo
-    call mkdir(&undodir, 'p', 0700) " create undo directory if it doesn't exist
+    if filewritable(&undodir) != 2
+        call mkdir(&undodir, 'p', 0700) " create undo directory if it doesn't exist
+    endif
     set undolevels=1000
     set undoreload=10000
 endif
