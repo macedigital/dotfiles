@@ -1,39 +1,43 @@
-" always show bottom footer
-set laststatus=2
+" With inspirations from:
+" https://git.sr.ht/~sircmpwn/dotfiles/tree/master/.vimrc
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces#1878983
+" https://vim.fandom.com/
 
-" 256 colors
-set t_Co=256
+" basic settings
+set clipboard=unnamed   " share access to system clipboard
+set encoding=utf-8      " assume utf-8 by default
+set ff=unix             " default to unix line endings
+set history=1000        " save long history
+set laststatus=2        " always show bottom footer
+set nocompatible        " disable legacy mode
+set showcmd             " show what you're typing as a command
+set t_Co=256            " force 256 color mode
 
-" show line numbers
-" set number
-
-" ignore case in search
-set ignorecase
-
-" necessary for advanced stuff
-set nocompatible
-
-" show what you are typing as a command
-set showcmd
-
-" folding setting
+" folding
 set foldmethod=marker
+
+" search
+set hlsearch            " highlight all search results
+set ignorecase          " do case insensitive search
+set incsearch           " show incremental search results as you type
+set showmatch           " show matches in document
+set smartcase           " search case insensitive matches
+
+" map CTRL-c, v, p
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
 " syntax highlighting
 filetype on
 filetype plugin on
 syntax enable
 
-" Enable darkcode theme
-colorscheme codedark
-
-" Who doesn't like autoindent?
-set autoindent
-
-" Spaces are better than a tab character
-" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces#1878983
-set expandtab
-set smarttab
+" indent settings
+set noautoindent        " do *not* take indent from previous line
+set expandtab           " insert spaces for tabs in insert mode
+set smarttab            " smart tab handling based on expandtab setting
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
@@ -45,34 +49,30 @@ set wildmode=list:longest,full
 " Enable mouse support in console
 set mouse=a
 
-" And so is Artificial Intelligence!
-set smartcase
-
-" Unix line-ending
-set ff=unix
-set scriptencoding utf-8
-
-" Spelling in markdown files
-if v:version >= 700
+" Set spell-check
+try
     autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en
     autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
-endif
-
-" Show matching brackets
-set showmatch
+    catch
+endtry
 
 " find trailing whitespace
 match ErrorMsg '\s\+$'
 
-" save long history
-set history=1000
+" backup settings
+set backup              " force writing backups
+set noswapfile          " disable swap file
+if has('writebackup')
+    set backupdir=$HOME/.vim/backup
+    call mkdir(&backupdir, 'p', 0700)
+endif
 
-" map local directories
-"set backupdir=$HOME/.vim/backup
-"set directory=$HOME/.vim/swap
-"set undodir=$HOME/.vim/undo
-"set undolevels=1000
-"set undoreload=10000
+" undo setting
+if has('persistent_undo')
+    set undofile
+    set undodir=$HOME/.vim/undo
+    call mkdir(&undodir, 'p', 0700) " create undo directory if it doesn't exist
+    set undolevels=1000
+    set undoreload=10000
+endif
 
-" persistent undo
-"set undofile
