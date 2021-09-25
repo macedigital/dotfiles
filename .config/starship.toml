@@ -1,0 +1,30 @@
+[aws]
+disabled = true
+format = "on [$symbol$profile]($style) "
+style = "bold blue"
+symbol = "🅰 "
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 15%
+threshold = 15
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 15% and 30%
+threshold = 30
+style = "bold yellow"
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+staged = '[++\($count\)](green)'
+
+[kubernetes]
+format = "on [⛵ $context \\($namespace\\)](dimmed green) "
+disabled = false
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+
+[memory_usage]  # warn when less than 80% free memory available
+disabled = false
+threshold = 80
+
