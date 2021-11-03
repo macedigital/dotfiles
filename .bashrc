@@ -17,6 +17,9 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# Make new files unreadable by anyone other than the owner
+umask 0077
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
