@@ -3,6 +3,7 @@
 # misc
 export BROWSER=lynx
 export GIT_PS1_SHOWDIRTYSTATE=1
+export GPG_TTY=$(tty)
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=2000
 export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:jrnl *:[ \t]*"
