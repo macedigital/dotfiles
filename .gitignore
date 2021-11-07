@@ -14,6 +14,6 @@ Thumbs.db
 # local overrides
 .gitconfig.local
 .tmux.conf.local
+.bashrc.d/*local.sh
 
 # vim:set ft=config:ts=4:sw=4:et
-
