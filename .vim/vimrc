@@ -33,6 +33,7 @@ imap <C-v> <C-r><C-o>+
 filetype on
 filetype plugin on
 syntax enable
+colorscheme onedark
 
 " indent settings
 set noautoindent        " do *not* take indent from previous line
@@ -79,4 +80,3 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-
