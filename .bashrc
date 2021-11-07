@@ -20,6 +20,9 @@ export PATH
 # Make new files unreadable by anyone other than the owner
 umask 0077
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
