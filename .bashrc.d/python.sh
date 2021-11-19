@@ -7,13 +7,18 @@ if [[ -x $(type -p pip) ]]; then
     alias pip_upgrade='pip list -o --user --not-required --format=freeze | cut -d '=' -f1 | xargs pip install -U'
 fi
 
-if [[ -x $(type -p pyenv) ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
+PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
+if [[ -x "${PYENV_ROOT}/bin/pyenv" ]]; then
+    export PYENV_ROOT
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     if ! [[ "$PATH" =~ "$PYENV_ROOT/bin:" ]]; then
         export PATH="$PYENV_ROOT/bin:$PATH"
     fi
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    if [[ $(pyenv commands | grep 'virtualenv-init') ]]; then
+        eval "$(pyenv virtualenv-init -)"
+    fi
+else
+    unset PYENV_ROOT
 fi
