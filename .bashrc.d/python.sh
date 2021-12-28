@@ -14,10 +14,15 @@ if [[ -x "${PYENV_ROOT}/bin/pyenv" ]]; then
     if ! [[ "$PATH" =~ "$PYENV_ROOT/bin:" ]]; then
         export PATH="$PYENV_ROOT/bin:$PATH"
     fi
+    # see https://github.com/pyenv/pyenv#advanced-configuration
     eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-    if [[ $(pyenv commands | grep 'virtualenv-init') ]]; then
-        eval "$(pyenv virtualenv-init -)"
+
+    # init for pyenv running in interactive shells
+    if [[ $- == *i* ]]; then
+        eval "$(pyenv init -)"
+        if [[ $(pyenv commands | grep 'virtualenv-init') ]]; then
+            eval "$(pyenv virtualenv-init -)"
+        fi
     fi
 else
     unset PYENV_ROOT
