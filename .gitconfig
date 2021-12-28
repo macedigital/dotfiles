@@ -36,6 +36,8 @@
     eol = native
     quotepath = false
     fileMode = false
+[init]
+    defaultBranch = main
 [diff "jpg"]
     textconv = exif
     cachetextconv = true
