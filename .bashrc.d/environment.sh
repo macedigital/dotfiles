@@ -12,9 +12,13 @@ export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export LESSHISTFILE=/dev/null
 export XDG_CONFIG_HOME="${HOME}/.config"
 
-#if [[ -x "$(type -p bat)" ]]; then
-#    export MANPAGER="sh -c 'box -col | bat -l man -p'"
-#fi
+# color and syntax highlighting for man pages
+if [[ -x "$(type -p bat)" ]]; then
+    # need to also set option when man already uses ANSI escape sequences
+    # see https://github.com/sharkdp/bat/issues/652#issuecomment-529032263
+    export MANROFFOPT="-c"
+    export MANPAGER="sh -c 'col -bx | bat -pl man'"
+fi
 
 if [[ -x "$(command -v rg)" ]]; then
     export FZF_DEFAULT_OPTS="--extended --cycle"
