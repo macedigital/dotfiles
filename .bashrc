@@ -25,7 +25,7 @@ umask 0077
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
+    for rc in ~/.bashrc.d/*.sh; do
         if [ -f "$rc" ]; then
             . "$rc"
         fi
