@@ -48,7 +48,9 @@ set wildmenu
 set wildmode=list:longest,full
 
 " Enable mouse support in console
-set mouse=a
+if has('mouse')
+    set mouse=a
+endif
 
 " Set spell-check
 try
