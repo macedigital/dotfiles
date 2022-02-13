@@ -37,4 +37,3 @@
 *.webm filter=lfs diff=lfs merge=lfs -text
 
 # vim:set ts=4:sw=4:et
-
