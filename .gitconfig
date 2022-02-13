@@ -7,7 +7,7 @@
     type = cat-file -t
     dump = cat-file -p
     fulllog = log --all --decorate --graph --oneline --date=short
-    checksig = log --pretty="format:%h %G? %aN  %s"
+    checksig = "!git log --pretty=\"tformat:%Cgreen%h %Cblue%G?%Creset %GK - %aN %C(always,yellow)%s\""
     count = shortlog -sn
     find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 [color]
