@@ -2,5 +2,5 @@
 
 if [[ -x $(type -p starship) ]]; then
     eval "$(starship init bash)"
-    eval "$(starship completions)"
+    eval "$(starship completions bash)"
 fi
