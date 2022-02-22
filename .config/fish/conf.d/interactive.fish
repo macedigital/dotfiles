@@ -7,7 +7,11 @@ if status is-interactive
     set -gx GPG_TTY (tty)
 
     if test -d ~/.local/bin
-        fish_add_path ~/.local/bin
+        if type -q fish_add_path
+            fish_add_path ~/.local/bin
+        else
+            contains "$HOME/.local/bin" $fish_user_paths; or set -Ua fish_user_paths "$HOME/.local/bin"
+        end
     end
 
     if type -q lynx
