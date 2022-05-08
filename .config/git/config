@@ -1,6 +1,6 @@
 [include]
     # Include for username / creds / etc
-    path = ~/.gitconfig.local
+    path = ~/.config/git/config.local
 [alias]
     up = "!git remote update -p; git merge --ff-only @{u}"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -54,4 +54,4 @@
     enabled = true
     autoupdate = true
 
-# vim:set ts=4:sw=4:et
+# vim:set ft=gitconfig ts=4 sw=4 et:
