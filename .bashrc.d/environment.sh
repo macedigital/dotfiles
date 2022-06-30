@@ -12,6 +12,11 @@ export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export LESSHISTFILE=/dev/null
 export XDG_CONFIG_HOME="${HOME}/.config"
 
+# set 'micro' as default editor if executable is available
+if [[ -x "$(type -p micro)" ]]; then
+    export EDITOR=micro
+fi
+
 # color and syntax highlighting for man pages
 if [[ -x "$(type -p bat)" ]]; then
     # need to also set option when man already uses ANSI escape sequences
