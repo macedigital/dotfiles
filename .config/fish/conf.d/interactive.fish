@@ -25,10 +25,15 @@ if status is-interactive
         set -gx MANPAGER "sh -c 'col -bx | bat -pl man'"
     end
 
+    if type -q micro
+        set -gx EDITOR micro
+    end
+
     if type -q nnn
         abbr ls nnn
 
         set -gx NNN_OPTS "de"
+        set -gx NNN_BMS "H:~"
         set -gx NNN_PLUG "e:-!sudoedit \$nnn"
         set -gx NNN_RCLONE "rclone mount --no-checksum"
         set -gx NNN_SSHFS "sshfs -o reconnect,idmap=user,cache_timeout=3600"
