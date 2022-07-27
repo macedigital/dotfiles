@@ -82,3 +82,10 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
+
+" PLUGINS ---------------------------------------------------------------- {{{
+
+"Fonts for the Status Line
+let g:airline_powerline_fonts = 1
+
+" }}}
