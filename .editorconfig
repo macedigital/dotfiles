@@ -14,4 +14,13 @@ indent_style = tab
 [*.md]
 trim_trailing_whitespace = false
 
-# vim:ts=4:sw=4:et
+[*.sh]
+# shfmt configuration, https://github.com/mvdan/sh
+shell_variant      = posix # --language-variant
+binary_next_line   = true
+switch_case_indent = true  # --case-indent
+space_redirects    = true
+keep_padding       = true
+function_next_line = true  # --func-next-line
+
+# vim:ft=dosini:ts=4:sw=4:et:
