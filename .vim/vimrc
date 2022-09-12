@@ -1,7 +1,13 @@
+
+" CREDITS --------------------------------------------------------------- {{{
+
 " With inspirations from:
 " https://git.sr.ht/~sircmpwn/dotfiles/tree/master/.vimrc
 " https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces#1878983
 " https://vim.fandom.com/
+" https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+
+" }}}
 
 " basic settings
 set clipboard=unnamed   " share access to system clipboard
@@ -32,8 +38,16 @@ imap <C-v> <C-r><C-o>+
 " syntax highlighting
 filetype on
 filetype plugin on
+filetype indent on
 syntax enable
+
+" highlight cursor position
+set cursorline
+"set cursorcolumn
+
+" theme settings
 colorscheme onedark
+set background=dark
 
 " indent settings
 set noautoindent        " do *not* take indent from previous line
@@ -42,6 +56,8 @@ set smarttab            " smart tab handling based on expandtab setting
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+set autoread
 
 " Cool tab completion stuff
 set wildmenu
