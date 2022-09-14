@@ -1,0 +1,2 @@
+# ignore changes to fish variables
+.config/fish/fish_variables
