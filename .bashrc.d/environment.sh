@@ -7,9 +7,10 @@ export GPG_TTY=$(tty)
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=2000
 export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:jrnl *:[ \t]*"
-export HISTSIZE=1000
+export HISTSIZE=10000
 export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export LESSHISTFILE=/dev/null
+export LESSSECURE=1
 export XDG_CONFIG_HOME="${HOME}/.config"
 
 # set 'micro' as default editor if executable is available
@@ -28,4 +29,9 @@ fi
 if [[ -x "$(command -v rg)" ]]; then
     export FZF_DEFAULT_OPTS="--extended --cycle"
     export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+fi
+
+# setup customizations when running in kitty
+if [[ $TERM == "xterm-kitty" ]]; then
+    alias icat='kitty +kitten icat'
 fi

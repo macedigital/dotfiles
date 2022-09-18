@@ -8,8 +8,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
@@ -24,13 +23,12 @@ umask 0077
 [[ $- != *i* ]] && return
 
 # User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
+if [[ -d ~/.bashrc.d ]]; then
     for rc in ~/.bashrc.d/*.sh; do
-        if [ -f "$rc" ]; then
+        if [[ -f "$rc" ]]; then
             . "$rc"
         fi
     done
 fi
 
 unset rc
-

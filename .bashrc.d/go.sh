@@ -8,4 +8,3 @@ export CGO_ENABLED=0
 if ! [[ "$PATH" =~ "$GOPATH/bin:" ]]; then
     export PATH="$GOPATH/bin:$PATH"
 fi
-
