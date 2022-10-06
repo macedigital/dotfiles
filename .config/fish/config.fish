@@ -5,9 +5,7 @@ umask 0077
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-    set -gx XDG_CONFIG_HOME "$HOME/.config"
-    set -gx XDG_DATA_HOME "$HOME/.local/share"
-    set -gx XDG_CACHE_HOME "$HOME/.cache"
+    set -gx TMPDIR "$XDG_RUNTIME_DIR"
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
@@ -38,11 +36,11 @@ if status is-interactive
     if type -q nnn
         abbr ls nnn
 
-        set -gx NNN_OPTS "de"
-        set -gx NNN_BMS "H:~"
+        set -gx NNN_OPTS "acdr"
         set -gx NNN_PLUG "e:-!sudoedit \$nnn"
         set -gx NNN_RCLONE "rclone mount --no-checksum"
         set -gx NNN_SSHFS "sshfs -o reconnect,idmap=user,cache_timeout=3600"
+        set -gx NNN_TRASH n
     end
 
     if type -q direnv
