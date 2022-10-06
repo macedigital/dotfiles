@@ -11,9 +11,9 @@
 *~
 Thumbs.db
 
-# local overrides
-*config.local
-.tmux.conf.local
-.bashrc.d/*local.sh
+# ignore local files
+local.fish
+local.sh
+*.local
 
-# vim:set ts=4 sw=4 et:
+# vim:ts=4:sw=4:et:

@@ -1,2 +1,7 @@
 # ignore changes to fish variables
 .config/fish/fish_variables
+
+# ignore local files
+local.fish
+local.sh
+*.local
