@@ -9,6 +9,7 @@ if status is-interactive
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
+    set -gx PYTHONDONTWRITEBYTECODE 1
 
     if test -d ~/.local/bin
         if type -q fish_add_path
