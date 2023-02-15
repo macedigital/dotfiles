@@ -45,10 +45,6 @@ syntax enable
 set cursorline
 "set cursorcolumn
 
-" theme settings
-colorscheme onedark
-set background=dark
-
 " indent settings
 set noautoindent        " do *not* take indent from previous line
 set expandtab           " insert spaces for tabs in insert mode
