@@ -35,8 +35,6 @@ if status is-interactive
     end
 
     if type -q nnn
-        abbr ls nnn
-
         set -gx NNN_OPTS "acdr"
         set -gx NNN_PLUG "e:-!sudoedit \$nnn"
         set -gx NNN_RCLONE "rclone mount --no-checksum"
