@@ -5,4 +5,4 @@
 *.vcproj	text eol=crlf
 *.sh		text eol=lf
 
-# vim:ts=4:sw=4:et
+# vim:ft=conf:ts=4:sw=4:et

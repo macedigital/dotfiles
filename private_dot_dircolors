@@ -481,5 +481,4 @@ EXEC 01;31  # Unix
 .enc 34
 .sqlite 34
 
-# vim:set ft=dircolors:fdm-marker:ts=4:sw=4:et
-
+# vim:ft=dircolors:fdm-marker:ts=4:sw=4:et
