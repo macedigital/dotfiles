@@ -46,7 +46,7 @@ syntax enable
 set viminfo=
 
 " highlight cursor position
-set cursorline
+"set cursorline
 "set cursorcolumn
 
 " indent settings
