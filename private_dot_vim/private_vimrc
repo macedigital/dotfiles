@@ -41,6 +41,10 @@ filetype plugin on
 filetype indent on
 syntax enable
 
+" configure viminfo file
+"set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/viminfo
+set viminfo=
+
 " highlight cursor position
 set cursorline
 "set cursorcolumn
