@@ -12,6 +12,7 @@ export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export LESSHISTFILE=/dev/null
 export LESSSECURE=1
 export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
 
 # set 'micro' as default editor if executable is available
 if [[ -x "$(type -p micro)" ]]; then

@@ -10,6 +10,7 @@ if status is-interactive
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
     set -gx PYTHONDONTWRITEBYTECODE 1
+    set -gx XDG_CACHE_HOME "${HOME}/.cache"
 
     if test -d ~/.local/bin
         if type -q fish_add_path
