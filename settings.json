@@ -1,0 +1,64 @@
+{
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "markdownlint.config": {
+        "MD009": {
+            "br_spaces": 2
+        },
+        "MD026": false,
+        "MD041": false,
+    },
+    "explorer.confirmDragAndDrop": false,
+    "gitlens.keymap": "chorded",
+    "telemetry.enableTelemetry": false,
+    "rest-client.enableTelemetry": false,
+    "editor.fontFamily": "'Fira Code', 'Source Code Pro', monospace",
+    "gitlens.historyExplorer.enabled": true,
+    "terraform.telemetry.enabled": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.fontLigatures": true,
+    "telemetry.enableCrashReporter": false,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "breadcrumbs.enabled": true,
+    "editor.renderControlCharacters": false,
+    "window.menuBarVisibility": "default",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "gitlens.advanced.telemetry.enabled": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "terraform.languageServer": {
+        "external": true
+    },
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "workbench.enableExperiments": false,
+    "python.languageServer": "Pylance",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "telemetry.telemetryLevel": "off"
+}
