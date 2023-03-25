@@ -12,3 +12,8 @@ shell:
   args:
     - --interactive
 
+bell:
+  duration: 0
+
+font:
+  size: 11
