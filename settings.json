@@ -22,7 +22,7 @@
     "gitlens.keymap": "chorded",
     "telemetry.enableTelemetry": false,
     "rest-client.enableTelemetry": false,
-    "editor.fontFamily": "'Fira Code', 'Source Code Pro', monospace",
+    "editor.fontFamily": "'FiraCode NF', 'Source Code Pro', monospace",
     "gitlens.historyExplorer.enabled": true,
     "terraform.telemetry.enabled": false,
     "files.trimTrailingWhitespace": true,
@@ -56,9 +56,9 @@
     "files.trimFinalNewlines": true,
     "workbench.enableExperiments": false,
     "python.languageServer": "Pylance",
-    "workbench.colorTheme": "Solarized Dark",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "window.autoDetectColorScheme": true
 }
