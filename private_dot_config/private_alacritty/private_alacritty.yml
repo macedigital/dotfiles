@@ -16,4 +16,5 @@ bell:
   duration: 0
 
 font:
+  family: "FiraCode NF"
   size: 11
