@@ -38,10 +38,10 @@ if status is-interactive
 
     if type -q nnn
         set -gx NNN_OPTS "acdr"
-        set -gx NNN_PLUG "e:-!sudoedit \$nnn"
+        set -gx NNN_PLUG "e:-!sudoedit \$nnn;p:preview-tui"
         set -gx NNN_RCLONE "rclone mount --no-checksum"
         set -gx NNN_SSHFS "sshfs -o reconnect,idmap=user,cache_timeout=3600"
-        set -gx NNN_TRASH n
+        set -gx NNN_TRASH 2 # n=no,1=trash-cli,2=gio
     end
 
     if type -q direnv
