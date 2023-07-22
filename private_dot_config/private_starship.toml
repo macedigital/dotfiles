@@ -4,6 +4,13 @@ format = "on [$symbol$profile]($style) "
 style = "bold blue"
 symbol = "🅰 "
 
+[battery]
+full_symbol = "🔋 "
+discharging_symbol = "⚡️ "
+charging_symbol = "🔌 "
+empty_symbol = "🪫 "
+unknown_symbol = "💀 "
+
 [[battery.display]]  # "bold red" style when capacity is between 0% and 15%
 threshold = 15
 style = "bold red"
@@ -30,4 +37,3 @@ disabled = false
 [memory_usage]  # warn when less than 80% free memory available
 disabled = false
 threshold = 80
-
