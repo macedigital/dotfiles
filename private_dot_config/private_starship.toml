@@ -22,6 +22,9 @@ style = "bold yellow"
 [directory]
 fish_style_pwd_dir_length = 1
 
+[jobs]
+symbol = "◇ "
+
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
