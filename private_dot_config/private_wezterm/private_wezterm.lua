@@ -32,15 +32,16 @@ end
 -- This table will hold the configuration.
 local config = get_config()
 
+config.check_for_updates = false
 config.color_scheme = scheme_for_appearance(get_appearance())
-config.font = wezterm.font 'FiraCode NF'
-config.font_size = 11
-
 config.default_prog = {
 	'fish', '-i'
 }
-
-config.check_for_updates = false
+config.font = wezterm.font 'FiraCode Nerd Font'
+config.font_size = 11
 config.hide_tab_bar_if_only_one_tab = true
+config.initial_cols = 112
+config.initial_rows = 40
+config.warn_about_missing_glyphs = false
 
 return config
