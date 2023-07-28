@@ -110,6 +110,9 @@ call plug#begin('~/.vim/plugged')
 " Follow the global system-wide dark mode preference of your platform
 Plug 'vimpostor/vim-lumen'
 
+" Install "one-dark" color theme
+Plug 'tomasiser/vim-code-dark'
+
 call plug#end()
 
 " }}}
