@@ -6,6 +6,7 @@
 " https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces#1878983
 " https://vim.fandom.com/
 " https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+" https://neovim.io/doc/user/vim_diff.html#vim-differences
 
 " }}}
 
@@ -41,32 +42,19 @@ filetype plugin on
 filetype indent on
 syntax enable
 
-" configure viminfo file
-"set viminfo=%,<800,'10,/50,:100,h,f0,n~/.vim/viminfo
-set viminfo=
-
-" highlight cursor position
-"set cursorline
-"set cursorcolumn
-
 " indent settings
 set noautoindent        " do *not* take indent from previous line
 set expandtab           " insert spaces for tabs in insert mode
 set smarttab            " smart tab handling based on expandtab setting
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=4        " set default tabs to four spaces
+set softtabstop=4       " ---
+set tabstop=4           " ---
 
-set autoread
+set autoread            " re-read file changed outside of vim
 
 " Cool tab completion stuff
 set wildmenu
 set wildmode=list:longest,full
-
-" Enable mouse support in console
-if has('mouse')
-    set mouse=a
-endif
 
 " Set spell-check
 try
@@ -78,30 +66,50 @@ endtry
 " find trailing whitespace
 match ErrorMsg '\s\+$'
 
-" backup settings
-set backup              " force writing backups
-set noswapfile          " disable swap file
-if has('writebackup')
-    set backupdir=$XDG_RUNTIME_DIR/.vim/backup
-    if filewritable(&backupdir) != 2
-        call mkdir(&backupdir, 'p', 0700) " create backup directory if it doesn't exist
+if !has('nvim')
+" Enable mouse support in console
+    if has('mouse')
+        set mouse=nvi
     endif
-endif
 
-" undo setting
-if has('persistent_undo')
-    set undofile
-    set undodir=$XDG_RUNTIME_DIR/.vim/undo
-    if filewritable(&undodir) != 2
-        call mkdir(&undodir, 'p', 0700) " create undo directory if it doesn't exist
+    " backup settings
+    set backup              " force writing backups
+    set noswapfile          " disable swap file
+    if has('writebackup')
+        set backupdir=$XDG_RUNTIME_DIR/vim/backup
+        if filewritable(&backupdir) != 2
+            call mkdir(&backupdir, 'p', 0700) " create backup directory if it doesn't exist
+        endif
     endif
-    set undolevels=1000
-    set undoreload=10000
-endif
 
-" PLUGINS ---------------------------------------------------------------- {{{
+    " undo setting
+    if has('persistent_undo')
+        set undofile
+        set undodir=$XDG_RUNTIME_DIR/vim/undo
+        if filewritable(&undodir) != 2
+            call mkdir(&undodir, 'p', 0700) " create undo directory if it doesn't exist
+        endif
+        set undolevels=1000
+        set undoreload=10000
+    endif
+
+    " configure viminfo file
+    set viminfo=%,<800,'10,/50,:100,h,f0,n$XDG_RUNTIME_DIR/vim/viminfo
+    " disable viminfo file
+    "set viminfo=
+
+endif
 
 "Fonts for the Status Line
 let g:airline_powerline_fonts = 1
+
+" PLUGINS ---------------------------------------------------------------- {{{
+
+call plug#begin('~/.vim/plugged')
+
+" Follow the global system-wide dark mode preference of your platform
+Plug 'vimpostor/vim-lumen'
+
+call plug#end()
 
 " }}}
