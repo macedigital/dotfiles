@@ -11,7 +11,6 @@ if status is-interactive
     set -gx GPG_TTY (tty)
     set -gx PYTHONDONTWRITEBYTECODE 1
     set -gx XDG_CACHE_HOME "$HOME/.cache"
-    set -gx GOMODCACHE "$XDG_CACHE_HOME/go/pkg/mod"
 
     if test -d ~/.local/bin
         if type -q fish_add_path
