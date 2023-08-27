@@ -55,6 +55,10 @@ if status is-interactive
         abbr -a la exa -la --group-directories-first
     end
 
+    if type -q zoxide
+        zoxide init fish | source
+    end
+
     if type -q docker
         abbr -a docker-rmi docker images --filter dangling=true -qa | xargs -r docker rmi
         abbr -a docker-rm docker ps -aq --filter status=dead | xargs -r docker rm
