@@ -64,7 +64,7 @@ try
 endtry
 
 " find trailing whitespace
-match ErrorMsg '\s\+$'
+autocmd BufNewFile,BufRead * match ErrorMsg '\s\+$'
 
 if !has('nvim')
 " Enable mouse support in console
