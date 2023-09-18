@@ -7,7 +7,7 @@ if [[ -x $(type -p pip) ]]; then
     alias pip_upgrade='pip list -o --user --not-required --format=freeze | cut -d '=' -f1 | xargs pip install -U'
 fi
 
-PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
+PYENV_ROOT="${PYENV_ROOT:-$HOME/.local/share/pyenv}"
 if [[ -x "${PYENV_ROOT}/bin/pyenv" ]]; then
     export PYENV_ROOT
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
