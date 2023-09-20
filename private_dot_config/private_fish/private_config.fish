@@ -51,8 +51,8 @@ if status is-interactive
         starship init fish | source
     end
 
-    if type -q exa
-        abbr -a la exa -la --group-directories-first
+    if type -q eza
+        abbr -a la eza -la --group-directories-first
     end
 
     if type -q zoxide
