@@ -27,12 +27,12 @@ if [[ -x "$(type -p bat)" ]]; then
     export MANPAGER="sh -c 'col -bx | bat -pl man'"
 fi
 
-if [[ -x "$(command -v rg)" ]]; then
+if [[ -x "$(type -p rg)" ]]; then
     export FZF_DEFAULT_OPTS="--extended --cycle"
-    export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+    export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
 fi
 
 # setup customizations when running in kitty
 if [[ $TERM == "xterm-kitty" ]]; then
-    alias icat='kitty +kitten icat'
+    alias icat="kitty +kitten icat"
 fi
