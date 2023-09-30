@@ -1,0 +1,7 @@
+"""
+Custom python initiatization code
+"""
+
+import readline
+# Prevent writing .python_history file but keep repl history
+readline.write_history_file = lambda *args: None

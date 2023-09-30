@@ -2,6 +2,7 @@
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUNBUFFERED=1
+export PYTHONSTARTUP=~/.config/python/pythonrc
 
 if [[ -x $(type -p pip) ]]; then
     alias pip_upgrade='pip list -o --user --not-required --format=freeze | cut -d '=' -f1 | xargs pip install -U'
