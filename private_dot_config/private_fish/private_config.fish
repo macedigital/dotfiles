@@ -4,12 +4,10 @@ umask 0077
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
     set -gx TMPDIR "$XDG_RUNTIME_DIR"
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
-    set -gx PYTHONDONTWRITEBYTECODE 1
     set -gx XDG_CACHE_HOME "$HOME/.cache"
 
     if test -d ~/.local/bin
