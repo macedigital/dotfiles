@@ -21,8 +21,8 @@
     path = "jless"
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.13.0/eza_x86_64-unknown-linux-gnu.tar.gz"
-    checksum.sha256 = "472c1f8bed628b4a08b19d817e794ae17bf9bffe5b182138d750b763e6b5bfda"
+    url = "https://github.com/eza-community/eza/releases/download/v0.14.1/eza_x86_64-unknown-linux-gnu.tar.gz"
+    checksum.sha256 = "2c2e61cc268f2516ae2a1ef51c1dc2d307a02a7d7cd87fe9501c28af002be9f8"
     stripComponents = 1
     path = "eza"
 {{- end }}
