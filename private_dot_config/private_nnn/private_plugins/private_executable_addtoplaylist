@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s inherit_errexit
+
+# nnn plugin:
+# queue multiple files into mpv, based on
+# https://github.com/jarun/nnn/issues/866#issuecomment-792255362
+# on GNOME use `gnome-session-inhibit` to prevent screen lock while playing
+player="mpv"
+selection="${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection}"
+session="${DESKTOP_SESSION:-${XDG_DESKTOP_SESSION:-none}}"
+
+if [[ ! -x "$(type -p $player)" ]]; then
+    echo "Binary $player is not installed or not in \$PATH"
+    exit 1
+fi
+
+if [[ -s "${selection}" ]]; then
+	if [[ "${session}" == "gnome" ]]; then
+    	gnome-session-inhibit --app-id "${player}" --reason "playing video" xargs -0 "${player}" < "${selection}"
+    else
+		xargs -0 "${player}" < "${selection}"
+    fi
+else
+	if [[ "${session}" == "gnome" ]]; then
+		gnome-session-inhibit --app-id "${player}" --reason "playing video" "${player}" "$@"
+	else
+		"${player}" "$@"
+	fi
+fi
