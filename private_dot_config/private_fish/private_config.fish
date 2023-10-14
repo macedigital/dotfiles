@@ -34,7 +34,7 @@ if status is-interactive
     end
 
     if type -q nnn
-        set -gx NNN_OPTS "acdr"
+        set -gx NNN_OPTS "acd"
         set -gx NNN_PLUG "e:-!sudoedit \$nnn;p:preview-tui"
         set -gx NNN_RCLONE "rclone mount --no-checksum"
         set -gx NNN_SSHFS "sshfs -o reconnect,idmap=user,cache_timeout=3600"
