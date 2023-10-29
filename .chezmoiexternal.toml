@@ -7,6 +7,7 @@
     type = "archive-file"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.tar.xz"
     path = "FiraCodeNerdFont-Regular.ttf"
+    mode = "0600"
 # ArchLinux provides those packages already
 {{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 {{ $ageYubikeyVersion := "0.4.0" -}}
@@ -15,15 +16,18 @@
     type = "archive-file"
     url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v{{ $ageYubikeyVersion }}/age-plugin-yubikey-v{{ $ageYubikeyVersion }}-x86_64-{{ .chezmoi.os }}.tar.gz"
     path = "age-plugin-yubikey/age-plugin-yubikey"
+    mode = "0700"
 [".local/bin/jless"]
     type = "archive-file"
     url = "https://github.com/PaulJuliusMartinez/jless/releases/download/v{{ $jlessVersion }}/jless-v{{ $jlessVersion }}-x86_64-unknown-linux-gnu.zip"
     path = "jless"
+    mode = "0700"
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.14.1/eza_x86_64-unknown-linux-gnu.tar.gz"
-    checksum.sha256 = "2c2e61cc268f2516ae2a1ef51c1dc2d307a02a7d7cd87fe9501c28af002be9f8"
+    url = "https://github.com/eza-community/eza/releases/download/v0.15.1/eza_x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "5a6db9f7e6193a2b94cecc8a9de392fb5be97f005baeac3c32360d838d2dfe7c"
     stripComponents = 1
     path = "eza"
+    mode = "0700"
 {{- end }}
 {{- end }}
