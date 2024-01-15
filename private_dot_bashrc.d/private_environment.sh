@@ -1,7 +1,6 @@
 # vim:ft=bash:ts=4:sw=4:et
 
 # misc
-export BROWSER=lynx
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GPG_TTY=$(tty)
 export HISTCONTROL=ignoreboth
@@ -13,6 +12,11 @@ export LESSHISTFILE=/dev/null
 export LESSSECURE=1
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
+
+# set 'lynx' as default browser if executable is available
+if [[ -x "$(type -p lynx)" ]]; then
+    export BROWSER=lynx
+fi
 
 # set 'micro' as default editor if executable is available
 if [[ -x "$(type -p micro)" ]]; then
