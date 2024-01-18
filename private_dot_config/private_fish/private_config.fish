@@ -9,6 +9,8 @@ if status is-interactive
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
     set -gx XDG_CACHE_HOME "$HOME/.cache"
+    set -gx XDG_CONFIG_HOME "$HOME/.config"
+    set -gx XDG_DATA_HOME "$HOME/.local/share"
 
     if test -d ~/.local/bin
         if type -q fish_add_path
