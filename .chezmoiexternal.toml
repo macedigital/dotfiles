@@ -24,8 +24,8 @@
     mode = "0700"
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.16.0/eza_x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "abd2b685edb3024d89d5338f214244ab0cea22551606c9469c632a6e018ec4cd"
+    url = "https://github.com/eza-community/eza/releases/download/v0.17.1/eza_x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "7ece147af0ac636aa11809b631e47988de4fdbbb84810bc32ac3c946133034d9"
     stripComponents = 1
     path = "eza"
     mode = "0700"
