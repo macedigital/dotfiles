@@ -1,0 +1,30 @@
+{{- $xdgsession := or (env "XDG_CURRENT_DESKTOP") (env "DESKTOP_SESSION") -}}
+{{- $gui := $xdgsession | not | not -}}
+{{- $osid := .chezmoi.os -}}
+
+{{- $chassisType := "desktop" }}
+{{- if eq $osid "darwin" }}
+{{-   if contains "MacBook" (output "sysctl" "-n" "hw.model") }}
+{{-     $chassisType = "laptop" }}
+{{-   else }}
+{{-     $chassisType = "desktop" }}
+{{-   end }}
+{{- else if eq $osid "linux" }}
+{{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
+{{- else if eq $osid "windows" }}
+{{-   $chassisType = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "if ((Get-CimInstance -Class Win32_Battery | Measure-Object).Count -gt 0) { Write-Output 'laptop' } else { Write-Output 'desktop' }") | trim }}
+{{- end }}
+
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+[data.host]
+    chassis = {{ $chassisType | quote }}
+    osId = {{ $osid | quote }}
+    isGui = {{ $gui }}
+{{- if $gui }}
+    guiSession = {{ $xdgsession | lower | quote }}
+{{- end }}
+[diff]
+    exclude = ["scripts"]
