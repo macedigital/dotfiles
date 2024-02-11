@@ -1,0 +1,4 @@
+[Context]
+sockets=!x11;!fallback-x11;!pulseaudio;
+shared=!ipc;!network;
+filesystem=!host;!home;

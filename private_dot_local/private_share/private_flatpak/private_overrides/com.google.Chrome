@@ -1,17 +1,13 @@
 [Context]
-# on some distros, instead of "socket=pulseaudio" sharing "xdg-run/pipewire-0" is enough
-# allow "cups" if you intend to print directly from Chrome
-sockets=!x11;!system-bus;fallback-x11;!pcsc;!cups;
-# set to "all" if you need smartcards, webcams or gamecontrollers
-devices=dri;
+sockets=!x11;pulseaudio;!system-bus;!fallback-x11;!pcsc;!cups;
+devices=dri;!all;
 filesystems=!host-etc;!~/.config/kioslaverc;!xdg-music;!xdg-pictures;!xdg-videos;!/run/.heim_org.h5l.kcm-socket;!~/.config/dconf;!xdg-run/dconf;!home;!xdg-documents;!host;
-# only needed for X11
-shared=ipc;
+shared=network;!ipc;
 
 [Session Bus Policy]
-org.freedesktop.Notifications=none
+org.freedesktop.Notifications=talk
 org.freedesktop.FileManager1=none
-org.mpris.MediaPlayer2.chromium.*=none
+org.mpris.MediaPlayer2.chromium.*=own
 org.kde.StatusNotifierWatcher=none
 org.freedesktop.ScreenSaver=none
 org.freedesktop.secrets=none
