@@ -30,7 +30,7 @@
 [commit]
     gpgsign = true
 [core]
-    editor = vim
+    #editor = vim
     autocrlf = input
     safecrlf = true
     eol = native
