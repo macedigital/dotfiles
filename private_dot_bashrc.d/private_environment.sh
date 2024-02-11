@@ -10,8 +10,14 @@ export HISTSIZE=10000
 export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export LESSHISTFILE=/dev/null
 export LESSSECURE=1
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+
+# load AWS config from .config/ folder
+if [[ -x "$(type -p aws)" ]]; then
+    export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+    export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+fi
 
 # set 'lynx' as default browser if executable is available
 if [[ -x "$(type -p lynx)" ]]; then

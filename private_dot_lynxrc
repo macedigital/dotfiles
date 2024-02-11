@@ -1,9 +1,0 @@
-accept_all_cookies=off
-bookmark_file=.local/share/lynx/bookmarks.html
-character_set=UNICODE (UTF-8)
-cookie_file=.local/share/lynx/cookies
-editor=micro
-error_file=.local/share/lynx/errors
-force_secure
-preferred_language=en
-session=.local/share/lynx/session

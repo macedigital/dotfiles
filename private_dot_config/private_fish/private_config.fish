@@ -1,23 +1,28 @@
 # always set private mode
-set -g fish_private_mode private
+#set -g fish_private_mode private
 umask 0077
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    set -gx TMPDIR "$XDG_RUNTIME_DIR"
+    set -gx TMPDIR $XDG_RUNTIME_DIR
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
-    set -gx XDG_CACHE_HOME "$HOME/.cache"
-    set -gx XDG_CONFIG_HOME "$HOME/.config"
-    set -gx XDG_DATA_HOME "$HOME/.local/share"
+    set -gx XDG_CACHE_HOME $HOME/.cache
+    set -gx XDG_CONFIG_HOME $HOME/.config
+    set -gx XDG_DATA_HOME $HOME/.local/share
 
     if test -d ~/.local/bin
         if type -q fish_add_path
             fish_add_path ~/.local/bin
         else
-            contains "$HOME/.local/bin" $fish_user_paths; or set -Ua fish_user_paths "$HOME/.local/bin"
+            contains $HOME/.local/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.local/bin
         end
+    end
+
+    if type -q aws
+        set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
+        set -gx AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
     end
 
     if type -q lynx
