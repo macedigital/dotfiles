@@ -1,0 +1,106 @@
+/*--- base style ---*/
+#waybar {
+    font-family: "MesloLGL Nerd Font Propo", Font Awesome, sans-serif;
+    font-size: 1em;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    color: #fafafa;
+}
+#waybar box {
+    border-radius: 14px;
+}
+#waybar label {
+    padding: 0 0.5em;
+}
+
+/*--- effects ---*/
+@keyframes blink {
+    to {
+        color: #fff;
+    }
+}
+
+/*--- module groups ---*/
+.modules-right {
+    background-color: rgba(0,43,51,0.85);
+    margin: 2px 5px 2px 0;
+}
+.modules-center {
+    background-color: rgba(0,43,51,0.85);
+    margin: 2px 0 2px 0;
+}
+.modules-left {
+    margin: 2px 0 2px 5px;
+}
+
+/*--- modules ---*/
+#workspaces {
+    background-color: rgba(0,119,179,0.6);
+}
+#workspaces button {
+    color: #ccc;
+    padding: 1px 5px;
+    background-color: transparent;
+    border-radius: 28px;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    color: #333;
+	background-color: rgba(0,153,153,1);
+}
+#workspaces button.focused {
+	background-color: rgba(0,43,51,0.85);
+}
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+#custom-menu {
+    color: #ccc;
+    padding: 2px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 28px;
+}
+#mode {
+    color: #cc3436;
+    font-weight: bold;
+}
+
+/*--- indicators ---*/
+#battery.charging {
+    color: #2dcc36;
+}
+#battery.warning:not(.charging) {
+	color: #e6e600;
+}
+#battery.critical:not(.charging) {
+    color: #cc3436;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#idle_inhibitor.activated {
+    color: #2dcc36;
+}
+#pulseaudio.muted {
+    color: #cc3436;
+}
+#temperature.critical {
+    color: #cc3436;
+}
+#tray {
+    margin: 0 12px;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+    border-radius: 12px;
+}
+#tray menu menuitem:hover {
+    background-color: @color7;
+    color: @background;
+}

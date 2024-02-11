@@ -1,0 +1,221 @@
+{
+    "layer": "top",
+    "position": "top",
+    "spacing": 4,
+    "height": 24,
+    // "output": "eDP-1",
+    "modules-left": ["custom/menu", "sway/workspaces"],
+    "modules-center": ["clock", "mpris", "sway/scratchpad", "sway/mode", "privacy", "idle_inhibitor"],
+    "modules-right": ["tray", "pulseaudio", "group/hardware", "custom/powermenu"],
+    // module configuration
+    "sway/language": {
+        "format": "{}  ",
+        "tooltip-format": "{long} {flag}"
+    },
+    "sway/mode": {
+        "format": "󰩨"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "sway/window": {
+        "max-length": 72
+    },
+    "sway/workspaces": {
+        "persistent-workspaces": {
+            "1": ["eDP-1"]
+        },
+        "high-priority-named": [ "1", "2" ],
+        "format": "{icon}<sup>{index}</sup>",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "disk": {
+        "interval": 60,
+        "format": "{percentage_used}% 󰋊"
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "mpris": {
+        "format": "{player_icon}",
+        "format-paused": "{status_icon}",
+        "format-stopped": "",
+        "player-icons": {
+            "cmus": "",
+            "default": "",
+            "firefox": "",
+            "mpv": "",
+            "chromium": ""
+        },
+	"status-icons": {
+            "paused": ""
+        },
+        // "ignored-players": ["firefox"]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    // https://github.com/Alexays/Waybar/wiki/Module:-Privacy
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ]
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󱡏",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-battery",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "battery",
+            "cpu",
+            "memory",
+            "temperature",
+            "disk",
+            "backlight"
+        ]
+    },
+    "custom/menu": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "rofi -show combi -modes combi -combi-modes \"drun,run,window\""
+    },
+    "custom/powermenu": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "rofi -show powermenu -modi powermenu:~/.config/rofi/powermenu/powermenu.sh"
+    },
+    "custom/wttr": {
+        "format": "{}",
+        "interval": "once",
+        "exec": "curl 'wttr.in/London?format=3'"
+    }
+}
