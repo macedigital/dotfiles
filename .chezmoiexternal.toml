@@ -6,9 +6,16 @@
     refreshPeriod = "168h"
 [".local/share/fonts/FiraCodeNerdFont-Regular.ttf"]
     type = "archive-file"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.tar.xz"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.tar.xz"
     path = "FiraCodeNerdFont-Regular.ttf"
     mode = "0600"
+    checksum.sha256 = "8796ee138a6e7d81487cad381e619381c2ae99ac68d4223ca1a7d82089be38af"
+[".local/share/fonts/MesloLGLNerdFontPropo-Regular.ttf"]
+    type = "archive-file"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.tar.xz"
+    path = "MesloLGLNerdFontPropo-Regular.ttf"
+    mode = "0600"
+    checksum.sha256 = "d02d9b6e1f35a6bba424399203777b7cea6cbd5ccfded02b0be0393ae89fb598"
 # ArchLinux provides those packages already
 {{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
