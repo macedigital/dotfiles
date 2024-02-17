@@ -62,9 +62,25 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "locale": "en_GB",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M}",
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "calendar": {
+             "weeks-pos": "left",
+             "on-scroll": 1,
+             "format": {
+                  "months":   "<span color='#ffead3'><b>{}</b></span>",
+                  "days":     "<span color='#ecc6d9'><b>{}</b></span>",
+                  "weeks":    "<span color='#99ffdd'><b>CW{:%W}</b></span>",
+                  "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                  "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+             }
+        },
+        "actions": {
+             "on-scroll-up": "shift_up",
+             "on-scroll-down": "shift_down"
+        }
     },
     "cpu": {
         "format": "{usage}% ",
