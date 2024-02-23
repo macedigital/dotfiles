@@ -46,6 +46,9 @@ threshold = 80
 [package]
 symbol = " "
 
+[php]
+symbol = "󰌟 "
+
 [python]
 symbol = " "
 
