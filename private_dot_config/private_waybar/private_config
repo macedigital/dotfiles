@@ -2,10 +2,10 @@
     "layer": "top",
     "position": "top",
     "spacing": 4,
-    "height": 24,
+    "height": 36, // minimum height also depends on style.css
     // "output": "eDP-1",
     "modules-left": ["custom/menu", "sway/workspaces"],
-    "modules-center": ["clock", "mpris", "sway/scratchpad", "sway/mode", "privacy", "idle_inhibitor"],
+    "modules-center": ["clock", "mpris", "sway/scratchpad", "sway/mode", "idle_inhibitor"],
     "modules-right": ["tray", "pulseaudio", "group/hardware", "custom/powermenu"],
     // module configuration
     "sway/language": {
@@ -137,7 +137,7 @@
             "mpv": "",
             "chromium": ""
         },
-	"status-icons": {
+        "status-icons": {
             "paused": ""
         },
         // "ignored-players": ["firefox"]
