@@ -39,8 +39,8 @@
     mode = "0700"
 [".local/bin/k9s"]
     type = "archive-file"
-    url = "https://github.com/derailed/k9s/releases/download/v0.32.1/k9s_Linux_amd64.tar.gz"
-    checksum.sha256 = "c1ca2376991de9311b12f70d72a23c9e5798231bef9a4017ef163a827ebf44af"
+    url = "https://github.com/derailed/k9s/releases/download/v0.32.3/k9s_Linux_amd64.tar.gz"
+    checksum.sha256 = "43583463d312823fd8329b9922a8f9eed31494e58c08477832ebca9bac4217e3"
     path = "k9s"
     mode = "0700"
 {{- end }}
