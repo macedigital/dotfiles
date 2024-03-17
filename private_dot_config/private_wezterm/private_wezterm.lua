@@ -22,10 +22,11 @@ function get_appearance()
 end
 
 function scheme_for_appearance(appearance)
-  if appearance:find("Dark") then
-    return "GitHub Dark"
+  if appearance:find('Dark') then
+    return 'GitHub Dark'
   else
-    return "Github"
+    -- better contrast than GitHub Light
+    return 'OneHalfLight'
   end
 end
 
