@@ -44,12 +44,12 @@
     border-radius: 28px;
 }
 #workspaces button:hover {
+    -gtk-icon-effect: highlight;
     box-shadow: inherit;
-    color: #333;
-	background-color: rgba(0,153,153,1);
+    color: #f0f0f0;
 }
 #workspaces button.focused {
-	background-color: rgba(0,43,51,0.85);
+    background-color: rgba(0,43,51,0.85);
 }
 #workspaces button.urgent {
     background-color: #eb4d4b;
@@ -70,7 +70,7 @@
     color: #2dcc36;
 }
 #battery.warning:not(.charging) {
-	color: #e6e600;
+    color: #e6e600;
 }
 #battery.critical:not(.charging) {
     color: #cc3436;
@@ -99,8 +99,4 @@
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
     border-radius: 12px;
-}
-#tray menu menuitem:hover {
-    background-color: @color7;
-    color: @background;
 }
