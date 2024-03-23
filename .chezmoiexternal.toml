@@ -43,5 +43,11 @@
     checksum.sha256 = "43583463d312823fd8329b9922a8f9eed31494e58c08477832ebca9bac4217e3"
     path = "k9s"
     mode = "0700"
+[".local/bin/yq"]
+	type = "file"
+	url = "https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64"
+	checksum.sha256 = "1a95960dddd426321354d58d2beac457717f7c49a9ec0806749a5a9e400eb45e"
+	mode = "0700"
+	executable = true
 {{- end }}
 {{- end }}
