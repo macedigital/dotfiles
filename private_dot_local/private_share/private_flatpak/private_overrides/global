@@ -1,4 +1,24 @@
 [Context]
-sockets=!x11;!fallback-x11;!pulseaudio;
-shared=!ipc;!network;
+device=!input;!shm;
+features=!devel;
 filesystem=!host;!home;
+shared=!network;!ipc;
+sockets=!x11;!pulseaudio;!fallback-x11;
+unset-environment=GOMODCACHE;VIRTUAL_ENV;GOPATH;PYTHONSTARTUP;
+
+[Session Bus Policy]
+com.canonical.AppMenu.Registrar=none
+org.freedesktop.Flatpak=none
+org.kde.kwalletd5=none
+org.kde.KGlobalSettings=none
+org.freedesktop.secrets=none
+com.canonical.Unity.Session=none
+
+[System Bus Policy]
+org.freedesktop.login1=none
+
+[Environment]
+GOMODCACHE=
+VIRTUAL_ENV=
+GOPATH=
+PYTHONSTARTUP=
