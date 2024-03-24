@@ -7,7 +7,7 @@
 #
 #   rofi -show powermenu -modi powermenu:./rofi-power-menu
 #
-# See README.md for more information.
+# See README.md for more information. <https://github.com/jluttine/rofi-power-menu>
 set -euo pipefail
 
 # All supported choices
