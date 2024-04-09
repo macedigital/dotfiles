@@ -31,17 +31,35 @@
     stripComponents = 1
     path = "eza"
     mode = "0700"
+[".local/bin/fd"]
+    type = "archive-file"
+    url = "https://github.com/sharkdp/fd/releases/download/v9.0.0/fd-v9.0.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "069e2d58127ddd944c03a2684ad79f72e3f9bd3e0d2642c36adc5b367c134592"
+    path = "fd-v9.0.0-x86_64-unknown-linux-musl/fd"
+    mode = "0700"
 [".local/bin/jless"]
     type = "archive-file"
     url = "https://github.com/PaulJuliusMartinez/jless/releases/download/v0.9.0/jless-v0.9.0-x86_64-unknown-linux-gnu.zip"
     checksum.sha256 = "a1e0eb63ef347adc649989ac5c7d2dc896df6d494622b953c86e3a248e733a93"
     path = "jless"
     mode = "0700"
+[".local/bin/lazygit"]
+    type = "archive-file"
+    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.41.0/lazygit_0.41.0_Linux_x86_64.tar.gz"
+    checksum.sha256 = "697a11091362d591e202ec01c76bacf3af692aabeb9656a6bf9b6ff4792259d4"
+    path = "lazygit"
+    mode = "0700"
 [".local/bin/k9s"]
     type = "archive-file"
     url = "https://github.com/derailed/k9s/releases/download/v0.32.4/k9s_Linux_amd64.tar.gz"
     checksum.sha256 = "d62611d9be2c35b782a765e98421500196acbf8be844cd3d9e32d4fa7846da05"
     path = "k9s"
+    mode = "0700"
+[".local/bin/rg"]
+    type = "archive-file"
+    url = "https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "f84757b07f425fe5cf11d87df6644691c644a5cd2348a2c670894272999d3ba7"
+    path = "ripgrep-14.1.0-x86_64-unknown-linux-musl/rg"
     mode = "0700"
 [".local/bin/yq"]
 	type = "file"
