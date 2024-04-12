@@ -5,12 +5,14 @@ filesystem=!host;!home;
 shared=!network;!ipc;
 sockets=!x11;!pulseaudio;!fallback-x11;
 unset-environment=GOMODCACHE;VIRTUAL_ENV;GOPATH;PYTHONSTARTUP;
+filesystems=!xdg-run/gvfs;!xdg-run/dconf;!xdg-config/dconf
 
 [Session Bus Policy]
+ca.desrt.dconf=none
 com.canonical.AppMenu.Registrar=none
 org.freedesktop.Flatpak=none
-org.kde.kwalletd5=none
 org.kde.KGlobalSettings=none
+org.kde.kwalletd5=none
 org.freedesktop.secrets=none
 com.canonical.Unity.Session=none
 
