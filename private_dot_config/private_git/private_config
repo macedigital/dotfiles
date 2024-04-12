@@ -1,6 +1,6 @@
 [include]
     # Include for username / creds / etc
-    path = ~/.config/git/config.local
+    path = config.local
 [alias]
     up = "!git remote update -p; git merge --ff-only @{u}"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
