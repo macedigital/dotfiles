@@ -11,7 +11,7 @@ trim_trailing_whitespace = true
 [{Makefile,*.go}]
 indent_style = tab
 
-[*.y[a]ml]
+[*.{yml,yaml}]
 indent_size = 2
 
 [*.md]
