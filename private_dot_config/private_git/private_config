@@ -29,6 +29,8 @@
     untracked = blue
 [commit]
     gpgsign = true
+    autoWrapCommitMessage = true
+    autoWrapWidth = 72
 [core]
     #editor = vim
     autocrlf = input
