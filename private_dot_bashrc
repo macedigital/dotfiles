@@ -1,9 +1,10 @@
+#!/usr/bin/bash
 # ~/.bashrc
 #
 # vim:ts=4:sw=4:et:ft=bash
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
+if [[ -f /etc/bashrc ]]; then
     . /etc/bashrc
 fi
 
@@ -19,16 +20,13 @@ export PATH
 # Make new files unreadable by anyone other than the owner
 umask 0077
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-# User specific aliases and functions
-if [[ -d ~/.bashrc.d ]]; then
+# Source user specific files if running interactively
+if [[ $- == *i* && -d ~/.bashrc.d ]]; then
     for rc in ~/.bashrc.d/*.sh; do
         if [[ -f "$rc" ]]; then
             . "$rc"
         fi
     done
-fi
 
-unset rc
+    unset rc
+fi
