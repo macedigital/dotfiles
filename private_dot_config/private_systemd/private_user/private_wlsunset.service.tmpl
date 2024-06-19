@@ -1,0 +1,50 @@
+[Unit]
+Description=Day/night gamma adjustments for Wayland
+Documentation=https://sr.ht/~kennylevinsen/wlsunset
+# dependency on https://github.com/alebastr/sway-systemd
+After=sway-session.target
+BindsTo=sway-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wlsunset -l {{ .geo.lat }} -L {{ .geo.lon }}
+ExecPaths=/usr/bin/wlsunset
+Restart=on-failure
+
+KeyringMode=private
+CapabilityBoundingSet=
+LockPersonality=yes
+NoNewPrivileges=yes
+MemoryDenyWriteExecute=yes
+DevicePolicy=closed
+
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectHome=read-only
+ProtectHostname=yes
+ProtectSystem=strict
+ProtectProc=invisible
+ProcSubset=pid
+
+PrivateTmp=yes
+PrivateNetwork=yes
+PrivateDevices=true
+PrivateUsers=true
+#IPAddressDeny=any # cannot setup ip firewall rule if not running as root
+
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallErrorNumber=EPERM
+
+[Install]
+WantedBy=sway-session.target
