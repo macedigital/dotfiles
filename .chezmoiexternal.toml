@@ -6,16 +6,16 @@
     refreshPeriod = "168h"
 [".local/share/fonts/FiraCodeNerdFont-Regular.ttf"]
     type = "archive-file"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.tar.xz"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.tar.xz"
     path = "FiraCodeNerdFont-Regular.ttf"
     mode = "0600"
-    checksum.sha256 = "8796ee138a6e7d81487cad381e619381c2ae99ac68d4223ca1a7d82089be38af"
+    checksum.sha256 = "def4b29f7aa0620a7fa12edb28197a2697680b5e21636fa3dcc602e08ae13bc4"
 [".local/share/fonts/MesloLGLNerdFontPropo-Regular.ttf"]
     type = "archive-file"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.tar.xz"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.tar.xz"
     path = "MesloLGLNerdFontPropo-Regular.ttf"
     mode = "0600"
-    checksum.sha256 = "d02d9b6e1f35a6bba424399203777b7cea6cbd5ccfded02b0be0393ae89fb598"
+    checksum.sha256 = "1abdaf5542b75a51d75de6373148a8e401b28eda88e6c90f243fb6114fd659ea"
 # ArchLinux provides those packages already
 {{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
