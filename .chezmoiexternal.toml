@@ -20,22 +20,24 @@
 {{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
     type = "archive-file"
-    url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v0.4.0/age-plugin-yubikey-v0.4.0-x86_64-linux.tar.gz"
-    checksum.sha256 = "a888596f9c738a9abbe4a28c58b43c691ff3efcd194dafc2aa3e55cbfcd34047"
+    url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v0.5.0/age-plugin-yubikey-v0.5.0-x86_64-linux.tar.gz"
+    checksum.sha256 = "019b35a13fc81be56d73d0723db0a2082fbd04c936c2c6836381111f7f51b2c3"
     path = "age-plugin-yubikey/age-plugin-yubikey"
     mode = "0700"
+# Void Linux has all these
+{{- if not ( eq .chezmoi.osRelease.id "void" ) }}
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.17.1/eza_x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "7ece147af0ac636aa11809b631e47988de4fdbbb84810bc32ac3c946133034d9"
+    url = "https://github.com/eza-community/eza/releases/download/v0.18.23/eza_x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "8d0f3204795c04ed50060eb87d264770271658ee7964b21dd83f7119110e1166"
     stripComponents = 1
     path = "eza"
     mode = "0700"
 [".local/bin/fd"]
     type = "archive-file"
-    url = "https://github.com/sharkdp/fd/releases/download/v9.0.0/fd-v9.0.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "069e2d58127ddd944c03a2684ad79f72e3f9bd3e0d2642c36adc5b367c134592"
-    path = "fd-v9.0.0-x86_64-unknown-linux-musl/fd"
+    url = "https://github.com/sharkdp/fd/releases/download/v10.1.0/fd-v10.1.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "f8fa73aa005e71598c1cdbb03ae6979fd016d5a8aaf92ee84ed6f8f186c58ead"
+    path = "fd-v10.1.0-x86_64-unknown-linux-musl/fd"
     mode = "0700"
 [".local/bin/jless"]
     type = "archive-file"
@@ -45,8 +47,8 @@
     mode = "0700"
 [".local/bin/lazygit"]
     type = "archive-file"
-    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.41.0/lazygit_0.41.0_Linux_x86_64.tar.gz"
-    checksum.sha256 = "697a11091362d591e202ec01c76bacf3af692aabeb9656a6bf9b6ff4792259d4"
+    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.43.1/lazygit_0.43.1_Linux_x86_64.tar.gz"
+    checksum.sha256 = "dee1c7a2dc09801b4d610fffd6ba33a8187fa9ec512696108bc68aa1557f7aee"
     path = "lazygit"
     mode = "0700"
 [".local/bin/k9s"]
@@ -62,10 +64,11 @@
     path = "ripgrep-14.1.0-x86_64-unknown-linux-musl/rg"
     mode = "0700"
 [".local/bin/yq"]
-	type = "file"
-	url = "https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64"
-	checksum.sha256 = "1a95960dddd426321354d58d2beac457717f7c49a9ec0806749a5a9e400eb45e"
-	mode = "0700"
-	executable = true
+    type = "file"
+    url = "https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64"
+    checksum.sha256 = "1a95960dddd426321354d58d2beac457717f7c49a9ec0806749a5a9e400eb45e"
+    mode = "0700"
+    executable = true
+{{- end }}
 {{- end }}
 {{- end }}
