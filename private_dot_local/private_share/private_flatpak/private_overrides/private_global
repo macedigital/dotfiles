@@ -3,24 +3,19 @@ device=!input;!shm;
 features=!devel;
 filesystem=!host;!home;
 shared=!network;!ipc;
-sockets=!x11;!pulseaudio;!fallback-x11;
-unset-environment=GOMODCACHE;VIRTUAL_ENV;GOPATH;PYTHONSTARTUP;
-filesystems=!xdg-run/gvfs;!xdg-run/dconf;!xdg-config/dconf
+sockets=!x11;!pulseaudio;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!gpg-agent;!cups;
+filesystems=!xdg-run/dconf;!xdg-config/dconf;!xdg-run/gvfs;
 
 [Session Bus Policy]
 ca.desrt.dconf=none
 com.canonical.AppMenu.Registrar=none
+com.canonical.Unity.Session=none
 org.freedesktop.Flatpak=none
+org.freedesktop.secrets=none
 org.kde.KGlobalSettings=none
 org.kde.kwalletd5=none
-org.freedesktop.secrets=none
-com.canonical.Unity.Session=none
 
 [System Bus Policy]
 org.freedesktop.login1=none
 
 [Environment]
-GOMODCACHE=
-VIRTUAL_ENV=
-GOPATH=
-PYTHONSTARTUP=
