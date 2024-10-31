@@ -30,7 +30,7 @@ if [[ -x "$(type -p micro)" ]]; then
 fi
 
 # color and syntax highlighting for man pages
-if [[ -x "$(type -p bat)" ]]; then
+if [[ -x "$(type -p bat)" && -x "$(type -p col)" ]]; then
     # need to also set option when man already uses ANSI escape sequences
     # see https://github.com/sharkdp/bat/issues/652#issuecomment-529032263
     export MANROFFOPT="-c"
