@@ -1,9 +1,5 @@
 # for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
 {{- if eq .chezmoi.os "linux" }}
-[".vim/autoload/plug.vim"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    refreshPeriod = "168h"
 [".local/share/fonts/FiraCodeNerdFont-Regular.ttf"]
     type = "archive-file"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.tar.xz"
