@@ -24,16 +24,16 @@
 {{- if not ( eq .chezmoi.osRelease.id "void" ) }}
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.18.23/eza_x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "8d0f3204795c04ed50060eb87d264770271658ee7964b21dd83f7119110e1166"
+    url = "https://github.com/eza-community/eza/releases/download/v0.20.9/eza_x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "d99e62b5c386d0bc9c1c6ff0fd2b1b9ceea4f0ba7a6c9de8f02244d1ec4837e0"
     stripComponents = 1
     path = "eza"
     mode = "0700"
 [".local/bin/fd"]
     type = "archive-file"
-    url = "https://github.com/sharkdp/fd/releases/download/v10.1.0/fd-v10.1.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "f8fa73aa005e71598c1cdbb03ae6979fd016d5a8aaf92ee84ed6f8f186c58ead"
-    path = "fd-v10.1.0-x86_64-unknown-linux-musl/fd"
+    url = "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "d9bfa25ec28624545c222992e1b00673b7c9ca5eb15393c40369f10b28f9c932"
+    path = "fd-v10.2.0-x86_64-unknown-linux-musl/fd"
     mode = "0700"
 [".local/bin/jless"]
     type = "archive-file"
@@ -43,8 +43,8 @@
     mode = "0700"
 [".local/bin/lazygit"]
     type = "archive-file"
-    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.43.1/lazygit_0.43.1_Linux_x86_64.tar.gz"
-    checksum.sha256 = "dee1c7a2dc09801b4d610fffd6ba33a8187fa9ec512696108bc68aa1557f7aee"
+    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.44.1/lazygit_0.44.1_Linux_x86_64.tar.gz"
+    checksum.sha256 = "84682f4ad5a449d0a3ffbc8332200fe8651aee9dd91dcd8d87197ba6c2450dbc"
     path = "lazygit"
     mode = "0700"
 [".local/bin/k9s"]
@@ -55,14 +55,14 @@
     mode = "0700"
 [".local/bin/rg"]
     type = "archive-file"
-    url = "https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "f84757b07f425fe5cf11d87df6644691c644a5cd2348a2c670894272999d3ba7"
-    path = "ripgrep-14.1.0-x86_64-unknown-linux-musl/rg"
+    url = "https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "4cf9f2741e6c465ffdb7c26f38056a59e2a2544b51f7cc128ef28337eeae4d8e"
+    path = "ripgrep-14.1.1-x86_64-unknown-linux-musl/rg"
     mode = "0700"
 [".local/bin/yq"]
     type = "file"
-    url = "https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64"
-    checksum.sha256 = "1a95960dddd426321354d58d2beac457717f7c49a9ec0806749a5a9e400eb45e"
+    url = "https://github.com/mikefarah/yq/releases/download/v4.44.5/yq_linux_amd64"
+    checksum.sha256 = "638c4b251c49201fc94b598834b715f8f1c6e9b1854d2820772d2c79f0289002"
     mode = "0700"
     executable = true
 {{- end }}
