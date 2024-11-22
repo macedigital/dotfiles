@@ -22,6 +22,13 @@
     mode = "0700"
 # Void Linux has all these
 {{- if not ( eq .chezmoi.osRelease.id "void" ) }}
+[".local/bin/bat"]
+    type = "archive-file"
+    url = "https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "d39a21e3da57fe6a3e07184b3c1dc245f8dba379af569d3668b6dcdfe75e3052"
+    stripComponents = 1
+    path = "bat"
+    mode = "0700"
 [".local/bin/eza"]
     type = "archive-file"
     url = "https://github.com/eza-community/eza/releases/download/v0.20.9/eza_x86_64-unknown-linux-musl.tar.gz"
@@ -59,6 +66,13 @@
     checksum.sha256 = "4cf9f2741e6c465ffdb7c26f38056a59e2a2544b51f7cc128ef28337eeae4d8e"
     path = "ripgrep-14.1.1-x86_64-unknown-linux-musl/rg"
     mode = "0700"
+[".local/bin/starship"]
+    type = "archive-file"
+    url = "https://github.com/starship/starship/releases/download/v1.21.1/starship-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "744e21eb2e61b85b0c11378520ebb9e94218de965bca5b8c2266f6c3e23ff5be"
+    path = "starship"
+    mode = "0700"
+    executable = true
 [".local/bin/yq"]
     type = "file"
     url = "https://github.com/mikefarah/yq/releases/download/v4.44.5/yq_linux_amd64"
