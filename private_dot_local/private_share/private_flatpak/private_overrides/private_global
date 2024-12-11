@@ -1,10 +1,9 @@
 [Context]
-device=!input;!shm;
-features=!devel;
-filesystem=!host;!home;
+device=!all;!input;!kvm;!shm;dri;
+features=!devel;!bluetooth;
 shared=!network;!ipc;
-sockets=!x11;!pulseaudio;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!gpg-agent;!cups;
-filesystems=!xdg-run/dconf;!xdg-config/dconf;!xdg-run/gvfs;
+sockets=!x11;!pulseaudio;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!cups;!gpg-agent;
+filesystems=!home;!host;!xdg-run/dconf;!xdg-config/dconf;!xdg-run/gvfs;xdg-data/fonts:ro;
 
 [Session Bus Policy]
 ca.desrt.dconf=none
@@ -16,6 +15,6 @@ org.kde.KGlobalSettings=none
 org.kde.kwalletd5=none
 
 [System Bus Policy]
+org.bluez=none
+org.freedesktop.Avahi=none
 org.freedesktop.login1=none
-
-[Environment]
