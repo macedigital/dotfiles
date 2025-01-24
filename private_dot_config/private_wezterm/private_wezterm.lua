@@ -23,10 +23,9 @@ end
 
 function scheme_for_appearance(appearance)
   if appearance:find('Dark') then
-    return 'GitHub Dark'
+    return 'tokyonight_moon'
   else
-    -- better contrast than GitHub Light
-    return 'OneHalfLight'
+    return 'tokyonight_day'
   end
 end
 
@@ -38,8 +37,22 @@ config.color_scheme = scheme_for_appearance(get_appearance())
 config.default_prog = {
 	'fish', '-i'
 }
+config.enable_wayland = true
 config.font = wezterm.font 'FiraCode Nerd Font'
 config.font_size = 11
+-- use same keys for splits as ghostty does
+config.keys = {
+    {
+        key = 'o',
+        mods = 'SHIFT | CTRL',
+        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    },
+    {
+        key = 'e',
+        mods = 'SHIFT | CTRL',
+        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    },
+}
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 112
 config.initial_rows = 40
@@ -50,5 +63,7 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+-- set to "TITLE", or NONE" to disable title bar completely
+config.window_decorations = "NONE"
 
 return config
