@@ -194,6 +194,9 @@ symbol = "󱘗 "
 [scala]
 symbol = " "
 
+[shell]
+disabled = false
+
 [swift]
 symbol = " "
 
