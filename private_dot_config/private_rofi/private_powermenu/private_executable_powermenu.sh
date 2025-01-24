@@ -8,7 +8,9 @@
 #   rofi -show powermenu -modi powermenu:./rofi-power-menu
 #
 # See README.md for more information. <https://github.com/jluttine/rofi-power-menu>
-set -euo pipefail
+
+set -e
+set -u
 
 # All supported choices
 all=(shutdown reboot suspend logout lockscreen)
@@ -23,7 +25,7 @@ texts[logout]="log out"
 texts[suspend]="suspend"
 texts[hibernate]="hibernate"
 texts[reboot]="reboot"
-texts[shutdown]="poweroff"
+texts[shutdown]="shut down"
 
 declare -A icons
 icons[lockscreen]="\Uf033e"
@@ -36,9 +38,10 @@ icons[shutdown]="\Uf0425"
 icons[cancel]="\Uf0156"
 
 declare -A actions
-actions[lockscreen]="swaylock -f -c 000000"  # "loginctl lock-session ${XDG_SESSION_ID-}"
-#actions[switchuser]="???"
-actions[logout]="swaymsg exit" # "loginctl terminate-session ${XDG_SESSION_ID-}"
+actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+# future feature: list active user sessions and sub-select or cancel
+#actions[switchuser]="loginctl activate ${NEW_SESSION_ID}"
+actions[logout]="loginctl kill-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
@@ -53,6 +56,7 @@ showsymbols=true
 showtext=true
 
 function check_valid {
+    # shellcheck disable=SC2034
     option="$1"
     shift 1
     for entry in "${@}"
@@ -67,6 +71,7 @@ function check_valid {
 
 # Parse command-line options
 parsed=$(getopt --options=h --longoptions=help,dry-run,confirm:,choices:,choose:,symbols,no-symbols,text,no-text,symbols-font: --name "$0" -- "$@")
+# shellcheck disable=SC2181
 if [ $? -ne 0 ]; then
     echo 'Terminating...' >&2
     exit 1
@@ -164,6 +169,7 @@ while true; do
     esac
 done
 
+# shellcheck disable=SC2166
 if [ "$showsymbols" = "false" -a "$showtext" = "false" ]
 then
     echo "Invalid options: cannot have --no-symbols and --no-text enabled at the same time." >&2
@@ -195,6 +201,7 @@ function write_message {
 }
 
 function print_selection {
+    # shellcheck disable=SC2091
     echo -e "$1" | $(read -r -d '' entry; echo "echo $entry")
 }
 
@@ -213,6 +220,7 @@ confirmationMessages[cancel]=$(write_message "${icons[cancel]}" "No, cancel")
 if [ $# -gt 0 ]
 then
     # If arguments given, use those as the selection
+    # shellcheck disable=SC2124
     selection="${@}"
 else
     # Otherwise, use the CLI passed choice if given
