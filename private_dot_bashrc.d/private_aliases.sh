@@ -1,4 +1,5 @@
 #!/bin/bash
+# vim:ft=bash:ts=4:sw=4:et
 
 # shells
 alias ls='ls --color=auto'
@@ -10,6 +11,9 @@ if [[ -x $(type -p eza) ]]; then
     alias la='eza -la --group-directories-first'
 fi
 
-alias psc='ps xawf -eo pid,user,cgroup,args'
+# setup customizations when running in kitty
+if [[ $TERM == "xterm-kitty" ]]; then
+    alias icat="kitty +kitten icat"
+fi
 
-# vim:ft=bash:ts=4:sw=4:et
+alias psc='ps xawf -eo pid,user,cgroup,args'

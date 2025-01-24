@@ -1,3 +1,4 @@
+#!/bin/bash
 # vim:ft=bash:ts=4:sw=4:et
 
 # misc
@@ -12,6 +13,8 @@ export LESSHISTFILE=/dev/null
 export LESSSECURE=1
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
 
 # load AWS config from .config/ folder
 if [[ -x "$(type -p aws)" ]]; then
@@ -37,12 +40,8 @@ if [[ -x "$(type -p bat)" && -x "$(type -p col)" ]]; then
     export MANPAGER="sh -c 'col -bx | bat -pl man'"
 fi
 
+# Improved ripgrep integration with fzf
 if [[ -x "$(type -p rg)" ]]; then
     export FZF_DEFAULT_OPTS="--extended --cycle"
     export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
-fi
-
-# setup customizations when running in kitty
-if [[ $TERM == "xterm-kitty" ]]; then
-    alias icat="kitty +kitten icat"
 fi
