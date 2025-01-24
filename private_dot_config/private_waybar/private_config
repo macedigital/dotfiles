@@ -1,16 +1,19 @@
-{
-    "layer": "top",
+[{
+    "layer": "bottom",
     "position": "top",
     "spacing": 4,
-    "height": 36, // minimum height also depends on style.css
-    // "output": "eDP-1",
-    "modules-left": ["custom/menu", "sway/workspaces"],
-    "modules-center": ["clock", "mpris", "sway/scratchpad", "sway/mode", "idle_inhibitor"],
-    "modules-right": ["tray", "pulseaudio", "group/hardware", "custom/powermenu"],
+    // effective height also depends on style.css
+    "height": 36,
+    // custom waybar for internal display
+    "output": "eDP-1",
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock", "mpris", "privacy", "sway/scratchpad", "sway/mode", "idle_inhibitor"],
+    "modules-right": ["tray", "pulseaudio", "temperature", "battery", "custom/colorscheme", "custom/powermenu"],
     // module configuration
     "sway/language": {
         "format": "{}  ",
-        "tooltip-format": "{long} {flag}"
+        "tooltip-format": "{long} {flag}",
+        "on-click": "swaymsg 'input * xkb_switch_layout next'"
     },
     "sway/mode": {
         "format": "󰩨"
@@ -26,10 +29,11 @@
         "max-length": 72
     },
     "sway/workspaces": {
+        "all-outputs": true,
         "persistent-workspaces": {
             "1": ["eDP-1"]
         },
-        "high-priority-named": [ "1", "2" ],
+        "high-priority-named": [ "1", "2", "3", "4" ],
         "format": "{icon}<sup>{index}</sup>",
         "format-icons": {
             "1": "",
@@ -140,7 +144,8 @@
         "status-icons": {
             "paused": ""
         },
-        // "ignored-players": ["firefox"]
+        // "ignored-players": ["firefox"],
+        // "interval": 1
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -194,9 +199,9 @@
         "on-click": "pavucontrol"
     },
     "temperature": {
-        "critical-threshold": 80,
+        "critical-threshold": 75,
         "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "format": "", // hide default "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "tray": {
@@ -219,14 +224,23 @@
             "backlight"
         ]
     },
+    "custom/colorscheme": {
+        "exec": "~/.config/waybar/scripts/colorscheme.sh",
+        "interval": "once",
+        "on-click": "sh -c '~/.config/waybar/scripts/colorscheme.sh toggle;'",
+        "return-type": "json",
+        "signal": 8
+    },
     "custom/menu": {
         "format": "",
-        "tooltip": false,
-        "on-click": "rofi -show combi -modes combi -combi-modes \"drun,run,window\""
+        "tooltip": true,
+        "tooltip-format": "Show window switcher",
+        "on-click": "rofi -terminal './Projects/scripts/foot.sh' -show combi -modes combi -combi-modes 'drun,ssh,window'"
     },
     "custom/powermenu": {
         "format": " ",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "Power off, reboot, suspend, logout, etc.",
         "on-click": "rofi -show powermenu -modi powermenu:~/.config/rofi/powermenu/powermenu.sh"
     },
     "custom/wttr": {
@@ -234,4 +248,4 @@
         "interval": "once",
         "exec": "curl 'wttr.in/London?format=3'"
     }
-}
+}]
