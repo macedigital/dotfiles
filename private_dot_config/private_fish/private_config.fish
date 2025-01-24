@@ -32,10 +32,15 @@ if status is-interactive
     end
 
     if type -q bat
-        # need to also set option when man already uses ANSI escape sequences
-        # see https://github.com/sharkdp/bat/issues/652#issuecomment-529032263
-        set -gx MANROFFOPT "-c"
-        set -gx MANPAGER "sh -c 'col -bx | bat -pl man'"
+        # verify `col` is available
+        if type -q col
+            # need to also set option when man already uses ANSI escape sequences
+            # see https://github.com/sharkdp/bat/issues/652#issuecomment-529032263
+            set -gx MANROFFOPT "-c"
+            set -gx MANPAGER "sh -c 'col -bx | bat -pl man'"
+        else
+            set -gx MANPAGER "bat -pl man"
+        end
     end
 
     if type -q micro
