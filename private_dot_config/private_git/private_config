@@ -32,7 +32,6 @@
     autoWrapCommitMessage = true
     autoWrapWidth = 72
 [core]
-    #editor = vim
     autocrlf = input
     safecrlf = true
     eol = native
@@ -55,5 +54,7 @@
 [rerere]
     enabled = true
     autoupdate = true
+[tag]
+    gpgsign = true
 
 # vim:ft=gitconfig:ts=4:sw=4:et:
