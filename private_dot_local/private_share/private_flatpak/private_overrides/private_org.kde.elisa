@@ -1,0 +1,6 @@
+[Context]
+sockets=pulseaudio;
+filesystems=xdg-music:ro;
+
+[Session Bus Policy]
+org.kde.StatusNotifierWatcher=talk

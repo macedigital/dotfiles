@@ -1,0 +1,6 @@
+[Context]
+filesystems=xdg-run/speech-dispatcher:ro;
+sockets=pulseaudio;
+
+[Policy Tracker3]
+dbus:org.freedesktop.Tracker3.Miner.Files=!tracker:Documents;

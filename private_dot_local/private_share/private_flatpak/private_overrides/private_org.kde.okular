@@ -1,0 +1,2 @@
+[Context]
+filesystems=xdg-documents:ro;xdg-run/speech-dispatcher;

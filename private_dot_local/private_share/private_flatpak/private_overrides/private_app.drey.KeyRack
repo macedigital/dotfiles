@@ -1,0 +1,5 @@
+[Context]
+filesystems=~/.var/app:ro;xdg-data/flatpak:ro;
+
+[Session Bus Policy]
+org.freedesktop.secrets=talk

@@ -1,20 +1,38 @@
 [Context]
-device=!all;!input;!kvm;!shm;dri;
+devices=dri;!all;!kvm;!shm;!input;
 features=!devel;!bluetooth;
 shared=!network;!ipc;
-sockets=!x11;!pulseaudio;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!cups;!gpg-agent;
-filesystems=!home;!host;!xdg-run/dconf;!xdg-config/dconf;!xdg-run/gvfs;xdg-data/fonts:ro;
+sockets=!x11;!pulseaudio;!session-bus;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!cups;!gpg-agent;
+filesystems=!host:reset;!home;
 
 [Session Bus Policy]
-ca.desrt.dconf=none
-com.canonical.AppMenu.Registrar=none
-com.canonical.Unity.Session=none
-org.freedesktop.Flatpak=none
+org.gnome.keyring=none
+org.gnome.SessionManager=none
+org.kde.StatusNotifierWatcher=none
+org.gtk.vfs.*=none
 org.freedesktop.secrets=none
+org.kde.kconfig.notify=none
+org.freedesktop.Flatpak.*=none
+org.kde.kwalletd6=none
+org.kde.kdeconnect=none
+org.freedesktop.Notifications=none
+org.freedesktop.FileManager1=none
 org.kde.KGlobalSettings=none
+org.freedesktop.Flatpak=none
+com.canonical.AppMenu.Registrar=none
+org.freedesktop.systemd1=none
+org.freedesktop.login1=none
 org.kde.kwalletd5=none
+org.a11y.Bus=none
+com.canonical.Unity.Session=none
+org.freedesktop.ScreenSaver=none
+ca.desrt.dconf=none
 
 [System Bus Policy]
-org.bluez=none
+org.freedesktop.NetworkManager=none
 org.freedesktop.Avahi=none
 org.freedesktop.login1=none
+org.freedesktop.UPower=none
+org.bluez=none
+org.freedesktop.UDisks2=none
+org.freedesktop.systemd1=none

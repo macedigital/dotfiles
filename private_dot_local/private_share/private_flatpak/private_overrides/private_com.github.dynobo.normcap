@@ -1,0 +1,8 @@
+[Session Bus Policy]
+org.kde.StatusNotifierWatcher=talk
+org.gnome.Shell.Extensions=none
+org.freedesktop.Notifications=talk
+org.kde.KWin=none
+org.gnome.Shell.Extensions.Window=none
+org.gnome.Shell.Screenshot=none
+org.gnome.Shell=none

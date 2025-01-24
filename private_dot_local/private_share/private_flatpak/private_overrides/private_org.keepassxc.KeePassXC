@@ -1,0 +1,5 @@
+[Context]
+filesystems=xdg-config/keepassxc;
+
+[Session Bus Policy]
+org.kde.StatusNotifierWatcher=talk

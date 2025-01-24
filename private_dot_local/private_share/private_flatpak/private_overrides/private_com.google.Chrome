@@ -1,0 +1,7 @@
+[Context]
+sockets=pulseaudio;
+shared=network;
+
+[Session Bus Policy]
+org.freedesktop.Notifications=talk
+org.mpris.MediaPlayer2.chromium.*=own

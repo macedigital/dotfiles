@@ -1,0 +1,6 @@
+[Context]
+sockets=wayland
+filesystems=~/Notes;xdg-data/fonts:ro;
+
+[Session Bus Policy]
+org.freedesktop.portal.Fcitx=none

@@ -1,0 +1,6 @@
+[Context]
+shared=network;
+sockets=pulseaudio;
+
+[Environment]
+GDK_BACKEND=wayland

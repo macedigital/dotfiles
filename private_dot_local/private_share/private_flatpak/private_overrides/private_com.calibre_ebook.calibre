@@ -1,9 +1,7 @@
 [Context]
-filesystems=/run/media;~/Documents/Calibre Library;!host;!xdg-data/Trash;
-
-[Session Bus Policy]
-com.canonical.AppMenu.Registrar=none
+filesystems=xdg-documents/Calibre Library;/run/media;
 
 [Environment]
 QT_QPA_PLATFORM=wayland
+QT_WAYLAND_DISABLE_WINDOWDECORATION=0
 CALIBRE_NO_NATIVE_MENUBAR=true

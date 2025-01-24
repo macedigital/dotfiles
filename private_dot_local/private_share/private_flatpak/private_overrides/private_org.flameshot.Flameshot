@@ -1,0 +1,6 @@
+[Context]
+filesystems=xdg-pictures/Screenshots;
+
+[Session Bus Policy]
+org.freedesktop.Notifications=talk
+org.kde.StatusNotifierWatcher=talk

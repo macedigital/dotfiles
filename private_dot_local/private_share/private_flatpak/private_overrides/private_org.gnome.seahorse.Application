@@ -1,0 +1,5 @@
+[Context]
+filesystems=~/.ssh:ro;~/.gnupg;
+
+[Session Bus Policy]
+org.freedesktop.secrets=talk

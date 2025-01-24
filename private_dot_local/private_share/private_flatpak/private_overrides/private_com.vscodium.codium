@@ -1,0 +1,8 @@
+[Context]
+filesystems=xdg-data/fonts:ro;xdg-config/git:ro;~/Projects;~/.ssh/allowed_signers:ro;
+shared=network;
+sockets=ssh-auth;
+persistent=.ssh;
+
+[Environment]
+FLATPAK_ENABLE_SDK_EXT=golang,node22,rust-stable,openjdk
