@@ -19,7 +19,6 @@ trim_trailing_whitespace = false
 
 [*.sh]
 # shfmt configuration, https://github.com/mvdan/sh
-shell_variant      = posix # --language-variant
 binary_next_line   = true
 switch_case_indent = true  # --case-indent
 space_redirects    = true
