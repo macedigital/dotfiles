@@ -14,15 +14,16 @@
   # <https://github.com/dunst-project/dunst/issues/1116>
   enable_recursive_icon_lookup = false
   min_icon_size = 32
-  max_icon_size = 64
+  max_icon_size = 96
   icon_theme = Adwaita, hicolor
-  icon_path = /usr/share/icons/Adwaita/symbolic/actions/:/usr/share/icons/Adwaita/symbolic/status/:/usr/share/icons/Adwaita/symbolic/devices/:/usr/share/icons/hicolor/32x32/apps/
+  icon_path = /usr/share/icons/Adwaita/symbolic/actions/:/usr/share/icons/Adwaita/symbolic/apps/:/usr/share/icons/Adwaita/symbolic/devices/:/usr/share/icons/Adwaita/symbolic/status/:/usr/share/icons/hicolor/22x22/apps/
+  default_icon = dialog-information-symbolic
 
   # Geometry
   width = 300
   height = (75, 300)
   origin = top-right
-  offset = (10, 50)
+  offset = (35, 35)
 
   # Auto-detect if value is 0.
   scale = 0
