@@ -231,17 +231,19 @@
         "return-type": "json",
         "signal": 8
     },
-    "custom/menu": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Show window switcher",
-        "on-click": "rofi -terminal './Projects/scripts/foot.sh' -show combi -modes combi -combi-modes 'drun,ssh,window'"
-    },
     "custom/powermenu": {
         "format": " ",
         "tooltip": true,
         "tooltip-format": "Power off, reboot, suspend, logout, etc.",
-        "on-click": "rofi -show powermenu -modi powermenu:~/.config/rofi/powermenu/powermenu.sh"
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/menus/powermenu.xml",
+        "menu-actions": {
+            "shutdown": "systemctl poweroff",
+            "reboot": "systemctl reboot",
+            "suspend": "systemctl suspend",
+            "lock": "loginctl lock-session ${XDG_SESSION_ID-}",
+            "logout": "loginctl kill-session ${XDG_SESSION_ID-}",
+        },
     },
     "custom/wttr": {
         "format": "{}",
