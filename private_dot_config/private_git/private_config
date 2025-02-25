@@ -1,6 +1,3 @@
-[include]
-    # Include for username / creds / etc
-    path = config.local
 [alias]
     up = "!git remote update -p; git merge --ff-only @{u}"
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -10,6 +7,8 @@
     checksig = "!git log --pretty=\"tformat:%Cgreen%h %Cblue%G?%Creset %GK - %aN %C(always,yellow)%s\""
     count = shortlog -sn
     find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+[branch]
+    sort = -committerdate
 [color]
     ui = auto
     status = auto
@@ -27,6 +26,8 @@
     added = green
     changed = yellow
     untracked = blue
+[column]
+    ui = auto
 [commit]
     gpgsign = true
     autoWrapCommitMessage = true
@@ -37,24 +38,47 @@
     eol = native
     quotepath = false
     fileMode = false
-[init]
-    defaultBranch = main
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 [diff "jpg"]
     textconv = exif
     cachetextconv = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[include]
+    # Include for username / creds / etc
+    path = config.local
+[init]
+    defaultBranch = main
+[merge]
+    conflictstyle = zdiff3
 [pull]
     rebase = merges
 [push]
     default = current
+    #default = simple
+    autoSetupRemote = true
+    followTags = true
+    rebase = true
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
 [rerere]
     enabled = true
     autoupdate = true
 [tag]
     gpgsign = true
+    sort = version:refname
 
 # vim:ft=gitconfig:ts=4:sw=4:et:
