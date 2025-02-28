@@ -21,8 +21,5 @@ ForwardX11 no
 PreferredAuthentications publickey
 PasswordAuthentication no
 
-# Prefer specific identities per host
-IdentitiesOnly yes
-
 # Include custom config files
 Include config*.local
