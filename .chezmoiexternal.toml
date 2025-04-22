@@ -24,15 +24,15 @@
 {{- if not ( eq .chezmoi.osRelease.id "void" ) }}
 [".local/bin/bat"]
     type = "archive-file"
-    url = "https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "d39a21e3da57fe6a3e07184b3c1dc245f8dba379af569d3668b6dcdfe75e3052"
+    url = "https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "93f47d76abe328c402ef712e9ac92aa6d5bc84d5adcbcaf0bbc5665e5275a941"
     stripComponents = 1
     path = "bat"
     mode = "0700"
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.20.9/eza_x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "d99e62b5c386d0bc9c1c6ff0fd2b1b9ceea4f0ba7a6c9de8f02244d1ec4837e0"
+    url = "https://github.com/eza-community/eza/releases/download/v0.21.1/eza_x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "c9ffa0f9fa0c1acc05e9d1ba0efa0296c78cf55d5529a986a809be0ed92b90c2"
     stripComponents = 1
     path = "eza"
     mode = "0700"
@@ -50,14 +50,14 @@
     mode = "0700"
 [".local/bin/lazygit"]
     type = "archive-file"
-    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.44.1/lazygit_0.44.1_Linux_x86_64.tar.gz"
-    checksum.sha256 = "84682f4ad5a449d0a3ffbc8332200fe8651aee9dd91dcd8d87197ba6c2450dbc"
+    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.49.0/lazygit_0.49.0_Linux_x86_64.tar.gz"
+    checksum.sha256 = "ae9c9a3fcea9cdaf6511a7ca0040210cc71ab481fc773e53737cbfe92da974ce"
     path = "lazygit"
     mode = "0700"
 [".local/bin/k9s"]
     type = "archive-file"
-    url = "https://github.com/derailed/k9s/releases/download/v0.32.7/k9s_Linux_amd64.tar.gz"
-    checksum.sha256 = "03934727bfbf39b1e61a74d8e045796cda2de14f8ce4c01df27f43d4494021de"
+    url = "https://github.com/derailed/k9s/releases/download/v0.50.4/k9s_Linux_amd64.tar.gz"
+    checksum.sha256 = "1b658c6188339c9f8f271a22339b62d2653da0d636c855629019588d57e5570d"
     path = "k9s"
     mode = "0700"
 [".local/bin/rg"]
@@ -68,15 +68,15 @@
     mode = "0700"
 [".local/bin/starship"]
     type = "archive-file"
-    url = "https://github.com/starship/starship/releases/download/v1.21.1/starship-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "744e21eb2e61b85b0c11378520ebb9e94218de965bca5b8c2266f6c3e23ff5be"
+    url = "https://github.com/starship/starship/releases/download/v1.22.1/starship-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "62c91b5ecc7f8c8c6ea7ffea42a98bd2e6a2d29daf61562fac04daece18a6461"
     path = "starship"
     mode = "0700"
     executable = true
 [".local/bin/yq"]
     type = "file"
-    url = "https://github.com/mikefarah/yq/releases/download/v4.44.5/yq_linux_amd64"
-    checksum.sha256 = "638c4b251c49201fc94b598834b715f8f1c6e9b1854d2820772d2c79f0289002"
+    url = "https://github.com/mikefarah/yq/releases/download/v4.45.1/yq_linux_amd64"
+    checksum.sha256 = "654d2943ca1d3be2024089eb4f270f4070f491a0610481d128509b2834870049"
     mode = "0700"
     executable = true
 {{- end }}
