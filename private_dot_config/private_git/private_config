@@ -38,6 +38,8 @@
     eol = native
     quotepath = false
     fileMode = false
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
 [diff]
     algorithm = histogram
     colorMoved = plain
