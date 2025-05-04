@@ -11,6 +11,7 @@ Type=simple
 ExecStart=/usr/bin/wlsunset -l {{ .geo.lat }} -L {{ .geo.lon }}
 ExecPaths=/usr/bin/wlsunset
 Restart=on-failure
+Slice=background.slice
 
 KeyringMode=private
 CapabilityBoundingSet=
