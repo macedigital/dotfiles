@@ -16,17 +16,27 @@
   min_icon_size = 32
   max_icon_size = 96
   icon_theme = Adwaita, hicolor
-  icon_path = /usr/share/icons/Adwaita/symbolic/actions/:/usr/share/icons/Adwaita/symbolic/apps/:/usr/share/icons/Adwaita/symbolic/devices/:/usr/share/icons/Adwaita/symbolic/status/:/usr/share/icons/hicolor/22x22/apps/
+  icon_path = /usr/share/icons/Adwaita/symbolic/actions/:/usr/share/icons/Adwaita/symbolic/apps/:/usr/share/icons/Adwaita/symbolic/devices/:/usr/share/icons/Adwaita/symbolic/status/:/usr/share/icons/HighContrast/scalable/status/:/usr/share/icons/hicolor/22x22/apps/
   default_icon = dialog-information-symbolic
 
   # Geometry
-  width = 300
+  width =  (300,400)
   height = (75, 300)
   origin = top-right
-  offset = (35, 35)
+  offset = (10, 10)
 
   # Auto-detect if value is 0.
   scale = 0
 
   # Maximum number of notification (0 means no limit)
   notification_limit = 20
+
+[urgency_low]
+  timeout = 10
+
+[urgency_normal]
+  timeout = 30
+
+[urgency_critical]
+  timeout = 0
+  default_icon = dialog-warning-symbolic

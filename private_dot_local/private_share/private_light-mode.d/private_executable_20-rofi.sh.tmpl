@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+# Replace colorscheme by updating symlink
+{{ template "symlink" .sway.colorschemes.rofi.light -}}

@@ -1,0 +1,9 @@
+{{/* Generated output config see `chezmoi data` */}}
+{{ range .sway.outputs }}
+# {{ .comment }}
+output "{{ .name }}" {
+    {{- range .config }}
+    {{ . }}
+    {{- end }}
+}
+{{ end }}

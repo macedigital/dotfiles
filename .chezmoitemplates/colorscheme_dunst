@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+# Close all notifications to workaround issue under native Wayland
+# https://github.com/dunst-project/dunst/issues/1434
+dunstctl close-all
+
+# Replace colorscheme
+{{ template "symlink" . }}
+
+# Reload configuration
+dunstctl reload
+
+# Trigger a small, passive popup dialog to inform the user about darkman's activity
+# Reference https://wiki.archlinux.org/title/Desktop_notifications#Usage_in_programming
+# Requires additional icon theme, e.g. Breeze
+notify-send --app-name="darkman" --urgency=low --icon={{ .icon }} "Switching to {{ .name }} colorscheme"

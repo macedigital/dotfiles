@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+
+# get pids of current backgrounds
+# shellcheck disable=SC2155
+readonly pids=$(pgrep swaybg)
+
+# setup new backgrounds
+swaybg \
+{{- range . }}
+    -o "{{ .output }}" \
+        -i {{ .image }} \
+        -m fill \
+{{- end }}
+&
+
+# kill old backgrounds
+if [ -n "$pids" ]; then
+    sleep 1 && for p in $pids; do kill -9 "$p"; done
+fi

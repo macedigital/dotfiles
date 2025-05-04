@@ -1,3 +1,66 @@
 geo:
   lat: 52.5
   lon: 13.4
+sway:
+  colorschemes:
+    dunst:
+      link: &dunst_theme_target ~/.config/dunst/dunstrc.d/10-colorscheme.conf
+      light:
+        name: light
+        icon: weather-clear
+        source: ~/.config/dunst/dunstrc.d/tokyonight_day.ini
+        target: *dunst_theme_target
+      dark:
+        name: dark
+        icon: weather-clear-night
+        source: ~/.config/dunst/dunstrc.d/tokyonight_moon.ini
+        target: *dunst_theme_target
+    rofi:
+      link: &rofi_theme_target ~/.config/rofi/themes/selected-colorscheme.rasi
+      light:
+        source: ~/.config/rofi/themes/spotlight.rasi
+        target: *rofi_theme_target
+      dark:
+        source: ~/.config/rofi/themes/spotlight-dark.rasi
+        target: *rofi_theme_target
+    swaylock:
+      link: &swaylock_target ~/Pictures/Wallpapers/swaylock.wallpaper
+      light:
+        source: ~/Pictures/Wallpapers/F34_default_wallpaper_day.jpg
+        target: *swaylock_target
+      dark:
+        source: ~/Pictures/Wallpapers/F34_default_wallpaper_night.jpg
+        target: *swaylock_target
+    wallpaper:
+      light:
+        - output: "*"
+          image: ~/Pictures/Wallpapers/F34_default_wallpaper_day.jpg
+        - output: "Dell Inc. DELL S2722QC 7GZYLD3"
+          image: ~/Pictures/Wallpapers/default-prefer-light.wallpaper
+      dark:
+        - output: "*"
+          image: ~/Pictures/Wallpapers/F34_default_wallpaper_night.jpg
+        - output: "Dell Inc. DELL S2722QC 7GZYLD3"
+          image: ~/Pictures/Wallpapers/default-prefer-dark.wallpaper
+  outputs:
+    - name: "eDP-1"
+      comment: "built-in"
+      config:
+        - pos 300 1440
+    - name: "Dell Inc. DELL S2722QC 7GZYLD3"
+      comment: "office"
+      config:
+        - resolution 3840x2160
+        - scale 1.5
+        - pos 0 0
+    - name: "Dell Inc. DELL P2720DC 9K0QK53"
+      comment: "standing desk"
+      config:
+        - resolution 2560x1440
+        - pos 0 0
+wallpapers:
+  target: &wallpaper_target_dir ~/Pictures/Wallpapers
+  sources:
+    - "https://fedoraproject.org/w/uploads/3/35/F34_default_wallpaper_day.jpg"
+    - "https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg"
+    #- "https://dribbble.com/shots/10094240-Tropical-Escape-Wallpaper/attachments/18706?mode=download"

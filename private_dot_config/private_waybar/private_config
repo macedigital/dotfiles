@@ -87,6 +87,7 @@
         }
     },
     "cpu": {
+        "interval": 60,
         "format": "{usage}% ",
         "tooltip": false
     },
@@ -95,6 +96,7 @@
         "format": "{percentage_used}% 󰋊"
     },
     "memory": {
+        "interval": 60,
         "format": "{}% "
     },
     "idle_inhibitor": {

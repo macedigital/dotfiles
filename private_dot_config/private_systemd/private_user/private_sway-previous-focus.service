@@ -1,0 +1,51 @@
+[Unit]
+Description=Toggle between previous windows in a Sway session
+# dependency on https://github.com/alebastr/sway-systemd
+After=sway-session.target
+BindsTo=sway-session.target
+ConditionEnvironment=SWAYSOCK
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/sway-previous-focus
+Restart=on-failure
+
+CapabilityBoundingSet=
+LockPersonality=yes
+NoNewPrivileges=yes
+MemoryDenyWriteExecute=yes
+DevicePolicy=closed
+
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectHome=read-only
+ProtectHostname=yes
+ProtectSystem=strict
+ProtectProc=invisible
+ProcSubset=pid
+
+PrivateTmp=yes
+PrivateNetwork=yes
+PrivateDevices=true
+PrivateUsers=true
+PrivateMounts=true
+
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallErrorNumber=EPERM
+
+# Resource limits
+MemoryMax=10M
+TasksMax=8
+
+[Install]
+WantedBy=sway-session.target

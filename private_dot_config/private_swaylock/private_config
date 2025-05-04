@@ -1,0 +1,7 @@
+# The defaults from /etc/swaylock/config overridden in ~/.config/swaylock/config).
+#
+# Image path supports environment variables and shell expansions,
+# e.g. image=$HOME/Pictures/default.png
+image=$HOME/Pictures/Wallpapers/swaylock.wallpaper
+scaling=fill
+indicator-caps-lock

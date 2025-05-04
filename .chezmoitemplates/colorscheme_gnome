@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+# apply system-wide preference for {{ . }} theme
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-{{ . }}'
+
+# set {{ . }} theme for gtk-3 applications, e.g. Thunar
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita{{ if eq "dark" . }}-dark{{ end }}'

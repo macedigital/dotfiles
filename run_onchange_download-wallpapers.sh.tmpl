@@ -1,0 +1,15 @@
+#!/bin/sh
+# shellcheck disable=all
+set -eu
+
+{{ if eq .chezmoi.os "linux" -}}
+mkdir -p {{ .wallpapers.target }}
+
+wget -P {{ .wallpapers.target }} --no-clobber \
+    {{range .wallpapers.sources -}}
+    {{ . }} \
+    {{ end }}
+# done {{ printf "%s/%s" .wallpapers.target (base (index .wallpapers.sources 0)) }}
+{{ else if eq .chezmoi.os "darwin" -}}
+    echo "unsupported OS"
+{{ end -}}
