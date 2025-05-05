@@ -1,14 +1,28 @@
 #!/bin/sh
 # shellcheck disable=all
-set -eu
+set -u
 
 {{ if eq .chezmoi.os "linux" -}}
-mkdir -p {{ .wallpapers.target }}
+{{ $targetDir := .wallpapers.target -}}
+{{ $sources := .wallpapers.sources -}}
+{{ $counter := 0 -}}
 
-wget -P {{ .wallpapers.target }} --no-clobber \
+mkdir -p {{ $targetDir }}
+
+# Download with rename one-by-one, because wget doesn't support renaming list of files
+{{ range $sources -}}
+{{ if ne "string" ( printf "%T" . ) -}}
+wget -P {{ $targetDir }} --no-clobber '{{ .src }}' -O {{ $targetDir }}/'{{ .dst }}'
+{{ $counter = add 1 $counter -}}
+{{ end -}}
+{{ end }}
+# batch download all remaining regular downloads
+{{ if gt (len $sources) $counter -}}
+wget -P {{ $targetDir }} --no-clobber \
     {{range .wallpapers.sources -}}
-    {{ . }} \
-    {{ end }}
+    {{ if eq "string" ( printf "%T" . ) }}{{ . }} \{{ end }}
+    {{ end -}}
+{{ end }}
 # done {{ printf "%s/%s" .wallpapers.target (base (index .wallpapers.sources 0)) }}
 {{ else if eq .chezmoi.os "darwin" -}}
     echo "unsupported OS"
