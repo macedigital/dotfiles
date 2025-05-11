@@ -9,11 +9,13 @@ set -gx XDG_STATE_HOME $HOME/.local/state
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    set -gx TMPDIR $XDG_RUNTIME_DIR
+    set -gx GPG_TTY (tty)
+    set -gx KUBECONFIG=$XDG_CONFIG_HOME/kube
+    set -gx KUBECACHEDIR=$XDG_CACHE_HOME/kube
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
-    set -gx GPG_TTY (tty)
     set -gx WGETRC=$XDG_CONFIG_HOME/wgetrc
+    set -gx TMPDIR $XDG_RUNTIME_DIR
 
     if test -d $HOME/.local/bin
         if type -q fish_add_path
