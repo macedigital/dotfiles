@@ -17,8 +17,14 @@
     url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.1.1/sway-previous-focus_Linux_x86_64.tar.gz"
     checksum.sha256 = "12ceb20ead59ff26131516f2557b643613a94969ceed4c2ead39f8aeaf331860"
     path = "sway-previous-focus"
-    mode = "0700"
     executable = true
+    private = true
+[".local/bin/kind"]
+    type = "file"
+    url = "https://github.com/kubernetes-sigs/kind/releases/download/v0.27.0/kind-linux-amd64"
+    checksum.sha256 = "a6875aaea358acf0ac07786b1a6755d08fd640f4c79b7a2e46681cc13f49a04b"
+    executable = true
+    private = true
 # ArchLinux provides those packages already
 {{- if and (eq .chezmoi.arch "amd64") (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
