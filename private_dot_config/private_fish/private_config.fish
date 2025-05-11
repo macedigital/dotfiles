@@ -13,6 +13,7 @@ if status is-interactive
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx GPG_TTY (tty)
+    set -gx WGETRC=$XDG_CONFIG_HOME/wgetrc
 
     if test -d $HOME/.local/bin
         if type -q fish_add_path
