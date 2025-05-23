@@ -1,0 +1,3 @@
+[Session Bus Policy]
+org.gnome.Mutter.IdleMonitor=none
+org.freedesktop.Notifications=talk

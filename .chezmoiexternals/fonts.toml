@@ -1,0 +1,15 @@
+# for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
+{{- if eq .chezmoi.os "linux" }}
+[".local/share/fonts/FiraCodeNerdFont"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.tar.xz"
+    checksum.sha256 = "d83fb093e0e05a531cd6f19886a6ceb884a4fa5ea3b53cf099fc1f30c5b3e47d"
+    include = ["FiraCodeNerdFont-*.ttf"]
+    private = true
+[".local/share/fonts/MesloLGLNerdFont"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.tar.xz"
+    checksum.sha256 = "a57936d96aefb5cfff0660f3294210ee04705529af6cf811e2274b0923a03939"
+    include = ["MesloLGLNerdFontPropo-*.ttf"]
+    private = true
+{{- end }}

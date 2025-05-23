@@ -1,0 +1,6 @@
+[".config/nvim-kickstarter"]
+    type = "git-repo"
+    url = "https://github.com/macedigital/nvim-kickstart.git"
+    private = true
+    [".config/nvim-kickstarter".pull]
+        args = ["--ff-only"]
