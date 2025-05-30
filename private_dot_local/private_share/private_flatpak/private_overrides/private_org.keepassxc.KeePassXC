@@ -3,3 +3,10 @@ filesystems=xdg-config/keepassxc;
 
 [Session Bus Policy]
 org.kde.StatusNotifierWatcher=talk
+org.freedesktop.Notifications=talk
+org.freedesktop.ScreenSaver=talk
+org.gnome.Screensaver=none
+org.gnome.SessionManager.Presence=none
+
+[System Bus Policy]
+org.freedesktop.login1=talk
