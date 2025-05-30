@@ -1,8 +1,9 @@
 #!/bin/bash
-# vim:ft=bash:ts=4:sw=4:et
+# vim: ts=4 sts=4 sw=4 et ft=bash:
 
 # misc
 export GIT_PS1_SHOWDIRTYSTATE=1
+# shellcheck disable=SC2155
 export GPG_TTY=$(tty)
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=2000
@@ -11,13 +12,6 @@ export HISTSIZE=10000
 export HISTTIMEFORMAT="[%Y-%m-%d %T] "
 export LESSHISTFILE=/dev/null
 export LESSSECURE=1
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_CACHE_HOME="$HOME"/.cache
-export XDG_DATA_HOME="$HOME"/.local/share
-export XDG_STATE_HOME="$HOME"/.local/state
-# override non-conforming defaults
-export KUBECONFIG="$XDG_CONFIG_HOME/kube"
-export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 # load AWS config from .config/ folder
