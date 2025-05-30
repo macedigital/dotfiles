@@ -8,7 +8,7 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # Set up global environment variables for interactive sessions
     set -gx GPG_TTY (tty)
     set -gx KUBECONFIG $XDG_CONFIG_HOME/kube
     set -gx KUBECACHEDIR $XDG_CACHE_HOME/kube
@@ -17,6 +17,11 @@ if status is-interactive
     set -gx WGETRC $XDG_CONFIG_HOME/wgetrc
     set -gx TMPDIR $XDG_RUNTIME_DIR
 
+    # Disable text for default greeting function
+    # https://fishshell.com/docs/current/cmds/fish_greeting.html
+    set -g fish_greeting
+
+    # Ensure that ~/.local/bin/ is in PATH
     if test -d $HOME/.local/bin
         if type -q fish_add_path
             fish_add_path $HOME/.local/bin
