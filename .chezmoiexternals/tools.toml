@@ -13,6 +13,12 @@
     checksum.sha256 = "c72eda46430f065fb45c5f70e7c957cc9209402ef309294821978677c8fb3284"
     executable = true
     private = true
+[".local/bin/atuin"]
+	type = "file"
+	url = "https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-musl.tar.gz"
+	checksum.sha256 = "c781d5eeb4c407069fbc402ec3ad11a755f5a916f13220ac4612dccda42399ad"
+	executable = true
+	private = true
 # ArchLinux provides those packages already
 {{- if and (eq .chezmoi.arch "amd64") (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
@@ -77,8 +83,8 @@
     executable = true
 [".local/bin/starship"]
     type = "archive-file"
-    url = "https://github.com/starship/starship/releases/download/v1.22.1/starship-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "62c91b5ecc7f8c8c6ea7ffea42a98bd2e6a2d29daf61562fac04daece18a6461"
+    url = "https://github.com/starship/starship/releases/download/v1.23.0/starship-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "8d06d2cc67aedd6316ff58ab679fb80cded0d85de1dcd5727df0633d35356d57"
     path = "starship"
     private = true
     executable = true
