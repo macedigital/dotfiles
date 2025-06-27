@@ -10,8 +10,6 @@ set -gx XDG_STATE_HOME $HOME/.local/state
 if status is-interactive
     # Set up global environment variables for interactive sessions
     set -gx GPG_TTY (tty)
-    set -gx KUBECONFIG $XDG_CONFIG_HOME/kube
-    set -gx KUBECACHEDIR $XDG_CACHE_HOME/kube
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx WGETRC $XDG_CONFIG_HOME/wgetrc
@@ -30,9 +28,14 @@ if status is-interactive
         end
     end
 
-    if type -q aws
-        set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
-        set -gx AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
+    # z-tooling uses hardcoded paths
+    if test "$DESKTOP_SESSION" != "ubuntu"
+        if type -q aws
+            set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
+            set -gx AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
+        end
+        set -gx KUBECONFIG $XDG_CONFIG_HOME/kube
+        set -gx KUBECACHEDIR $XDG_CACHE_HOME/kube
     end
 
     if type -q lynx
