@@ -63,8 +63,8 @@
     executable = true
 [".local/bin/k9s"]
     type = "archive-file"
-    url = "https://github.com/derailed/k9s/releases/download/v0.50.4/k9s_Linux_amd64.tar.gz"
-    checksum.sha256 = "1b658c6188339c9f8f271a22339b62d2653da0d636c855629019588d57e5570d"
+    url = "https://github.com/derailed/k9s/releases/download/v0.50.6/k9s_Linux_amd64.tar.gz"
+    checksum.sha256 = "5fc98f2dcf1d8fac6251f5a1ae1dc6fe7fe2b2d43b13bb3039e51ad492e2a70e"
     path = "k9s"
     private = true
     executable = true
