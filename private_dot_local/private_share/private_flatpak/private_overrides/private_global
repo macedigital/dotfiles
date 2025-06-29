@@ -1,8 +1,8 @@
 [Context]
-devices=dri;!all;!kvm;!shm;!input;
+devices=!all;!kvm;!shm;!input;dri;
 features=!devel;!bluetooth;
 shared=!network;!ipc;
-sockets=!x11;!pulseaudio;!session-bus;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!cups;!gpg-agent;
+sockets=!x11;!pulseaudio;!session-bus;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!cups;!gpg-agent;wayland;
 filesystems=!host:reset;!home;
 
 [Session Bus Policy]
