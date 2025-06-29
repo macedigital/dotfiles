@@ -1,10 +1,22 @@
 # for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
 {{- if eq .chezmoi.os "linux" }}
-[".local/bin/sway-previous-focus"]
+[".local/bin/atuin"]
+	type = "file"
+	url = "https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-musl.tar.gz"
+	checksum.sha256 = "c781d5eeb4c407069fbc402ec3ad11a755f5a916f13220ac4612dccda42399ad"
+	executable = true
+	private = true
+[".local/bin/devbox"]
     type = "archive-file"
-    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.1.1/sway-previous-focus_Linux_x86_64.tar.gz"
-    checksum.sha256 = "12ceb20ead59ff26131516f2557b643613a94969ceed4c2ead39f8aeaf331860"
-    path = "sway-previous-focus"
+    url = "https://github.com/jetify-com/devbox/releases/download/0.14.2/devbox_0.14.2_linux_amd64.tar.gz"
+    checksum.sha256 = "1702a327dc27712f408b99c90df0414ddf15ec3f15472ec006e95947f2a5dde7"
+    path = "devbox"
+    executable = true
+    private = true
+[".local/bin/direnv"]
+    type = "file"
+    url = "https://github.com/direnv/direnv/releases/download/v2.36.0/direnv.linux-amd64"
+    checksum.sha256 = "604f3dc51f05620d7ea8d8360b3a18d72ccc842a181edabca4d7bd75b6784f88"
     executable = true
     private = true
 [".local/bin/kind"]
@@ -13,12 +25,13 @@
     checksum.sha256 = "c72eda46430f065fb45c5f70e7c957cc9209402ef309294821978677c8fb3284"
     executable = true
     private = true
-[".local/bin/atuin"]
-	type = "file"
-	url = "https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-musl.tar.gz"
-	checksum.sha256 = "c781d5eeb4c407069fbc402ec3ad11a755f5a916f13220ac4612dccda42399ad"
-	executable = true
-	private = true
+[".local/bin/sway-previous-focus"]
+    type = "archive-file"
+    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.1.1/sway-previous-focus_Linux_x86_64.tar.gz"
+    checksum.sha256 = "12ceb20ead59ff26131516f2557b643613a94969ceed4c2ead39f8aeaf331860"
+    path = "sway-previous-focus"
+    executable = true
+    private = true
 # ArchLinux provides those packages already
 {{- if and (eq .chezmoi.arch "amd64") (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
