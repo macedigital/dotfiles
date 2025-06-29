@@ -1,5 +1,6 @@
 #!/bin/bash
-# ~/.bashrc
+#
+# ~/.bashrc - startup file interactive non-login shell
 #
 # vim: ts=4 sts=4 sw=4 et ft=bash:
 
@@ -9,18 +10,18 @@ if [[ -f /etc/bashrc ]]; then
     source /etc/bashrc
 fi
 
-# User specific environment
-
-# Set up XDG_* configuration, ensuring its available everywhere
+# Set up globally available XDG_* configuration
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME"/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-"$HOME"/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/.local/share}
 export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 export XDG_STATE_HOME=${XDG_STATE_HOME:-"$HOME"/.local/state}
+# unofficial variable, used by e.g. github.com/bevry/dorothy/
+export XDG_BIN_HOME=${XDG_BIN_HOME:-"$HOME"/.local/bin}
 
-# Add locally installed binaries to PATH
-if ! [[ "$PATH" =~ "$HOME"/.local/bin: ]]; then
-    PATH="$HOME/.local/bin:$PATH"
+# Add locally installed binaries in XDG_BIN_HOME to PATH
+if ! [[ "$PATH" =~ "$XDG_BIN_HOME": ]]; then
+    PATH="${XDG_BIN_HOME}:${PATH}"
 fi
 export PATH
 
@@ -31,8 +32,8 @@ export PATH
 umask 0077
 
 # Source user specific files if running interactively
-if [[ $- == *i* && -d ~/.bashrc.d ]]; then
-    for rc in ~/.bashrc.d/*.sh; do
+if [[ $- == *i* && -d "$XDG_DATA_HOME"/bash ]]; then
+    for rc in "$XDG_DATA_HOME"/bash/*.sh; do
         if [[ -f "$rc" ]]; then
             # shellcheck disable=SC1090
             . "$rc"
