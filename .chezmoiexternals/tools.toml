@@ -1,11 +1,20 @@
 # for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
 {{- if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.arch "amd64" }}
 [".local/bin/atuin"]
 	type = "file"
 	url = "https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-musl.tar.gz"
 	checksum.sha256 = "c781d5eeb4c407069fbc402ec3ad11a755f5a916f13220ac4612dccda42399ad"
 	executable = true
 	private = true
+[".local/bin/bat"]
+    type = "archive-file"
+    url = "https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "93f47d76abe328c402ef712e9ac92aa6d5bc84d5adcbcaf0bbc5665e5275a941"
+    stripComponents = 1
+    path = "bat"
+    private = true
+    executable = true
 [".local/bin/devbox"]
     type = "archive-file"
     url = "https://github.com/jetify-com/devbox/releases/download/0.14.2/devbox_0.14.2_linux_amd64.tar.gz"
@@ -19,38 +28,6 @@
     checksum.sha256 = "604f3dc51f05620d7ea8d8360b3a18d72ccc842a181edabca4d7bd75b6784f88"
     executable = true
     private = true
-[".local/bin/kind"]
-    type = "file"
-    url = "https://github.com/kubernetes-sigs/kind/releases/download/v0.29.0/kind-linux-amd64"
-    checksum.sha256 = "c72eda46430f065fb45c5f70e7c957cc9209402ef309294821978677c8fb3284"
-    executable = true
-    private = true
-[".local/bin/sway-previous-focus"]
-    type = "archive-file"
-    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.1.1/sway-previous-focus_Linux_x86_64.tar.gz"
-    checksum.sha256 = "12ceb20ead59ff26131516f2557b643613a94969ceed4c2ead39f8aeaf331860"
-    path = "sway-previous-focus"
-    executable = true
-    private = true
-# ArchLinux provides those packages already
-{{- if and (eq .chezmoi.arch "amd64") (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
-[".local/bin/age-plugin-yubikey"]
-    type = "archive-file"
-    url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v0.5.0/age-plugin-yubikey-v0.5.0-x86_64-linux.tar.gz"
-    checksum.sha256 = "019b35a13fc81be56d73d0723db0a2082fbd04c936c2c6836381111f7f51b2c3"
-    path = "age-plugin-yubikey/age-plugin-yubikey"
-    private = true
-    executable = true
-# Void Linux has all these, too
-{{- if not ( eq .chezmoi.osRelease.id "void" ) }}
-[".local/bin/bat"]
-    type = "archive-file"
-    url = "https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "93f47d76abe328c402ef712e9ac92aa6d5bc84d5adcbcaf0bbc5665e5275a941"
-    stripComponents = 1
-    path = "bat"
-    private = true
-    executable = true
 [".local/bin/eza"]
     type = "archive-file"
     url = "https://github.com/eza-community/eza/releases/download/v0.21.1/eza_x86_64-unknown-linux-musl.tar.gz"
@@ -66,6 +43,13 @@
     path = "fd-v10.2.0-x86_64-unknown-linux-musl/fd"
     private = true
     executable = true
+[".local/bin/fzf"]
+    type = "archive-file"
+    url = "https://github.com/junegunn/fzf/releases/download/v0.63.0/fzf-0.63.0-linux_amd64.tar.gz"
+    checksum.sha256 = "36e60fe51fed2f72954b39b9ce1e7ea72c1dc79bc99f4a3c2a7b98bb1a2b49bb"
+    path = "fzf"
+    private = true
+    executable = true
 [".local/bin/jless"]
     type = "archive-file"
     url = "https://github.com/PaulJuliusMartinez/jless/releases/download/v0.9.0/jless-v0.9.0-x86_64-unknown-linux-gnu.zip"
@@ -73,6 +57,19 @@
     path = "jless"
     private = true
     executable = true
+[".local/bin/k9s"]
+    type = "archive-file"
+    url = "https://github.com/derailed/k9s/releases/download/v0.50.6/k9s_Linux_amd64.tar.gz"
+    checksum.sha256 = "5fc98f2dcf1d8fac6251f5a1ae1dc6fe7fe2b2d43b13bb3039e51ad492e2a70e"
+    path = "k9s"
+    private = true
+    executable = true
+[".local/bin/kind"]
+    type = "file"
+    url = "https://github.com/kubernetes-sigs/kind/releases/download/v0.29.0/kind-linux-amd64"
+    checksum.sha256 = "c72eda46430f065fb45c5f70e7c957cc9209402ef309294821978677c8fb3284"
+    executable = true
+    private = true
 [".local/bin/lazygit"]
     type = "archive-file"
     url = "https://github.com/jesseduffield/lazygit/releases/download/v0.49.0/lazygit_0.49.0_Linux_x86_64.tar.gz"
@@ -80,11 +77,11 @@
     path = "lazygit"
     private = true
     executable = true
-[".local/bin/k9s"]
-    type = "archive-file"
-    url = "https://github.com/derailed/k9s/releases/download/v0.50.6/k9s_Linux_amd64.tar.gz"
-    checksum.sha256 = "5fc98f2dcf1d8fac6251f5a1ae1dc6fe7fe2b2d43b13bb3039e51ad492e2a70e"
-    path = "k9s"
+[".local/bin/restic"]
+    type = "file"
+    url = "https://github.com/restic/restic/releases/download/v0.18.0/restic_0.18.0_linux_amd64.bz2"
+    checksum.sha256 = "98f6dd8bf5b59058d04bfd8dab58e196cc2a680666ccee90275a3b722374438e"
+    filter.command = "bunzip2"
     private = true
     executable = true
 [".local/bin/rg"]
@@ -101,10 +98,40 @@
     path = "starship"
     private = true
     executable = true
+[".local/bin/sway-previous-focus"]
+    type = "archive-file"
+    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.1.1/sway-previous-focus_Linux_x86_64.tar.gz"
+    checksum.sha256 = "12ceb20ead59ff26131516f2557b643613a94969ceed4c2ead39f8aeaf331860"
+    path = "sway-previous-focus"
+    executable = true
+    private = true
 [".local/bin/yq"]
     type = "file"
     url = "https://github.com/mikefarah/yq/releases/download/v4.45.1/yq_linux_amd64"
     checksum.sha256 = "654d2943ca1d3be2024089eb4f270f4070f491a0610481d128509b2834870049"
+    private = true
+    executable = true
+[".local/bin/zellij"]
+    type = "archive-file"
+    url = "https://github.com/zellij-org/zellij/releases/download/v0.42.2/zellij-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "c2d4833512539455bfdddab5c297d43f7cc3b77d8b7e92ad03e2529111c7c652"
+    path = "zellij"
+    executable = true
+    private = true
+[".local/bin/zoxide"]
+    type = "archive-file"
+    url = "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "4092ee38aa1efde42e4efb2f9c872df5388198aacae7f1a74e5eb5c3cc7f531c"
+    path = "zoxide"
+    executable = true
+    private = true
+# ArchLinux provides those packages already
+{{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
+[".local/bin/age-plugin-yubikey"]
+    type = "archive-file"
+    url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v0.5.0/age-plugin-yubikey-v0.5.0-x86_64-linux.tar.gz"
+    checksum.sha256 = "019b35a13fc81be56d73d0723db0a2082fbd04c936c2c6836381111f7f51b2c3"
+    path = "age-plugin-yubikey/age-plugin-yubikey"
     private = true
     executable = true
 {{- end }}
