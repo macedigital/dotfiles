@@ -4,9 +4,9 @@ if status is-interactive
     set -gx PYTHONSTARTUP $XDG_CONFIG_HOME/python/pythonrc
 
     # prefer uv over pyenv
-    if command -q uv
+    if type -p uv > /dev/null
         # no additional neeeded
-    else if -p $XDG_DATA_HOME/pyenv/bin/pyenv
+    else if test -x $XDG_DATA_HOME/pyenv/bin/pyenv; and not type -p pyenv > /dev/null
         # setup pyenv
         set -Ux PYENV_ROOT $XDG_DATA_HOME/pyenv
         set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
