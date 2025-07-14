@@ -100,8 +100,8 @@
     executable = true
 [".local/bin/sway-previous-focus"]
     type = "archive-file"
-    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.1.1/sway-previous-focus_Linux_x86_64.tar.gz"
-    checksum.sha256 = "12ceb20ead59ff26131516f2557b643613a94969ceed4c2ead39f8aeaf331860"
+    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.2.0/sway-previous-focus_Linux_x86_64.tar.gz"
+    checksum.sha256 = "e643a76b480c450ff6dfe2257a59ca9eb6c711fd3a50b4cdfaaf9b96b71da2a4"
     path = "sway-previous-focus"
     executable = true
     private = true
