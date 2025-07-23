@@ -16,8 +16,10 @@ export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 # load AWS config from .config/ folder
 if [[ -x "$(type -p aws)" ]]; then
-    export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
-    export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+    if [[ "$DESKTOP_SESSION" != "ubuntu" ]]; then
+        export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+        export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+    fi
 fi
 
 # set 'lynx' as default browser if executable is available
