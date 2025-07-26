@@ -55,7 +55,8 @@
     type = "archive-file"
     url = "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-x86_64-unknown-linux-musl.tar.gz"
     checksum.sha256 = "d9bfa25ec28624545c222992e1b00673b7c9ca5eb15393c40369f10b28f9c932"
-    path = "fd-v10.2.0-x86_64-unknown-linux-musl/fd"
+    path = "fd"
+    stripComponents = 1
     private = true
     executable = true
 [".local/bin/fzf"]
@@ -75,7 +76,7 @@
 [".local/bin/k9s"]
     type = "archive-file"
     url = "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Linux_amd64.tar.gz"
-    checksum.sha256 = "ce5ca5132d882f46c88ab6f090f091a54425728b2009a46b176554506ac7e07e"
+    checksum.sha256 = "5e625efa26c3e14256cf29d242179b32129183b549937ec62d0ad9be1bfe2ca4"
     path = "k9s"
     private = true
     executable = true
@@ -119,7 +120,8 @@
     type = "archive-file"
     url = "https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz"
     checksum.sha256 = "4cf9f2741e6c465ffdb7c26f38056a59e2a2544b51f7cc128ef28337eeae4d8e"
-    path = "ripgrep-14.1.1-x86_64-unknown-linux-musl/rg"
+    path = "rg"
+    stripComponents = 1
     private = true
     executable = true
 [".local/bin/starship"]
@@ -162,7 +164,8 @@
     type = "archive-file"
     url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v0.5.0/age-plugin-yubikey-v0.5.0-x86_64-linux.tar.gz"
     checksum.sha256 = "019b35a13fc81be56d73d0723db0a2082fbd04c936c2c6836381111f7f51b2c3"
-    path = "age-plugin-yubikey/age-plugin-yubikey"
+    path = "age-plugin-yubikey"
+    stripComponents = 1
     private = true
     executable = true
 {{- end }}
