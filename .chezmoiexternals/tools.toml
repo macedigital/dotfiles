@@ -3,8 +3,8 @@
 {{- if eq .chezmoi.arch "amd64" }}
 [".local/bin/atuin"]
 	type = "file"
-	url = "https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-musl.tar.gz"
-	checksum.sha256 = "c781d5eeb4c407069fbc402ec3ad11a755f5a916f13220ac4612dccda42399ad"
+	url = "https://github.com/atuinsh/atuin/releases/download/v18.7.1/atuin-x86_64-unknown-linux-musl.tar.gz"
+	checksum.sha256 = "6fac2f65501c1e4c4499c9f314658eeaf8b9c83e32c4eb19273d89b046537316"
 	executable = true
 	private = true
 [".local/bin/bat"]
@@ -24,14 +24,21 @@
     private = true
 [".local/bin/direnv"]
     type = "file"
-    url = "https://github.com/direnv/direnv/releases/download/v2.36.0/direnv.linux-amd64"
-    checksum.sha256 = "604f3dc51f05620d7ea8d8360b3a18d72ccc842a181edabca4d7bd75b6784f88"
+    url = "https://github.com/direnv/direnv/releases/download/v2.37.1/direnv.linux-amd64"
+    checksum.sha256 = "1f1b93dd6f38523fde26dfac96151ef9d31a374e3005cd3345fb93555ae0c9b5"
+    executable = true
+    private = true
+[".local/bin/dyff"]
+    type = "archive-file"
+    url = "https://github.com/homeport/dyff/releases/download/v1.10.1/dyff_1.10.1_linux_amd64.tar.gz"
+    checksum.sha256 = "fa35de9f24d5e322fa3713588f5931145ec59212ca59ab7aa4b51fbdb44c37e3"
+    path = "dyff"
     executable = true
     private = true
 [".local/bin/eza"]
     type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.21.1/eza_x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "c9ffa0f9fa0c1acc05e9d1ba0efa0296c78cf55d5529a986a809be0ed92b90c2"
+    url = "https://github.com/eza-community/eza/releases/download/v0.23.0/eza_x86_64-unknown-linux-musl.tar.gz"
+    checksum.sha256 = "54573ed7216a130b01fdd07d3942243d9fd588e3147ee5b58fed92a5e1cc0484"
     stripComponents = 1
     path = "eza"
     private = true
@@ -45,8 +52,8 @@
     executable = true
 [".local/bin/fzf"]
     type = "archive-file"
-    url = "https://github.com/junegunn/fzf/releases/download/v0.63.0/fzf-0.63.0-linux_amd64.tar.gz"
-    checksum.sha256 = "36e60fe51fed2f72954b39b9ce1e7ea72c1dc79bc99f4a3c2a7b98bb1a2b49bb"
+    url = "https://github.com/junegunn/fzf/releases/download/v0.64.0/fzf-0.64.0-linux_amd64.tar.gz"
+    checksum.sha256 = "e61bdbb4356ee243d2247c2e0bf990b23eb8b8346557d0f496898c61bc835880"
     path = "fzf"
     private = true
     executable = true
@@ -72,8 +79,8 @@
     private = true
 [".local/bin/lazygit"]
     type = "archive-file"
-    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.49.0/lazygit_0.49.0_Linux_x86_64.tar.gz"
-    checksum.sha256 = "ae9c9a3fcea9cdaf6511a7ca0040210cc71ab481fc773e53737cbfe92da974ce"
+    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.53.0/lazygit_0.53.0_Linux_x86_64.tar.gz"
+    checksum.sha256 = "e379d9463b9ba68e2652dfbc4b9a1b677a7afd000c021ec10aaeb04b3491a52d"
     path = "lazygit"
     private = true
     executable = true
@@ -107,8 +114,8 @@
     private = true
 [".local/bin/yq"]
     type = "file"
-    url = "https://github.com/mikefarah/yq/releases/download/v4.45.1/yq_linux_amd64"
-    checksum.sha256 = "654d2943ca1d3be2024089eb4f270f4070f491a0610481d128509b2834870049"
+    url = "https://github.com/mikefarah/yq/releases/download/v4.47.1/yq_linux_amd64"
+    checksum.sha256 = "0fb28c6680193c41b364193d0c0fc4a03177aecde51cfc04d506b1517158c2fb"
     private = true
     executable = true
 [".local/bin/zellij"]
