@@ -92,6 +92,22 @@
     path = "lazygit"
     private = true
     executable = true
+[".local/bin/micro"]
+    type = "archive-file"
+    url = "https://github.com/zyedidia/micro/releases/download/v2.0.14/micro-2.0.14-linux64-static.tar.gz"
+    checksum.sha256 = "da6fefe16f09f90ae07d32f7c6be811a0acfd3e8edadfefccc9991ae78e9b229"
+    stripComponents = 1
+    path = "micro"
+    private = true
+    executable = true
+[".local/bin/rclone"]
+    type = "archive-file"
+    url = "https://github.com/rclone/rclone/releases/download/v1.70.2/rclone-v1.70.2-linux-amd64.zip"
+    checksum.sha256 = "7bfa813f426820d20436e48a4e0b9bf21977fcd513a48f2d28eede3136b4bacb"
+    path = "rclone"
+    stripComponents = 1
+    private = true
+    executable = true
 [".local/bin/restic"]
     type = "file"
     url = "https://github.com/restic/restic/releases/download/v0.18.0/restic_0.18.0_linux_amd64.bz2"
