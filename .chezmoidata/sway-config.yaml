@@ -1,4 +1,20 @@
 sway:
+  outputs:
+    - name: "eDP-1"
+      comment: "built-in"
+      config:
+        - pos 300 1440
+    - name: &output_office "Dell Inc. DELL S2722QC 7GZYLD3"
+      comment: "office"
+      config:
+        - resolution 3840x2160
+        - scale 1.5
+        - pos 0 0
+    - name: &output_standing_desk "Dell Inc. DELL P2720DC 9K0QK53"
+      comment: "standing desk"
+      config:
+        - resolution 2560x1440
+        - pos 0 0
   colorschemes:
     dunst:
       link: &dunst_theme_target ~/.config/dunst/dunstrc.d/10-colorscheme.conf
@@ -32,26 +48,10 @@ sway:
       light:
         - output: "*"
           image: ~/Pictures/Wallpapers/F34_default_wallpaper_day.jpg
-        - output: "Dell Inc. DELL S2722QC 7GZYLD3"
+        - output: *output_office
           image: ~/Pictures/Wallpapers/default-prefer-light.wallpaper
       dark:
         - output: "*"
           image: ~/Pictures/Wallpapers/F34_default_wallpaper_night.jpg
-        - output: "Dell Inc. DELL S2722QC 7GZYLD3"
+        - output: *output_office
           image: ~/Pictures/Wallpapers/default-prefer-dark.wallpaper
-  outputs:
-    - name: "eDP-1"
-      comment: "built-in"
-      config:
-        - pos 300 1440
-    - name: "Dell Inc. DELL S2722QC 7GZYLD3"
-      comment: "office"
-      config:
-        - resolution 3840x2160
-        - scale 1.5
-        - pos 0 0
-    - name: "Dell Inc. DELL P2720DC 9K0QK53"
-      comment: "standing desk"
-      config:
-        - resolution 2560x1440
-        - pos 0 0
