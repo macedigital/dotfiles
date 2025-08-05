@@ -35,7 +35,7 @@
   timeout = 10
 
 [urgency_normal]
-  timeout = 30
+  timeout = 15
 
 [urgency_critical]
   timeout = 0
