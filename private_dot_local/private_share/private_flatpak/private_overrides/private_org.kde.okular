@@ -1,2 +1,3 @@
 [Context]
-filesystems=xdg-documents:ro;xdg-run/speech-dispatcher;
+filesystems=xdg-documents:ro;
+sockets=cups;
