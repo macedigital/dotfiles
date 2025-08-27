@@ -1,4 +1,6 @@
 # for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
+# https://github.com/twpayne/chezmoi/discussions/4178#discussioncomment-11719758
+{{- if not ( not ( env "ONLINE" ) ) }}
 {{- if eq .chezmoi.os "linux" }}
 [".local/share/fonts/FiraCodeNerdFont"]
     type = "archive"
@@ -12,4 +14,5 @@
     checksum.sha256 = "a57936d96aefb5cfff0660f3294210ee04705529af6cf811e2274b0923a03939"
     include = ["MesloLGLNerdFontPropo-*.ttf"]
     private = true
+{{- end }}
 {{- end }}

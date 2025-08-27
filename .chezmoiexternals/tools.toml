@@ -1,167 +1,187 @@
 # for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
-{{- if eq .chezmoi.os "linux" }}
-{{- if eq .chezmoi.arch "amd64" }}
-[".local/bin/atuin"]
-	type = "file"
-	url = "https://github.com/atuinsh/atuin/releases/download/v18.7.1/atuin-x86_64-unknown-linux-musl.tar.gz"
-	checksum.sha256 = "6fac2f65501c1e4c4499c9f314658eeaf8b9c83e32c4eb19273d89b046537316"
-	executable = true
-	private = true
-[".local/bin/bat"]
-    type = "archive-file"
-    url = "https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "93f47d76abe328c402ef712e9ac92aa6d5bc84d5adcbcaf0bbc5665e5275a941"
-    stripComponents = 1
-    path = "bat"
-    private = true
-    executable = true
-[".local/bin/delta"]
-    type = "archive-file"
-    url = "https://github.com/dandavison/delta/releases/download/0.18.2/delta-0.18.2-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "b7ea845004762358a00ef9127dd9fd723e333c7e4b9cb1da220c3909372310ee"
-    stripComponents = 1
-    path = "delta"
-    private = true
-    executable = true
-[".local/bin/devbox"]
-    type = "archive-file"
-    url = "https://github.com/jetify-com/devbox/releases/download/0.14.2/devbox_0.14.2_linux_amd64.tar.gz"
-    checksum.sha256 = "1702a327dc27712f408b99c90df0414ddf15ec3f15472ec006e95947f2a5dde7"
-    path = "devbox"
-    executable = true
-    private = true
+
+# speed up daily usage, only check externals if environment variable `ONLINE` is set
+# https://github.com/twpayne/chezmoi/discussions/4178#discussioncomment-11719758
+{{- if not ( not (env "ONLINE") ) }}
+
+# dynamic name resolution for golang based binaries, won't work on Windows
+{{- if ne .chezmoi.os "windows" }}
 [".local/bin/direnv"]
     type = "file"
-    url = "https://github.com/direnv/direnv/releases/download/v2.37.1/direnv.linux-amd64"
-    checksum.sha256 = "1f1b93dd6f38523fde26dfac96151ef9d31a374e3005cd3345fb93555ae0c9b5"
+    url = {{ gitHubLatestReleaseAssetURL "direnv/direnv" ( printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch ) | quote }}
+    executable = true
+    private = true
+[".local/bin/devbox"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "jetify-com/devbox" ( printf "devbox_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "devbox"
     executable = true
     private = true
 [".local/bin/dyff"]
     type = "archive-file"
-    url = "https://github.com/homeport/dyff/releases/download/v1.10.1/dyff_1.10.1_linux_amd64.tar.gz"
-    checksum.sha256 = "fa35de9f24d5e322fa3713588f5931145ec59212ca59ab7aa4b51fbdb44c37e3"
+    url = {{ gitHubLatestReleaseAssetURL "homeport/dyff" ( printf "dyff_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
     path = "dyff"
     executable = true
     private = true
-[".local/bin/eza"]
-    type = "archive-file"
-    url = "https://github.com/eza-community/eza/releases/download/v0.23.0/eza_x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "54573ed7216a130b01fdd07d3942243d9fd588e3147ee5b58fed92a5e1cc0484"
-    stripComponents = 1
-    path = "eza"
-    private = true
-    executable = true
-[".local/bin/fd"]
-    type = "archive-file"
-    url = "https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "d9bfa25ec28624545c222992e1b00673b7c9ca5eb15393c40369f10b28f9c932"
-    path = "fd"
-    stripComponents = 1
-    private = true
-    executable = true
 [".local/bin/fzf"]
     type = "archive-file"
-    url = "https://github.com/junegunn/fzf/releases/download/v0.64.0/fzf-0.64.0-linux_amd64.tar.gz"
-    checksum.sha256 = "e61bdbb4356ee243d2247c2e0bf990b23eb8b8346557d0f496898c61bc835880"
+    url = {{ gitHubLatestReleaseAssetURL "junegunn/fzf" ( printf "fzf-*-%s_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
     path = "fzf"
+    private = true
+    executable = true
+[".local/bin/gh"]
+	type = "archive-file"
+	url = {{ gitHubLatestReleaseAssetURL "cli/cli" ( printf "gh_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "gh"
+    stripComponents = 2
     private = true
     executable = true
 [".local/bin/grype"]
 	type = "archive-file"
-	url = "https://github.com/anchore/grype/releases/download/v0.97.0/grype_0.97.0_linux_amd64.tar.gz"
-	checksum.sha256 = "d5cee3ef240f0d2a94ea6165f6bca6784c61d3f38a4c15895bf3be051b5f6fc4"
+	url = {{ gitHubLatestReleaseAssetURL "anchore/grype" ( printf "grype_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch) | quote }}
 	path = "grype"
 	private = true
 	executable = true
-[".local/bin/jless"]
+[".local/bin/jd"]
+	type = "file"
+	url = {{ gitHubLatestReleaseAssetURL "josephburnett/jd" ( printf "jd-%s-%s" .chezmoi.arch .chezmoi.os ) | quote }}
+	executable = true
+	private = true
+[".local/bin/mlr"]
     type = "archive-file"
-    url = "https://github.com/PaulJuliusMartinez/jless/releases/download/v0.9.0/jless-v0.9.0-x86_64-unknown-linux-gnu.zip"
-    checksum.sha256 = "a1e0eb63ef347adc649989ac5c7d2dc896df6d494622b953c86e3a248e733a93"
-    path = "jless"
-    private = true
-    executable = true
-[".local/bin/k9s"]
-    type = "archive-file"
-    url = "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Linux_amd64.tar.gz"
-    checksum.sha256 = "5e625efa26c3e14256cf29d242179b32129183b549937ec62d0ad9be1bfe2ca4"
-    path = "k9s"
-    private = true
-    executable = true
-[".local/bin/kind"]
-    type = "file"
-    url = "https://github.com/kubernetes-sigs/kind/releases/download/v0.29.0/kind-linux-amd64"
-    checksum.sha256 = "c72eda46430f065fb45c5f70e7c957cc9209402ef309294821978677c8fb3284"
-    executable = true
-    private = true
-[".local/bin/lazygit"]
-    type = "archive-file"
-    url = "https://github.com/jesseduffield/lazygit/releases/download/v0.53.0/lazygit_0.53.0_Linux_x86_64.tar.gz"
-    checksum.sha256 = "e379d9463b9ba68e2652dfbc4b9a1b677a7afd000c021ec10aaeb04b3491a52d"
-    path = "lazygit"
-    private = true
-    executable = true
-[".local/bin/micro"]
-    type = "archive-file"
-    url = "https://github.com/zyedidia/micro/releases/download/v2.0.14/micro-2.0.14-linux64-static.tar.gz"
-    checksum.sha256 = "da6fefe16f09f90ae07d32f7c6be811a0acfd3e8edadfefccc9991ae78e9b229"
+    url = {{ gitHubLatestReleaseAssetURL "johnkerl/miller" ( printf "miller-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "mlr"
     stripComponents = 1
-    path = "micro"
     private = true
     executable = true
 [".local/bin/rclone"]
     type = "archive-file"
-    url = "https://github.com/rclone/rclone/releases/download/v1.70.2/rclone-v1.70.2-linux-amd64.zip"
-    checksum.sha256 = "7bfa813f426820d20436e48a4e0b9bf21977fcd513a48f2d28eede3136b4bacb"
+    url = {{ gitHubLatestReleaseAssetURL "rclone/rclone" ( printf "rclone-*-%s-%s.zip" .chezmoi.os .chezmoi.arch ) | quote }}
     path = "rclone"
     stripComponents = 1
     private = true
     executable = true
 [".local/bin/restic"]
     type = "file"
-    url = "https://github.com/restic/restic/releases/download/v0.18.0/restic_0.18.0_linux_amd64.bz2"
-    checksum.sha256 = "98f6dd8bf5b59058d04bfd8dab58e196cc2a680666ccee90275a3b722374438e"
+    url = {{ gitHubLatestReleaseAssetURL "restic/restic" ( printf "restic_*_%s_%s.bz2" .chezmoi.os .chezmoi.arch ) | quote }}
     filter.command = "bunzip2"
+    private = true
+    executable = true
+[".local/bin/yq"]
+    type = "file"
+    url = {{ gitHubLatestReleaseAssetURL "mikefarah/yq" ( printf "yq_%s_%s" .chezmoi.os .chezmoi.arch ) | quote }}
+    private = true
+    executable = true
+
+{{- if eq .chezmoi.os "linux" }}
+[".local/bin/nnn"]
+	type = "archive-file"
+	url = {{ gitHubLatestReleaseAssetURL "jarun/nnn" "nnn-nerd-static-*.tar.gz" | quote }}
+	path = "nnn-nerd-static"
+	private = true
+	executable = true
+
+{{- if eq .chezmoi.arch "amd64" }}
+[".local/bin/atuin"]
+	type = "file"
+	url = {{ gitHubLatestReleaseAssetURL "atuinsh/atuin" "atuin-x86_64-unknown-linux-musl.tar.gz" | quote }}
+	executable = true
+	private = true
+[".local/bin/bat"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/bat" "bat-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
+    stripComponents = 1
+    path = "bat"
+    private = true
+    executable = true
+[".local/bin/delta"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "dandavison/delta" "delta-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
+    stripComponents = 1
+    path = "delta"
+    private = true
+    executable = true
+[".local/bin/eza"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "eza-community/eza" "eza_x86_64-unknown-linux-musl.tar.gz" | quote }}
+    stripComponents = 1
+    path = "eza"
+    private = true
+    executable = true
+[".local/bin/fd"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "sharkdp/fd" "fd-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
+    path = "fd"
+    stripComponents = 1
+    private = true
+    executable = true
+[".local/bin/jless"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "PaulJuliusMartinez/jless" "jless-*-x86_64-unknown-linux-gnu.zip" | quote }}
+    path = "jless"
+    private = true
+    executable = true
+[".local/bin/lazygit"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "jesseduffield/lazygit" "lazygit_*_linux_x86_64.tar.gz" | quote }}
+    path = "lazygit"
+    private = true
+    executable = true
+[".local/bin/micro"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "zyedidia/micro" "micro-*-linux64-static.tar.gz" | quote }}
+    stripComponents = 1
+    path = "micro"
     private = true
     executable = true
 [".local/bin/rg"]
     type = "archive-file"
-    url = "https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "4cf9f2741e6c465ffdb7c26f38056a59e2a2544b51f7cc128ef28337eeae4d8e"
-    path = "rg"
+    url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" "ripgrep-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
+	path = "rg"
     stripComponents = 1
     private = true
     executable = true
 [".local/bin/starship"]
     type = "archive-file"
-    url = "https://github.com/starship/starship/releases/download/v1.23.0/starship-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "8d06d2cc67aedd6316ff58ab679fb80cded0d85de1dcd5727df0633d35356d57"
+    url = {{ gitHubLatestReleaseAssetURL "starship/starship" "starship-x86_64-unknown-linux-musl.tar.gz" | quote }}
     path = "starship"
     private = true
     executable = true
 [".local/bin/sway-previous-focus"]
     type = "archive-file"
-    url = "https://github.com/macedigital/sway-previous-focus/releases/download/v0.2.0/sway-previous-focus_Linux_x86_64.tar.gz"
-    checksum.sha256 = "e643a76b480c450ff6dfe2257a59ca9eb6c711fd3a50b4cdfaaf9b96b71da2a4"
+    url = {{ gitHubLatestReleaseAssetURL "macedigital/sway-previous-focus" "sway-previous-focus_Linux_x86_64.tar.gz" | quote }}
     path = "sway-previous-focus"
     executable = true
     private = true
-[".local/bin/yq"]
-    type = "file"
-    url = "https://github.com/mikefarah/yq/releases/download/v4.47.1/yq_linux_amd64"
-    checksum.sha256 = "0fb28c6680193c41b364193d0c0fc4a03177aecde51cfc04d506b1517158c2fb"
+[".local/bin/uv"]
+	type = "archive-file"
+	url = {{ gitHubLatestReleaseAssetURL "astral-sh/uv" "uv-x86_64-unknown-linux-musl.tar.gz" | quote }}
+	stripComponents = 1
+	path = "uv"
+	private = true
+	executable = true
+[".local/bin/uvx"]
+	type = "archive-file"
+	url = {{ gitHubLatestReleaseAssetURL "astral-sh/uv" "uv-x86_64-unknown-linux-musl.tar.gz" | quote }}
+	stripComponents = 1
+	path = "uvx"
+	private = true
+	executable = true
+[".local/bin/xan"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "medialab/xan" "xan-x86_64-unknown-linux-musl.tar.gz" | quote }}
+    path = "xan"
     private = true
     executable = true
 [".local/bin/zellij"]
     type = "archive-file"
-    url = "https://github.com/zellij-org/zellij/releases/download/v0.42.2/zellij-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "c2d4833512539455bfdddab5c297d43f7cc3b77d8b7e92ad03e2529111c7c652"
+    url = {{ gitHubLatestReleaseAssetURL "zellij-org/zellij" "zellij-x86_64-unknown-linux-musl.tar.gz" | quote }}
     path = "zellij"
     executable = true
     private = true
 [".local/bin/zoxide"]
     type = "archive-file"
-    url = "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz"
-    checksum.sha256 = "4092ee38aa1efde42e4efb2f9c872df5388198aacae7f1a74e5eb5c3cc7f531c"
+    url = {{ gitHubLatestReleaseAssetURL "ajeetdsouza/zoxide" "zoxide-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
     path = "zoxide"
     executable = true
     private = true
@@ -169,12 +189,13 @@
 {{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
 [".local/bin/age-plugin-yubikey"]
     type = "archive-file"
-    url = "https://github.com/str4d/age-plugin-yubikey/releases/download/v0.5.0/age-plugin-yubikey-v0.5.0-x86_64-linux.tar.gz"
-    checksum.sha256 = "019b35a13fc81be56d73d0723db0a2082fbd04c936c2c6836381111f7f51b2c3"
+    url = {{ gitHubLatestReleaseAssetURL "str4d/age-plugin-yubikey" "age-plugin-yubikey-*-x86_64-linux.tar.gz" | quote }}
     path = "age-plugin-yubikey"
     stripComponents = 1
     private = true
     executable = true
+{{- end }}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
