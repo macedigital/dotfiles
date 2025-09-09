@@ -1,4 +1,6 @@
 [Context]
 shared=network;
-sockets=fallback-x11;
 filesystems=xdg-config/joplin-desktop;
+
+[Environment]
+ELECTRON_OZONE_PLATFORM_HINT=wayland
