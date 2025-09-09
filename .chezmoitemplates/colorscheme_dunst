@@ -1,15 +1,21 @@
 #!/bin/sh
 set -eu
 
-# Close all notifications to workaround issue under native Wayland
-# https://github.com/dunst-project/dunst/issues/1434
-dunstctl close-all
+# Pause all notifications to workaround issue under native Wayland
+# see https://github.com/dunst-project/dunst/issues/1434
+# fixed in https://github.com/dunst-project/dunst/releases/tag/v1.13.0
+
+# Prevent new notifications
+dunstctl set-paused true
 
 # Replace colorscheme
-{{ template "symlink" . }}
+{{ template "symlink" . -}}
 
 # Reload configuration
 dunstctl reload
+
+# Re-enable showing notifications
+dunstctl set-paused false
 
 # Trigger a small, passive popup dialog to inform the user about darkman's activity
 # Reference https://wiki.archlinux.org/title/Desktop_notifications#Usage_in_programming
