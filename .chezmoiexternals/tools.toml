@@ -6,6 +6,20 @@
 
 # dynamic name resolution for golang based binaries, won't work on Windows
 {{- if ne .chezmoi.os "windows" }}
+[".local/bin/age"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" ( printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "age"
+    stripComponents = 1
+    executable = true
+    private = true
+[".local/bin/age-keygen"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" ( printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "age-keygen"
+    stripComponents = 1
+    executable = true
+    private = true
 [".local/bin/direnv"]
     type = "file"
     url = {{ gitHubLatestReleaseAssetURL "direnv/direnv" ( printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch ) | quote }}
