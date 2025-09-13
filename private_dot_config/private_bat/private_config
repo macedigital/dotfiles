@@ -6,6 +6,8 @@
 # for a list of all available themes
 # Use "ansi" theme to inherit base colors from terminal theme
 --theme="ansi"
+--theme-light="OneHalfLight"
+--theme-dark="OneHalfDark"
 
 # Enable this to use italic text on the terminal. This is not supported on all
 # terminal emulators (like tmux, by default):
