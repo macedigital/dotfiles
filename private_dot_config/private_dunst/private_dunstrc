@@ -1,6 +1,7 @@
 # See dunst(5) for all configuration options
 # Global override such that default config stays pristine
 [global]
+  follow = mouse
   corner_radius = 4
   enable_posix_regex = true
   font = "'MesloLGL Nerd Font Propo' 12"
