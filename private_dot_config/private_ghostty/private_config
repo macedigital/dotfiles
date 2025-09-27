@@ -1,4 +1,4 @@
 # stylistic choices
 font-family = "FiraCode Nerd Font"
 font-size = 11
-theme = dark:tokyonight,light:tokyonight-day
+theme = dark:"TokyoNight Night",light:"TokyoNight Day"
