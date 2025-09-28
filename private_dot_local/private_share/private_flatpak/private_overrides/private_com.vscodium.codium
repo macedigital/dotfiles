@@ -1,8 +1,13 @@
 [Context]
-filesystems=xdg-data/fonts:ro;xdg-config/git:ro;~/Projects;~/.ssh/allowed_signers:ro;~/.ssh/config:ro;
+filesystems=~/Projects;xdg-config/git:ro;xdg-data/bash:ro;~/.bashrc:ro;~/.local/bin/direnv:ro;~/.local/bin/gh:ro;~/.ssh/config:ro;~/.ssh/allowed_signers:ro;
 shared=network;
 sockets=ssh-auth;
 persistent=.ssh;
 
+[Session Bus Policy]
+org.freedesktop.secrets=talk
+
 [Environment]
-FLATPAK_ENABLE_SDK_EXT=golang,node22,rust-stable,openjdk
+FLATPAK_ENABLE_SDK_EXT=golang,node22,rust-stable,openjdk,typescript
+ELECTRON_OZONE_PLATFORM_HINT=wayland
+SSH_DEFAULT_USER=git
