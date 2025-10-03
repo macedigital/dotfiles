@@ -1,3 +1,6 @@
+wallpaper:
+  light: &wallpaper_light ~/Pictures/Wallpapers/F34_default_wallpaper_day.jpg
+  dark: &wallpaper_dark ~/Pictures/Wallpapers/F34_default_wallpaper_night.jpg
 sway:
   outputs:
     - name: "eDP-1"
@@ -39,19 +42,20 @@ sway:
     swaylock:
       link: &swaylock_target ~/Pictures/Wallpapers/swaylock.wallpaper
       light:
-        source: ~/Pictures/Wallpapers/F34_default_wallpaper_day.jpg
+        source: *wallpaper_light
         target: *swaylock_target
       dark:
-        source: ~/Pictures/Wallpapers/F34_default_wallpaper_night.jpg
+        source: *wallpaper_dark
         target: *swaylock_target
     wallpaper:
       light:
         - output: "*"
-          image: ~/Pictures/Wallpapers/F34_default_wallpaper_day.jpg
+          image: *wallpaper_light
         - output: *output_office
           image: ~/Pictures/Wallpapers/default-prefer-light.wallpaper
       dark:
         - output: "*"
-          image: ~/Pictures/Wallpapers/F34_default_wallpaper_night.jpg
+          image: *wallpaper_dark
         - output: *output_office
           image: ~/Pictures/Wallpapers/default-prefer-dark.wallpaper
+
