@@ -81,6 +81,11 @@
     filter.command = "bunzip2"
     private = true
     executable = true
+[".local/bin/sops"]
+    type = "file"
+    url = {{ gitHubLatestReleaseAssetURL "getsops/sops" ( printf "sops-*.%s.%s" .chezmoi.os .chezmoi.arch ) | quote }}
+    private = true
+    executable = true
 [".local/bin/yq"]
     type = "file"
     url = {{ gitHubLatestReleaseAssetURL "mikefarah/yq" ( printf "yq_%s_%s" .chezmoi.os .chezmoi.arch ) | quote }}
