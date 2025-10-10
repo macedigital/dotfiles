@@ -97,8 +97,10 @@
 
 {{- if eq .chezmoi.arch "amd64" }}
 [".local/bin/atuin"]
-	type = "file"
+	type = "archive-file"
 	url = {{ gitHubLatestReleaseAssetURL "atuinsh/atuin" "atuin-x86_64-unknown-linux-musl.tar.gz" | quote }}
+	path = "atuin"
+	stripComponents = 1
 	executable = true
 	private = true
 [".local/bin/bat"]
