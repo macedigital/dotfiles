@@ -167,6 +167,13 @@
     path = "micro"
     private = true
     executable = true
+[".local/bin/navi"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "denisidoro/navi" "navi-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
+    stripComponents = 1
+    path = "navi"
+    private = true
+    executable = true
 [".local/bin/rg"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" "ripgrep-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
