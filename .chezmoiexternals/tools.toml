@@ -122,6 +122,12 @@
     path = "delta"
     private = true
     executable = true
+[".local/bin/duf"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "muesli/duf" "duf_*_linux_x86_64.tar.gz" | quote }}
+    path = "duf"
+    executable = true
+    private = true
 [".local/bin/eza"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "eza-community/eza" "eza_x86_64-unknown-linux-musl.tar.gz" | quote }}
