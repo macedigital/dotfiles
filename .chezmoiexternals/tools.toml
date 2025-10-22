@@ -161,6 +161,12 @@
 	path = "just"
     executable = true
 	private = true
+[".local/bin/k9s"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "derailed/k9s" "k9s_Linux_amd64.tar.gz" | quote }}
+    path = "k9s"
+    private = true
+    executable = true
 [".local/bin/lazygit"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "jesseduffield/lazygit" "lazygit_*_linux_x86_64.tar.gz" | quote }}
