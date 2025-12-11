@@ -6,6 +6,8 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
+# unofficial variable, used by e.g. github.com/bevry/dorothy/
+set -gx XDG_BIN_HOME $HOME/.local/bin
 
 if status is-interactive
     # Set up global environment variables for interactive sessions
@@ -19,12 +21,12 @@ if status is-interactive
     # https://fishshell.com/docs/current/cmds/fish_greeting.html
     set -g fish_greeting
 
-    # Ensure that ~/.local/bin/ is in PATH
-    if test -d $HOME/.local/bin
+    # Ensure that $XDG_BIN_HOME is in PATH
+    if test -d $XDG_BIN_HOME
         if type -q fish_add_path
-            fish_add_path $HOME/.local/bin
+            fish_add_path $XDG_BIN_HOME
         else
-            contains $HOME/.local/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.local/bin
+            contains $XDG_BIN_HOME $fish_user_paths; or set -Ua fish_user_paths $XDG_BIN_HOME
         end
     end
 
