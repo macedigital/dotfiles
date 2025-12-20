@@ -38,8 +38,13 @@
     eol = native
     quotepath = false
     fileMode = false
+[gpg]
+    format = ssh
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
+    # dynamic lookup of first ssh-key from ssh-agent, must be prefixed with 'key::'
+    # https://github.com/maxgoedjen/secretive/issues/262#issuecomment-997772711
+    defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
 [diff]
     algorithm = histogram
     colorMoved = plain
@@ -68,7 +73,6 @@
     rebase = merges
 [push]
     default = current
-    #default = simple
     autoSetupRemote = true
     followTags = true
     rebase = true
