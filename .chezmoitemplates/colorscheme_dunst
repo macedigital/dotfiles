@@ -11,6 +11,7 @@ dunstctl set-paused true
 # Replace colorscheme
 {{ template "symlink" . -}}
 
+
 # Reload configuration
 dunstctl reload
 

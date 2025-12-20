@@ -24,7 +24,7 @@
   width =  (300,400)
   height = (75, 300)
   origin = top-right
-  offset = (10, 10)
+  offset = (4, 4)
 
   # Auto-detect if value is 0.
   scale = 0
@@ -39,5 +39,5 @@
   timeout = 15
 
 [urgency_critical]
-  timeout = 0
+  timeout = 120
   default_icon = dialog-warning-symbolic
