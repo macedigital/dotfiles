@@ -9,5 +9,4 @@ org.freedesktop.secrets=talk
 
 [Environment]
 FLATPAK_ENABLE_SDK_EXT=golang,node22,rust-stable,openjdk,typescript
-ELECTRON_OZONE_PLATFORM_HINT=wayland
 SSH_DEFAULT_USER=git

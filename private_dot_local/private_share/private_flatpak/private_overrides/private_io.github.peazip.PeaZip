@@ -1,5 +1,0 @@
-[Context]
-features=!multiarch;
-
-[Session Bus Policy]
-org.kde.StatusNotifierWatcher=talk

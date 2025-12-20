@@ -3,5 +3,5 @@ shared=network;
 sockets=pulseaudio;
 
 [Session Bus Policy]
-org.kde.StatusNotifierWatcher=talk
+org.freedesktop.Notifications=talk
 org.freedesktop.secrets=talk

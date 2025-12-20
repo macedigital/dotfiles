@@ -1,3 +1,3 @@
 [Context]
-filesystems=xdg-videos:ro;
+filesystems=xdg-videos:ro;xdg-config/mpv;xdg-config/mpv/mpv.conf:ro;
 sockets=pulseaudio;
