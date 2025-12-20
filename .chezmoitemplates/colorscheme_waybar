@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+# Replace colorscheme
+{{ template "symlink" . }}
+
+# Reload all running waybar instances
+pkill -SIGUSR2 waybar
+
+# Reload specific widget only
+#pkill -SIGRTMIN+8 waybar
