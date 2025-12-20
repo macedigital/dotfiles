@@ -7,9 +7,5 @@ wallpapers:
   sources:
     - "https://fedoraproject.org/w/uploads/3/35/F34_default_wallpaper_day.jpg"
     - "https://fedoraproject.org/w/uploads/d/de/F34_default_wallpaper_night.jpg"
-    - src: "https://dribbble.com/shots/10094240-Tropical-Escape-Wallpaper/attachments/18706?mode=download"
-      dst: "dribble.com-10094240-Tropical-Escape-Wallpaper.png"
-    - src: "https://images2.alphacoders.com/138/1382868.png"
-      dst: "alphacoders.com-1382868-robokoboto-vibrant-anime-train.png"
     #- src: "https://wallpaperaccess.com/download/abstract-forest-715317"
     #  dst: "wallpaperaccess.com-abstract-forest-715317.jpg"
