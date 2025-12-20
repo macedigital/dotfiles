@@ -18,3 +18,24 @@ settings.json
 .mozilla/
 .rgignore
 .vim/
+{{ if or (ne .host.isGui true) (ne .host.guiSession "sway") -}}
+.config/darkman/
+.config/dunst/
+.config/foot/
+.config/rofi/
+.config/sway/
+.config/swaylock/
+.config/waybar/
+.local/share/dark-mode.d/
+.local/share/light-mode.d/
+{{ end -}}
+{{ if eq .host.chassis "container" -}}
+.config/ghostty/
+.config/gtk-3.0/
+.config/kitty/
+.config/systemd/
+.config/tmux/
+.config/wezterm/
+.local/share/flatpak/
+.local/share/fonts/
+{{ end }}
