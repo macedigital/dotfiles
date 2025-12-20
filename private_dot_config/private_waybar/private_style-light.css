@@ -1,0 +1,6 @@
+/*--- declare custom colors ---*/
+@define-color success_color #26a269;
+
+/*--- import base theme ---*/
+@import "themes/gtk.css";
+

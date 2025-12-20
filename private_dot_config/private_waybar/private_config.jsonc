@@ -1,12 +1,15 @@
+// -*- mode: jsonc -*-
 [{
     "layer": "bottom",
     "position": "top",
     "spacing": 4,
     // effective height also depends on style.css
-    "height": 36,
+    "height": 38,
+    // live-reload on theme changes, disable for regular use
+    // "reload_style_on_change": true,
     // custom waybar for internal display
     "output": "eDP-1",
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["sway/workspaces", "wlr/taskbar"],
     "modules-center": ["clock", "mpris", "privacy", "sway/scratchpad", "sway/mode", "idle_inhibitor"],
     "modules-right": ["tray", "pulseaudio", "temperature", "battery", "custom/colorscheme", "custom/powermenu"],
     // module configuration
@@ -41,8 +44,9 @@
             "3": "",
             "4": "",
             "5": "",
-            "6": "",
-            "7": "",
+            "6": "",
+            "7": "",
+            "8": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -64,10 +68,14 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "events": {
+             "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+             "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+        },
     },
     "clock": {
-        "locale": "en_GB",
+        "locale": "de_DE",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M}",
         "format-alt": "{:%a, %d. %b  %H:%M}",
@@ -147,7 +155,7 @@
         "status-icons": {
             "paused": ""
         },
-        // "ignored-players": ["firefox"],
+        "ignored-players": ["firefox"],
         // "interval": 1
     },
     "network": {
@@ -187,7 +195,7 @@
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
+        "format-muted": "󰖁 {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -211,6 +219,36 @@
         "icon-size": 18,
         "spacing": 10
     },
+    "wireplumber#sink": {
+       "format": "{volume}% {icon}",
+       "format-muted": "󰖁",
+       "format-icons": {
+           "headphone": "",
+           "hands-free": "󱡏",
+           "headset": "󰋎",
+           "phone": "",
+           "portable": "",
+           "car": "",
+           "default": ["", "", ""]
+       },
+       "on-click": "pavucontrol",
+       "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+       "scroll-step": 5
+   },
+   "wireplumber#source": {
+       "node-type": "Audio/Source",
+       "format": "{volume}% ",
+       "format-muted": "",
+       "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+       "scroll-step": 5
+   },
+   "wlr/taskbar": {
+       "all-outputs": true,
+       "on-click": "activate",
+       "on-click-middle": "close",
+       "sort-by-app-id": true
+    },
+    // custom modules
     "group/hardware": {
         "orientation": "inherit",
         "drawer": {
@@ -249,8 +287,8 @@
         },
     },
     "custom/wttr": {
-        "format": "{}",
-        "interval": "once",
-        "exec": "curl 'wttr.in/London?format=3'"
+        "interval": 3600,
+        "exec": "~/.config/waybar/scripts/wttr.sh",
+        "return-type": "json"
     }
 }]
