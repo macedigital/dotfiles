@@ -4,7 +4,7 @@ font=FiraCode Nerd Font:size=12
 font-size-adjustment=12.0 # default 0.5
 dpi-aware=false
 locked-title=no
-initial-color-theme=1 # 1 = light, 2 = dark
+initial-color-theme={{ if (and (lookPath "darkman") (eq (output "darkman" "get" | trim) "dark")) }}2{{else}}1{{ end }} # 1 = light, 2 = dark
 
 [colors]
 # Reference: https://github.com/tokyo-night/tokyo-night-vscode-theme/blob/master/themes/tokyo-night-light-color-theme.json
@@ -30,7 +30,6 @@ bright7=707280
 jump-labels=343b58 e19d37 # brighter yellow than regular3
 
 [colors2]
-alpha=0.95
 background=1a1b26
 foreground=c0caf5
 regular0=15161e
