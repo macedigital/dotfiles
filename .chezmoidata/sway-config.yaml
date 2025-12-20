@@ -18,6 +18,10 @@ sway:
       config:
         - resolution 2560x1440
         - pos 0 0
+    - name: &output_workstation "LG Electronics LG ULTRAWIDE 508NTYTND626"
+      comment: "workstation"
+      config:
+        - pos -440 0
   colorschemes:
     dunst:
       link: &dunst_theme_target ~/.config/dunst/dunstrc.d/10-colorscheme.conf
@@ -53,9 +57,21 @@ sway:
           image: *wallpaper_light
         - output: *output_office
           image: ~/Pictures/Wallpapers/default-prefer-light.wallpaper
+        - output: *output_workstation
+          image: ~/Pictures/Wallpapers/Lakeside_2019_Teal_WQHD.jpg
       dark:
         - output: "*"
           image: *wallpaper_dark
         - output: *output_office
           image: ~/Pictures/Wallpapers/default-prefer-dark.wallpaper
+        - output: *output_workstation
+          image: ~/Pictures/Wallpapers/Lakeside_2019_Evening_WQHD.jpg
+    waybar:
+      link: &waybar_theme_target ~/.config/waybar/themes/current.css
+      light:
+        source: ~/.config/waybar/themes/tokyonight_day.css
+        target: *waybar_theme_target
+      dark:
+        source: ~/.config/waybar/themes/tokyonight_night.css
+        target: *waybar_theme_target
 
