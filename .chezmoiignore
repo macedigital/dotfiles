@@ -30,6 +30,13 @@ settings.json
 .config/waybar/
 .local/share/dark-mode.d/
 .local/share/light-mode.d/
+# Exceptions for arch and cachy-os
+{{ if or (eq .host.osId "linux-cachyos") (eq .host.osId "linux-arch") -}}
+.bash_profile
+.bashrc
+.local/share/bash/
+.local/share/flatpak/
+{{ end }}
 {{ end -}}
 {{ if eq .host.chassis "container" -}}
 .config/ghostty/
@@ -40,4 +47,4 @@ settings.json
 .config/wezterm/
 .local/share/flatpak/
 .local/share/fonts/
-{{ end }}
+{{ end -}}
