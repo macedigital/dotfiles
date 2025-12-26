@@ -30,10 +30,11 @@ settings.json
 .config/waybar/
 .local/share/dark-mode.d/
 .local/share/light-mode.d/
-# Exceptions for arch and cachy-os
-{{ if or (eq .host.osId "linux-cachyos") (eq .host.osId "linux-arch") -}}
+# Exceptions CachyOS
+{{ if eq .host.osId "linux-cachyos" -}}
 .bash_profile
 .bashrc
+.config/gtk-3.0/settings.ini
 .local/share/bash/
 .local/share/flatpak/
 {{ end }}
