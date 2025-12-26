@@ -6,7 +6,7 @@ if status is-interactive
     # prefer uv over pyenv
     if type -p uv > /dev/null
         # no additional neeeded
-    else if test -x $XDG_DATA_HOME/pyenv/bin/pyenv; and not type -p pyenv > /dev/null
+    else if type -p $XDG_DATA_HOME/pyenv/bin/pyenv; and not type -p pyenv > /dev/null
         # setup pyenv
         set -Ux PYENV_ROOT $XDG_DATA_HOME/pyenv
         set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
