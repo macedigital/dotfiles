@@ -82,12 +82,13 @@
         "calendar": {
              "weeks-pos": "left",
              "on-scroll": 1,
+             // https://developer.gnome.org/hig/reference/palette.html
              "format": {
-                  "months":   "<span color='#ffead3'><b>{}</b></span>",
-                  "days":     "<span color='#ecc6d9'><b>{}</b></span>",
-                  "weeks":    "<span color='#99ffdd'><b>CW{:%W}</b></span>",
-                  "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                  "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+                  "months":   "<span color='#77767b'><b>{}</b></span>", // Adwaita:Dark 1
+                  "days":     "<span color='#9a9996'><b>{}</b></span>", // Adwaita:Light 5
+                  "weeks":    "<span color='#77767b'><b>CW{:%W}</b></span>", // Adwaita:Dark 1
+                  "weekdays": "<span color='#77767b'><b>{}</b></span>",  // Adwaita:Dark 1
+                  "today":    "<span color='#e66100'><b><u>{}</u></b></span>" // Adwaita:Orange 4
              }
         },
         "actions": {
