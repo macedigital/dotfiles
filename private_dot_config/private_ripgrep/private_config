@@ -1,0 +1,9 @@
+# Limit line length printed
+--max-columns=150
+--max-columns-preview
+
+# Exclude git folders from globbing
+--glob=!.git/*
+
+# Ignore case
+--smart-case
