@@ -1,7 +1,7 @@
 # for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
 # https://github.com/twpayne/chezmoi/discussions/4178#discussioncomment-11719758
 {{- if not ( not ( env "ONLINE" ) ) }}
-{{- if eq .chezmoi.os "linux" }}
+{{- if and (ne .host.osId "linux-cachyos") (ne .host.osId "linux-arch") }}
 [".local/share/fonts/FiraCodeNerdFont"]
     type = "archive"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.tar.xz"

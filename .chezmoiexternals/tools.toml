@@ -7,7 +7,7 @@
 # dynamic name resolution for golang based binaries, won't work on Windows
 {{- if and (ne .chezmoi.os "windows") (ne .host.chassis "container") }}
 # ArchLinux provides those packages already
-{{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) (not (eq .chezmoi.osRelease.id "cachyos")) }}
+{{- if and (ne .host.osId "linux-arch") (ne .host.osId "linux-cachyos") }}
 [".local/bin/age"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" ( printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
