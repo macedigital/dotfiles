@@ -2,12 +2,14 @@
 # Global override such that default config stays pristine
 [global]
   follow = mouse
-  corner_radius = 4
+  corner_radius = 0
   enable_posix_regex = true
   font = "'MesloLGL Nerd Font Propo' 12"
   frame_width = 1
   icon_corner_radius = 4
   gap_size = 6
+  padding = 6
+  horizontal_padding = 12
   progress_bar_corner_radius = 4
   separator_height = 4
 
@@ -19,6 +21,7 @@
   icon_theme = Adwaita, hicolor
   icon_path = /usr/share/icons/Adwaita/symbolic/actions/:/usr/share/icons/Adwaita/symbolic/apps/:/usr/share/icons/Adwaita/symbolic/devices/:/usr/share/icons/Adwaita/symbolic/status/:/usr/share/icons/HighContrast/scalable/status/:/usr/share/icons/hicolor/22x22/apps/
   default_icon = dialog-information-symbolic
+  format = "<small>%a</small>\n<big><b>%s</b></big>\n%b"
 
   # Geometry
   width =  (300,400)
@@ -40,4 +43,4 @@
 
 [urgency_critical]
   timeout = 120
-  default_icon = dialog-warning-symbolic
+  default_icon = dialog-error-symbolic
