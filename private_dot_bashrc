@@ -10,29 +10,19 @@ if [[ -f /etc/bashrc ]]; then
     source /etc/bashrc
 fi
 
-# Set up globally available XDG_* configuration
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME"/.config}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-"$HOME"/.cache}
-export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/.local/share}
-export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
-export XDG_STATE_HOME=${XDG_STATE_HOME:-"$HOME"/.local/state}
-# unofficial variable, used by e.g. github.com/bevry/dorothy/
-export XDG_BIN_HOME=${XDG_BIN_HOME:-"$HOME"/.local/bin}
-
-# Add locally installed binaries in XDG_BIN_HOME to PATH
-if ! [[ "$PATH" =~ "$XDG_BIN_HOME": ]]; then
-    PATH="${XDG_BIN_HOME}:${PATH}"
-fi
-export PATH
-
-# Add user XDG_DATA_HOME to XDG_DATA_DIRS as first entry
-if ! [[ "$XDG_DATA_HOME" =~ "$XDG_DATA_DIRS": ]]; then
-    XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
-fi
-export XDG_DATA_DIRS
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
+
+# Setup essentials
+export BASH_COMPLETION_USER_FILE="$XDG_DATA_HOME"/bash-completion/completions
+export HISTCONTROL=ignoreboth
+export HISTFILESIZE=2000
+export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:jrnl *:[ \t]*"
+export HISTSIZE=10000
+export HISTTIMEFORMAT="[%Y-%m-%d %T] "
+export LESSHISTFILE=/dev/null
+export LESSSECURE=1
+export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 # Make new files unreadable by anyone other than the owner
 umask 0077

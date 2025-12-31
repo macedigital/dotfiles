@@ -17,3 +17,5 @@ if [[ $TERM == "xterm-kitty" ]]; then
 fi
 
 alias psc='ps xawf -eo pid,user,cgroup,args'
+
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'

@@ -1,0 +1,43 @@
+#!/bin/bash
+# vim:ft=bash:ts=4:sw=4:et
+
+{{- if and (eq .chezmoi.os "linux") (ne .host.chassis "container") }}
+{{- if or (eq .host.osId "linux-cachyos") (eq .host.osId "linux-arch") }}
+
+# Create pacman convenience helpers
+alias pacman-orphans='pacman -Qtdq'
+alias pacman-leaves='pacman -Qm'
+
+# Setup applications with partial xdg support
+
+# cuda
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
+# discord
+export DISCORD_USER_DATA_DIR="${XDG_DATA_HOME}"
+
+# ffmpeg
+export FFMPEG_DATADIR="$XDG_CONFIG_HOME"/ffmpeg
+
+# octave
+export OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave-hsts"
+export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
+
+#$XDG_CONFIG_HOME/octave/octaverc
+#
+#source /usr/share/octave/site/m/startup/octaverc;
+#pkg prefix ~/.local/share/octave/packages ~/.local/share/octave/packages;
+#pkg local_list /home/<your username>/.local/share/octave/octave_packages;
+
+# sage math
+export DOT_SAGE="$XDG_CONFIG_HOME"/sage
+
+# vagrant
+export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
+
+# ollama
+export OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models
+
+{{- end }}
+{{- end }}

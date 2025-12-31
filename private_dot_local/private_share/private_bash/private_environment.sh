@@ -1,19 +1,6 @@
 #!/bin/bash
 # vim: ts=4 sts=4 sw=4 et ft=bash:
 
-# misc
-export GIT_PS1_SHOWDIRTYSTATE=1
-# shellcheck disable=SC2155
-export GPG_TTY=$(tty)
-export HISTCONTROL=ignoreboth
-export HISTFILESIZE=2000
-export HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:history:sudo *:su *:shred *:jrnl *:[ \t]*"
-export HISTSIZE=10000
-export HISTTIMEFORMAT="[%Y-%m-%d %T] "
-export LESSHISTFILE=/dev/null
-export LESSSECURE=1
-export WGETRC="$XDG_CONFIG_HOME"/wgetrc
-
 # load AWS config from .config/ folder
 if [[ -x "$(type -p aws)" ]]; then
     if [[ "$DESKTOP_SESSION" != "ubuntu" ]]; then
@@ -24,6 +11,7 @@ fi
 
 # set 'lynx' as default browser if executable is available
 if [[ -x "$(type -p lynx)" ]]; then
+    export LYNX_CFG="$XDG_CONFIG_HOME"/lynx.cfg
     export BROWSER=lynx
 fi
 
@@ -42,6 +30,7 @@ fi
 
 # Improved ripgrep integration with fzf
 if [[ -x "$(type -p rg)" ]]; then
+    export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
     export FZF_DEFAULT_OPTS="--extended --cycle"
     export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
 fi
