@@ -5,11 +5,20 @@
 {{- if not ( not (env "ONLINE") ) }}
 
 # dynamic name resolution for golang based binaries, won't work on Windows
-{{- if ne .chezmoi.os "windows" }}
+{{- if and (ne .chezmoi.os "windows") (ne .host.chassis "container") }}
+# ArchLinux provides those packages already
+{{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) (not (eq .chezmoi.osRelease.id "cachyos")) }}
 [".local/bin/age"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" ( printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
     path = "age"
+    stripComponents = 1
+    executable = true
+    private = true
+[".local/bin/age-inspect"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" ( printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "age-inspect"
     stripComponents = 1
     executable = true
     private = true
@@ -20,21 +29,30 @@
     stripComponents = 1
     executable = true
     private = true
+[".local/bin/age-plugin-batchpass"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" ( printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "age-plugin-batchpass"
+    stripComponents = 1
+    executable = true
+    private = true
+[".local/bin/age-plugin-yubikey"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "str4d/age-plugin-yubikey" "age-plugin-yubikey-*-x86_64-linux.tar.gz" | quote }}
+    path = "age-plugin-yubikey"
+    stripComponents = 1
+    private = true
+    executable = true
+[".local/bin/age-plugin-tpm"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "Foxboron/age-plugin-tpm" ( printf "age-plugin-tpm-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "age-plugin-tpm"
+    stripComponents = 1
+    executable = true
+    private = true
 [".local/bin/direnv"]
     type = "file"
     url = {{ gitHubLatestReleaseAssetURL "direnv/direnv" ( printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch ) | quote }}
-    executable = true
-    private = true
-[".local/bin/devbox"]
-    type = "archive-file"
-    url = {{ gitHubLatestReleaseAssetURL "jetify-com/devbox" ( printf "devbox_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
-    path = "devbox"
-    executable = true
-    private = true
-[".local/bin/dyff"]
-    type = "archive-file"
-    url = {{ gitHubLatestReleaseAssetURL "homeport/dyff" ( printf "dyff_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
-    path = "dyff"
     executable = true
     private = true
 [".local/bin/fzf"]
@@ -50,17 +68,12 @@
     stripComponents = 2
     private = true
     executable = true
-[".local/bin/grype"]
-	type = "archive-file"
-	url = {{ gitHubLatestReleaseAssetURL "anchore/grype" ( printf "grype_*_%s_%s.tar.gz" .chezmoi.os .chezmoi.arch) | quote }}
-	path = "grype"
-	private = true
-	executable = true
-[".local/bin/jd"]
-	type = "file"
-	url = {{ gitHubLatestReleaseAssetURL "josephburnett/jd" ( printf "jd-%s-%s" .chezmoi.arch .chezmoi.os ) | quote }}
-	executable = true
-	private = true
+[".local/bin/hcloud"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "hetznercloud/cli" "hcloud-linux-amd64.tar.gz" | quote }}
+    path = "hcloud"
+    private = true
+    executable = true
 [".local/bin/mlr"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "johnkerl/miller" ( printf "miller-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
@@ -113,6 +126,12 @@
     url = {{ gitHubLatestReleaseAssetURL "sharkdp/bat" "bat-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
     stripComponents = 1
     path = "bat"
+    private = true
+    executable = true
+[".local/bin/deno"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "denoland/deno" "deno-x86_64-unknown-linux-gnu.zip" | quote }}
+    path = "deno"
     private = true
     executable = true
 [".local/bin/delta"]
@@ -180,11 +199,25 @@
     path = "micro"
     private = true
     executable = true
+[".local/bin/mise"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "jdx/mise" "mise-*-linux-x64-musl.tar.gz" | quote }}
+    stripComponents = 1
+    path = "bin/mise"
+    private = true
+    executable = true
 [".local/bin/navi"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "denisidoro/navi" "navi-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
     stripComponents = 1
     path = "navi"
+    private = true
+    executable = true
+[".local/bin/nitropy"]
+    type = "archive-file"
+    url = "https://github.com/Nitrokey/pynitrokey/releases/download/v0.11.2/nitropy-v0.11.2-x64-linux-binary.tar.gz"
+    checksum.sha256 = "e1a3caf2d7c918fd7401d91eb82b50277686e308d14541cdba5dd3e1bd7872cb"
+    path = "nitropy-v0.11.2-x64-linux-binary"
     private = true
     executable = true
 [".local/bin/rg"]
@@ -200,12 +233,14 @@
     path = "starship"
     private = true
     executable = true
+{{ if and (eq .host.isGui true) (eq .host.guiSession "sway") -}}
 [".local/bin/sway-previous-focus"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "macedigital/sway-previous-focus" "sway-previous-focus_Linux_x86_64.tar.gz" | quote }}
     path = "sway-previous-focus"
     executable = true
     private = true
+{{ end -}}
 [".local/bin/uv"]
 	type = "archive-file"
 	url = {{ gitHubLatestReleaseAssetURL "astral-sh/uv" "uv-x86_64-unknown-linux-musl.tar.gz" | quote }}
@@ -238,15 +273,6 @@
     path = "zoxide"
     executable = true
     private = true
-# ArchLinux provides those packages already
-{{- if and (hasKey .chezmoi.osRelease "id") (not (eq .chezmoi.osRelease.id "arch")) }}
-[".local/bin/age-plugin-yubikey"]
-    type = "archive-file"
-    url = {{ gitHubLatestReleaseAssetURL "str4d/age-plugin-yubikey" "age-plugin-yubikey-*-x86_64-linux.tar.gz" | quote }}
-    path = "age-plugin-yubikey"
-    stripComponents = 1
-    private = true
-    executable = true
 {{- end }}
 {{- end }}
 {{- end }}
