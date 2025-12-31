@@ -2,16 +2,8 @@
 #set -g fish_private_mode private
 umask 0077
 
-set -gx XDG_CACHE_HOME $HOME/.cache
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx XDG_DATA_HOME $HOME/.local/share
-set -gx XDG_STATE_HOME $HOME/.local/state
-# unofficial variable, used by e.g. github.com/bevry/dorothy/
-set -gx XDG_BIN_HOME $HOME/.local/bin
-
 if status is-interactive
     # Set up global environment variables for interactive sessions
-    set -gx GPG_TTY (tty)
     set -gx LESSHISTFILE /dev/null
     set -gx LESSSECURE 1
     set -gx WGETRC $XDG_CONFIG_HOME/wgetrc
@@ -20,15 +12,6 @@ if status is-interactive
     # Disable text for default greeting function
     # https://fishshell.com/docs/current/cmds/fish_greeting.html
     set -g fish_greeting
-
-    # Ensure that $XDG_BIN_HOME is in PATH
-    if test -d $XDG_BIN_HOME
-        if type -q fish_add_path
-            fish_add_path $XDG_BIN_HOME
-        else
-            contains $XDG_BIN_HOME $fish_user_paths; or set -Ua fish_user_paths $XDG_BIN_HOME
-        end
-    end
 
     # z-tooling uses hardcoded paths
     if test "$DESKTOP_SESSION" != "ubuntu"
@@ -41,6 +24,7 @@ if status is-interactive
     end
 
     if type -q lynx
+        set -gx LYNX_CFG $XDG_CONFIG_HOME/lynx.cfg
         set -gx BROWSER lynx
     end
 
