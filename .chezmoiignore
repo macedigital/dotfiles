@@ -17,6 +17,7 @@ settings.json
 .local/state/
 .mozilla/
 .rgignore
+.var/
 .vim/
 {{ if or (ne .host.isGui true) (ne .host.guiSession "sway") -}}
 .config/darkman/
