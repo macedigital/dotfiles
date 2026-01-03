@@ -45,7 +45,7 @@ org.freedesktop.UDisks2=none
 org.freedesktop.UPower=none
 
 [Environment]
-ELECTRON_OZONE_PLATFORM_HINT=wayland
-LC_MEASUREMENT=de_DE.UTF-8
-LC_MONETARY=de_DE.UTF-8
-LC_PAPER=de_DE.UTF-8
+#ELECTRON_OZONE_PLATFORM_HINT=wayland
+#LC_MEASUREMENT=de_DE.UTF-8
+#LC_MONETARY=de_DE.UTF-8
+#LC_PAPER=de_DE.UTF-8

@@ -40,6 +40,7 @@ settings.json
 {{ end }}
 {{ end -}}
 {{ if eq .host.chassis "container" -}}
+.config/environment.d/
 .config/ghostty/
 .config/gtk-3.0/
 .config/kitty/
