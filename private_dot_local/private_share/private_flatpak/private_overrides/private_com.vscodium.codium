@@ -8,5 +8,5 @@ persistent=.ssh;
 org.freedesktop.secrets=talk
 
 [Environment]
-FLATPAK_ENABLE_SDK_EXT=golang,node22,rust-stable,openjdk,typescript
+FLATPAK_ENABLE_SDK_EXT=golang,node24,rust-stable,openjdk,typescript
 SSH_DEFAULT_USER=git
