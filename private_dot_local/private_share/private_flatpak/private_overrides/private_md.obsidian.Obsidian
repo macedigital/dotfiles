@@ -1,6 +1,2 @@
-[Context]
-sockets=wayland
-filesystems=~/Notes;
-
 [Session Bus Policy]
 org.freedesktop.portal.Fcitx=none
