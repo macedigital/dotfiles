@@ -2,3 +2,8 @@
 font-family = "FiraCode Nerd Font"
 font-size = 11
 theme = dark:"TokyoNight Night",light:"TokyoNight Day"
+
+# workaround keybinding sequence issue decoding "\x20" instead of "^"
+keybind = backquote>space=text:^
+
+# vim: set ft=toml:
