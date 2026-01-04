@@ -19,9 +19,12 @@ settings.json
 .rgignore
 .var/
 .vim/
+# Ignore configuration for SwayWM
 {{ if or (ne .host.isGui true) (ne .host.guiSession "sway") -}}
 .config/darkman/
 .config/dunst/
+.config/environment.d/10-wayland.conf
+.config/environment.d/20-locale.conf
 .config/foot/
 .config/rofi/
 .config/sway/
@@ -38,7 +41,7 @@ settings.json
 .config/gtk-3.0/settings.ini
 .local/share/bash/
 .local/share/flatpak/
-{{ end }}
+{{ end -}}
 {{ end -}}
 {{ if eq .host.chassis "container" -}}
 .config/environment.d/
