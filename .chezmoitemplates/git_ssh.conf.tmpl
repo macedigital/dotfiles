@@ -1,0 +1,10 @@
+{{- if hasKey . "git" }}
+# setup git ssh hosts
+{{- range $k, $v := .git }}
+{{- if hasKey $v "host" }}
+Host {{ $v.host }}
+  User git
+
+{{- end }}
+{{- end }}
+{{- end }}

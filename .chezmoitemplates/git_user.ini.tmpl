@@ -1,0 +1,9 @@
+# vim:set ft=gitconfig ts=4 sw=4 et:
+
+[user]
+    name = {{ .user }}
+    email = {{ .email }}
+{{- if hasKey . "signingkey" }}
+    # set specific key for signing commits and tags
+    signingKey = key::{{ .signingkey }}
+{{- end }}
