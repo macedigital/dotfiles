@@ -2,7 +2,7 @@
 #
 # ~/.bashrc - startup file interactive non-login shell
 #
-# vim: ts=4 sts=4 sw=4 et ft=bash:
+# vim:set ts=4 sts=4 sw=4 et ft=bash:
 
 # Source global definitions
 if [[ -f /etc/bashrc ]]; then
@@ -27,14 +27,34 @@ export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 # Make new files unreadable by anyone other than the owner
 umask 0077
 
-# Source user specific files if running interactively
-if [[ $- == *i* && -d "$XDG_DATA_HOME"/bash ]]; then
-    for rc in "$XDG_DATA_HOME"/bash/*.sh; do
-        if [[ -f "$rc" ]]; then
-            # shellcheck disable=SC1090
-            . "$rc"
-        fi
-    done
+# Configure interactive sessions
+if [[ $- == *i* ]]; then
 
-    unset rc
+    # Establish generic aliases
+    alias diff='diff -au --color=auto'
+    alias grep='grep --color=auto'
+    alias psc='ps xawf -eo pid,user,cgroup,args'
+    alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+    # Set up direnv hooks to load/unload environment on current folder
+    if [[ -x $(type -p direnv) ]]; then
+        eval "$(direnv hook bash)"
+    fi
+
+    # Modern ls replacement - https://github.com/eza-community/eza
+    if [[ -x $(type -p eza) ]]; then
+        alias ls='eza --group-directories-first'
+        alias ll='ls -l --icons'
+        alias la='ls -la'
+    fi
+
+    # Source user specific files if running interactively
+    if [[ -d "$XDG_DATA_HOME"/bash ]]; then
+        for rc in "$XDG_DATA_HOME"/bash/*.sh; do
+            if [[ -f "$rc" ]]; then
+                # shellcheck disable=SC1090
+                . "$rc"
+            fi
+        done
+    fi
 fi
