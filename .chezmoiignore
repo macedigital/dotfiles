@@ -7,18 +7,21 @@ settings.json
 .config/alacritty/
 .config/Code/
 .config/fish/completions/
+.config/lazygit/state.yml
 .config/nvim/init.vim
 .dircolors
 .gnupg/
-.local/bin/atuin
-.local/bin/devbox
-.local/bin/grype
 .local/share/Trash
 .local/state/
 .mozilla/
 .rgignore
 .var/
 .vim/
+{{ if ne .host.osId "linux-ubuntu" -}}
+.local/bin/atuin
+.local/bin/devbox
+.local/bin/grype
+{{ end -}}
 # Ignore configuration for SwayWM
 {{ if or (ne .host.isGui true) (ne .host.guiSession "sway") -}}
 .config/darkman/
