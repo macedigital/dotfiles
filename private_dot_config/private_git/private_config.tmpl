@@ -1,12 +1,13 @@
 [alias]
-    up = "!git remote update -p; git merge --ff-only @{u}"
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
-    fulllog = log --all --decorate --graph --oneline --date=short
     checksig = "!git log --pretty=\"tformat:%Cgreen%h %Cblue%G?%Creset %GK - %aN %C(always,yellow)%s\""
     count = shortlog -sn
+    diff-side-by-side = -c delta.features=side-by-side diff
+    dump = cat-file -p
     find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+    fulllog = log --all --decorate --graph --oneline --date=short
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    up = "!git remote update -p; git merge --ff-only @{u}"
 [branch]
     sort = -committerdate
 [color]
@@ -38,13 +39,11 @@
     eol = native
     quotepath = false
     fileMode = false
-[gpg]
-    format = ssh
-[gpg "ssh"]
-    allowedSignersFile = ~/.ssh/allowed_signers
-    # dynamic lookup of first ssh-key from ssh-agent, must be prefixed with 'key::'
-    # https://github.com/maxgoedjen/secretive/issues/262#issuecomment-997772711
-    defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
+    pager = delta
+[delta]
+    detect-dark-light = always
+    line-numbers = true
+    navigate = true
 [diff]
     algorithm = histogram
     colorMoved = plain
@@ -62,11 +61,17 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-[include]
-    # Include for username / creds / etc
-    path = config.local
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
+    # dynamic lookup of first ssh-key from ssh-agent, must be prefixed with 'key::'
+    # https://github.com/maxgoedjen/secretive/issues/262#issuecomment-997772711
+    defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
 [init]
     defaultBranch = main
+[interactive]
+    diffFilter = delta --color-only
 [merge]
     conflictstyle = zdiff3
 [pull]
@@ -86,5 +91,30 @@
 [tag]
     gpgsign = true
     sort = version:refname
+{{- if hasKey . "git" }}
+[user]
+    useConfigOnly = true
+{{- if hasKey .git "github" }}
+    # default to github user data
+    name = {{ .git.github.user }}
+    email = {{ .git.github.email }}
+{{- /*
+    [github]
+    user = {{ .git.github.user }}
+    token = {{ keyring "gh:github.com" .git.github.user }}
+*/ -}}
+{{- end }}
+# load custom configurations based on git remotes
+{{- range $k, $v := .git }}
+{{- if ne $k "github" }}
+[includeIf "hasconfig:remote.*.url:git@{{ $v.host }}*/**"]
+    path = config.{{ $k }}
+{{ end }}
+{{- end }}
+{{- end }}
+# include any local modification last
+[include]
+    # Include for username / creds / etc
+    path = config.local
 
 # vim:ft=gitconfig:ts=4:sw=4:et:

@@ -1,0 +1,23 @@
+# List of verified identities
+# docs: `man ssh-keygen` ALLOWED_SIGNERS section
+{{ if hasKey . "git" -}}
+{{- /* Build list of allowed signers from current keys on github and all known git forges */ -}}
+{{- /* Uses sprig template function 'dict' */ -}}
+{{- /* Depends on chezmoi template function 'gitHubKeys' and correct data */ -}}
+{{- $emails := dict -}}
+
+{{- range $k, $v := .git }}
+	{{- if hasKey $v "signingkey" }}
+{{ $v.email }} namespaces="git" {{ $v.signingkey }}
+	{{- else -}}
+		{{ $_ := set $emails $k $v.email }}
+	{{- end }}
+{{- end }}
+
+{{- $principals := $emails | values | sortAlpha | join "," -}}
+{{- if hasKey .git "github" }}
+{{- range gitHubKeys .git.github.user }}
+{{ $principals }} namespaces="git" {{ .Key }}
+{{- end }}
+{{- end }}
+{{- end }}
