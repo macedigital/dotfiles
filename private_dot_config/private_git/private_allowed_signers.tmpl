@@ -15,7 +15,7 @@
 {{- end }}
 
 {{- $principals := $emails | values | sortAlpha | join "," -}}
-{{- if hasKey .git "github" }}
+{{- if and (hasKey .git "github") (not (hasKey .git.github "signingkey")) }}
 {{- range gitHubKeys .git.github.user }}
 {{ $principals }} namespaces="git" {{ .Key }}
 {{- end }}
