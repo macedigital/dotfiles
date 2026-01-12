@@ -1,295 +1,362 @@
 // -*- mode: jsonc -*-
-[{
+// vim:set ft=jsonc et:
+[
+  {
     "layer": "bottom",
     "position": "top",
     "spacing": 4,
     // effective height also depends on style.css
     "height": 38,
     // live-reload on theme changes, disable for regular use
-    // "reload_style_on_change": true,
+    //"reload_style_on_change": true,
     // custom waybar for internal display
     "output": "eDP-1",
-    "modules-left": ["sway/workspaces", "wlr/taskbar"],
-    "modules-center": ["clock", "mpris", "privacy", "sway/scratchpad", "sway/mode", "idle_inhibitor"],
-    "modules-right": ["tray", "pulseaudio", "temperature", "battery", "custom/colorscheme", "custom/powermenu"],
+    "modules-left": [
+      "sway/workspaces",
+      "wlr/taskbar"
+    ],
+    "modules-center": [
+      "clock",
+      "mpris",
+      "privacy",
+      "sway/scratchpad",
+      "sway/mode",
+      "idle_inhibitor"
+    ],
+    "modules-right": [
+      "tray",
+      "pulseaudio",
+      "temperature",
+      "battery",
+      "custom/colorscheme",
+      "custom/powermenu"
+    ],
     // module configuration
     "sway/language": {
-        "format": "{}  ",
-        "tooltip-format": "{long} {flag}",
-        "on-click": "swaymsg 'input * xkb_switch_layout next'"
+      "format": "{}  ",
+      "tooltip-format": "{long} {flag}",
+      "on-click": "swaymsg 'input * xkb_switch_layout next'"
     },
     "sway/mode": {
-        "format": "󰩨"
+      "format": "󰩨"
     },
     "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+      "format": "{icon} {count}",
+      "show-empty": false,
+      "format-icons": [
+        "",
+        ""
+      ],
+      "tooltip": true,
+      "tooltip-format": "{app}: {title}"
     },
     "sway/window": {
-        "max-length": 72
+      "max-length": 72
     },
     "sway/workspaces": {
-        "all-outputs": true,
-        "persistent-workspaces": {
-            "1": ["eDP-1"]
-        },
-        "high-priority-named": [ "1", "2", "3", "4" ],
-        "format": "{icon}<sup>{index}</sup>",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+      "all-outputs": true,
+      "persistent-workspaces": {
+        "1": [
+          "eDP-1"
+        ]
+      },
+      "high-priority-named": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "format": "{icon}<sup>{index}</sup>",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "urgent": "",
+        "focused": "",
+        "default": ""
+      }
     },
     "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+      "format": "{percent}% {icon}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
     },
     "battery": {
-        "states": {
-            // "good": 80,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
-        "events": {
-             "on-discharging-warning": "notify-send -u normal 'Low Battery'",
-             "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
-        },
+      "states": {
+        // "good": 80,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% 󰂄",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time} {icon}",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "events": {
+        "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+        "on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
+      }
     },
     "clock": {
-        "locale": "de_DE",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M}",
-        "format-alt": "{:%a, %d. %b  %H:%M}",
-        "calendar": {
-             "weeks-pos": "left",
-             "on-scroll": 1,
-             // https://developer.gnome.org/hig/reference/palette.html
-             "format": {
-                  "months":   "<span color='#77767b'><b>{}</b></span>", // Adwaita:Dark 1
-                  "days":     "<span color='#9a9996'><b>{}</b></span>", // Adwaita:Light 5
-                  "weeks":    "<span color='#77767b'><b>CW{:%W}</b></span>", // Adwaita:Dark 1
-                  "weekdays": "<span color='#77767b'><b>{}</b></span>",  // Adwaita:Dark 1
-                  "today":    "<span color='#e66100'><b><u>{}</u></b></span>" // Adwaita:Orange 4
-             }
-        },
-        "actions": {
-             "on-scroll-up": "shift_up",
-             "on-scroll-down": "shift_down"
+      "locale": "de_DE",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "format": "{:%H:%M}",
+      "format-alt": "{:%a, %d. %b  %H:%M}",
+      "calendar": {
+        "weeks-pos": "left",
+        "on-scroll": 1,
+        // https://developer.gnome.org/hig/reference/palette.html
+        "format": {
+          "months": "<span color='#77767b'><b>{}</b></span>", // Adwaita:Dark 1
+          "days": "<span color='#9a9996'><b>{}</b></span>", // Adwaita:Light 5
+          "weeks": "<span color='#77767b'><b>CW{:%W}</b></span>", // Adwaita:Dark 1
+          "weekdays": "<span color='#77767b'><b>{}</b></span>", // Adwaita:Dark 1
+          "today": "<span color='#e66100'><b><u>{}</u></b></span>" // Adwaita:Orange 4
         }
+      },
+      "actions": {
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      }
     },
     "cpu": {
-        "interval": 60,
-        "format": "{usage}% ",
-        "tooltip": false
+      "interval": 60,
+      "format": "{usage}% ",
+      "tooltip": false
     },
     "disk": {
-        "interval": 60,
-        "format": "{percentage_used}% 󰋊"
+      "interval": 60,
+      "format": "{percentage_used}% 󰋊"
     },
     "memory": {
-        "interval": 60,
-        "format": "{}% "
+      "interval": 60,
+      "format": "{}% "
     },
     "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
     },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+      "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+      "format-disconnected": "Disconnected ",
+      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+      "unknown-tag": "N/A",
+      "interval": 2,
+      "consume-icons": {
+        "on": " "
+      },
+      "random-icons": {
+        "off": "<span color=\"#f53c3c\"></span> ",
+        "on": " "
+      },
+      "repeat-icons": {
+        "on": " "
+      },
+      "single-icons": {
+        "on": "1 "
+      },
+      "state-icons": {
+        "paused": "",
+        "playing": ""
+      },
+      "tooltip-format": "MPD (connected)",
+      "tooltip-format-disconnected": "MPD (disconnected)"
     },
     "mpris": {
-        "format": "{player_icon}",
-        "format-paused": "{status_icon}",
-        "format-stopped": "",
-        "player-icons": {
-            "cmus": "",
-            "default": "",
-            "firefox": "",
-            "mpv": "",
-            "chromium": ""
-        },
-        "status-icons": {
-            "paused": ""
-        },
-        "ignored-players": ["firefox"],
-        // "interval": 1
+      "format": "{player_icon}",
+      "format-paused": "{status_icon}",
+      "format-stopped": "",
+      "player-icons": {
+        "cmus": "",
+        "default": "",
+        "firefox": "",
+        "mpv": "",
+        "chromium": ""
+      },
+      // "ignored-players": ["firefox"],
+      // "interval": 1,
+      "status-icons": {
+        "paused": ""
+      }
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     // https://github.com/Alexays/Waybar/wiki/Module:-Privacy
     "privacy": {
-        "icon-spacing": 4,
-        "icon-size": 18,
-        "transition-duration": 250,
-        "modules": [
-            {
-                "type": "screenshare",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            },
-            {
-                "type": "audio-out",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            },
-            {
-                "type": "audio-in",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            }
-        ]
+      "icon-spacing": 4,
+      "icon-size": 18,
+      "transition-duration": 250,
+      "modules": [
+        {
+          "type": "screenshare",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-out",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        },
+        {
+          "type": "audio-in",
+          "tooltip": true,
+          "tooltip-icon-size": 24
+        }
+      ]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-        "format-muted": "󰖁 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "󱡏",
-            "headset": "󰋎",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+      "format": "{volume}% {icon} {format_source}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+      "format-muted": "󰖁 {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "󱡏",
+        "headset": "󰋎",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "on-click": "pavucontrol",
+      "scroll-step": 5 // %, can be a float
     },
     "temperature": {
-        "critical-threshold": 75,
-        "format-critical": "{temperatureC}°C {icon}",
-        "format": "", // hide default "{temperatureC}°C {icon}",
-        "format-icons": ["", "", "", "", ""]
+      "critical-threshold": 75,
+      "format-critical": "{temperatureC}°C {icon}",
+      "format": "", // hide default "{temperatureC}°C {icon}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
     },
     "tray": {
-        "icon-size": 18,
-        "spacing": 10
+      "icon-size": 18,
+      "spacing": 10
     },
     "wireplumber#sink": {
-       "format": "{volume}% {icon}",
-       "format-muted": "󰖁",
-       "format-icons": {
-           "headphone": "",
-           "hands-free": "󱡏",
-           "headset": "󰋎",
-           "phone": "",
-           "portable": "",
-           "car": "",
-           "default": ["", "", ""]
-       },
-       "on-click": "pavucontrol",
-       "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-       "scroll-step": 5
-   },
-   "wireplumber#source": {
-       "node-type": "Audio/Source",
-       "format": "{volume}% ",
-       "format-muted": "",
-       "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-       "scroll-step": 5
-   },
-   "wlr/taskbar": {
-       "all-outputs": true,
-       "on-click": "activate",
-       "on-click-middle": "close",
-       "sort-by-app-id": true
+      "format": "{volume}% {icon}",
+      "format-muted": "󰖁",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "󱡏",
+        "headset": "󰋎",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "on-click": "pavucontrol",
+      "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "scroll-step": 5
+    },
+    "wireplumber#source": {
+      "node-type": "Audio/Source",
+      "format": "{volume}% ",
+      "format-muted": "",
+      "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+      "scroll-step": 5
+    },
+    "wlr/taskbar": {
+      // deactivate sorting or grouping of widgets
+      // https://github.com/Alexays/Waybar/issues/2833#issuecomment-2835633150
+      "active-first": false,
+      "all-outputs": true,
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "sort-by-app-id": false,
+      "ignore-list": [
+        "mpv",
+        "xdg-open"
+      ]
     },
     // custom modules
     "group/hardware": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-battery",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "battery",
-            "cpu",
-            "memory",
-            "temperature",
-            "disk",
-            "backlight"
-        ]
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-battery",
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "battery",
+        "cpu",
+        "memory",
+        "temperature",
+        "disk",
+        "backlight"
+      ]
     },
     "custom/colorscheme": {
-        "exec": "~/.config/waybar/scripts/colorscheme.sh",
-        "interval": "once",
-        "on-click": "sh -c '~/.config/waybar/scripts/colorscheme.sh toggle;'",
-        "return-type": "json",
-        "signal": 8
+      "exec": "~/.config/waybar/scripts/colorscheme.sh",
+      "interval": "once",
+      "on-click": "sh -c '~/.config/waybar/scripts/colorscheme.sh toggle;'",
+      "return-type": "json",
+      "signal": 8
     },
     "custom/powermenu": {
-        "format": " ",
-        "tooltip": true,
-        "tooltip-format": "Power off, reboot, suspend, logout, etc.",
-        "menu": "on-click",
-        "menu-file": "~/.config/waybar/menus/powermenu.xml",
-        "menu-actions": {
-            "shutdown": "systemctl poweroff",
-            "reboot": "systemctl reboot",
-            "suspend": "systemctl suspend",
-            "lock": "loginctl lock-session ${XDG_SESSION_ID-}",
-            "logout": "loginctl kill-session ${XDG_SESSION_ID-}",
-        },
+      "format": " ",
+      "tooltip": true,
+      "tooltip-format": "Power off, reboot, suspend, logout, etc.",
+      "menu": "on-click",
+      "menu-file": "~/.config/waybar/menus/powermenu.xml",
+      "menu-actions": {
+        "shutdown": "systemctl poweroff",
+        "reboot": "systemctl reboot",
+        "suspend": "systemctl suspend",
+        "lock": "loginctl lock-session ${XDG_SESSION_ID-}",
+        "logout": "loginctl kill-session ${XDG_SESSION_ID-}"
+      }
     },
     "custom/wttr": {
-        "interval": 3600,
-        "exec": "~/.config/waybar/scripts/wttr.sh",
-        "return-type": "json"
+      "interval": 3600,
+      "exec": "~/.config/waybar/scripts/wttr.sh",
+      "return-type": "json"
     }
-}]
+  }
+]
