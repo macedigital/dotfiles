@@ -1,5 +1,5 @@
 [Context]
-filesystems=~/Projects;xdg-config/git:ro;xdg-data/bash:ro;~/.bashrc:ro;~/.local/bin/direnv:ro;~/.local/bin/gh:ro;~/.ssh/config:ro;~/.ssh/allowed_signers:ro;
+filesystems=~/Projects;xdg-config/git:ro;~/.bashrc:ro;~/.local/bin/direnv:ro;~/.local/bin/eza:ro;~/.local/bin/gh:ro;~/.local/bin/just:ro;~/.ssh/config:ro;
 shared=network;
 sockets=ssh-auth;
 persistent=.ssh;
@@ -9,4 +9,3 @@ org.freedesktop.secrets=talk
 
 [Environment]
 FLATPAK_ENABLE_SDK_EXT=golang,node24,rust-stable,openjdk,typescript
-SSH_DEFAULT_USER=git

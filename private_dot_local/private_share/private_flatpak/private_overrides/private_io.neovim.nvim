@@ -1,7 +1,7 @@
 [Context]
 shared=network;
 sockets=ssh-auth;
-filesystems=~/Projects;xdg-config/git:ro;~/.bashrc:ro;~/.local/bin/delta:ro;~/.local/bin/fd:ro;~/.local/bin/fzf:ro;~/.local/bin/gh:ro;~/.local/bin/lazygit:ro;~/.local/bin/rg:ro;~/.ssh/allowed_signers:ro;~/.ssh/config:ro;
+filesystems=~/Projects;xdg-config/git:ro;~/.bashrc:ro;~/.local/bin/delta:ro;~/.local/bin/direnv:ro;~/.local/bin/eza:ro;~/.local/bin/fd:ro;~/.local/bin/fzf:ro;~/.local/bin/gh:ro;~/.local/bin/just:ro;~/.local/bin/lazygit:ro;~/.local/bin/rg:ro;~/.ssh/config:ro;
 persistent=.ssh;
 
 [Session Bus Policy]
@@ -9,4 +9,3 @@ org.freedesktop.secrets=talk
 
 [Environment]
 FLATPAK_ENABLE_SDK_EXT=golang,node22,rust-stable,typescript,openjdk
-SSH_DEFAULT_USER=git
