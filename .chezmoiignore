@@ -19,6 +19,17 @@ settings.json
 .vim/
 {{ if eq .host.osId "linux-ubuntu" -}}
 .config/environment.d/10-ssh-agent.conf
+.config/fish/completions/
+.config/nvim/
+.config/nvim-kickstarter/
+.config/systemd/
+.local/bin/micro
+.local/bin/restic
+.local/bin/rclone
+.local/bin/zellij
+.local/share/flatpak/overrides/
+.local/share/lynx/
+.lynxrc
 {{ else -}}
 .local/bin/atuin
 .local/bin/devbox
