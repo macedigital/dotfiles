@@ -21,5 +21,21 @@ ForwardX11 no
 PreferredAuthentications publickey
 PasswordAuthentication no
 
+# Prefer specific identities per host
+#IdentitiesOnly yes
+
+{{ if hasKey . "git" -}}
+# Setup git forges
+{{- range $k, $v := .git }}
+{{- if hasKey $v "host" }}
+{{- /* TODO: Allow "alias" and "host" for virtual configurations */}}
+Host {{ $v.host }}
+  User git
+{{ end }}
+{{- end -}}
+{{- end }}
+
 # Include custom config files
 Include config*.local
+
+# vim:set ft=sshconfig ts=2 sw=2 et:
