@@ -17,7 +17,9 @@ settings.json
 .rgignore
 .var/
 .vim/
-{{ if ne .host.osId "linux-ubuntu" -}}
+{{ if eq .host.osId "linux-ubuntu" -}}
+.config/environment.d/10-ssh-agent.conf
+{{ else -}}
 .local/bin/atuin
 .local/bin/devbox
 .local/bin/grype
