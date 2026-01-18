@@ -24,6 +24,9 @@ PasswordAuthentication no
 # Prefer specific identities per host
 #IdentitiesOnly yes
 
+# Include custom config files
+Include config*.local
+
 {{ if hasKey . "git" -}}
 # Setup git forges
 {{- range $k, $v := .git }}
@@ -34,8 +37,4 @@ Host {{ $v.host }}
 {{ end }}
 {{- end -}}
 {{- end }}
-
-# Include custom config files
-Include config*.local
-
 # vim:set ft=sshconfig ts=2 sw=2 et:
