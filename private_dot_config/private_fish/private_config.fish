@@ -13,6 +13,11 @@ if status is-interactive
     # https://fishshell.com/docs/current/cmds/fish_greeting.html
     set -g fish_greeting
 
+    # ensure locally installed binaries are found
+    if type -q fish_add_path
+        fish_add_path $XDG_BIN_HOME
+    end
+
     # z-tooling uses hardcoded paths
     if test "$DESKTOP_SESSION" != "ubuntu"
         if type -q aws
