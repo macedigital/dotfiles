@@ -220,6 +220,13 @@
     path = "nitropy-v0.11.3-x64-linux-binary"
     private = true
     executable = true
+[".local/bin/prek"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "j178/prek" "prek-x86_64-unknown-linux-musl.tar.gz" | quote }}
+    path = "prek"
+    stripComponents = 1
+    private = true
+    executable = true
 [".local/bin/rg"]
     type = "archive-file"
     url = {{ gitHubLatestReleaseAssetURL "BurntSushi/ripgrep" "ripgrep-*-x86_64-unknown-linux-musl.tar.gz" | quote }}
