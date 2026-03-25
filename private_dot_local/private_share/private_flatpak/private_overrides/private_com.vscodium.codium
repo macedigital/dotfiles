@@ -1,5 +1,5 @@
 [Context]
-filesystems=~/Projects;xdg-config/git:ro;~/.bashrc:ro;~/.local/bin/direnv:ro;~/.local/bin/eza:ro;~/.local/bin/gh:ro;~/.local/bin/just:ro;~/.ssh/config:ro;
+filesystems=~/Projects;xdg-config/git:ro;~/.bashrc:ro;~/.ssh/config:ro;~/.local/bin/delta:ro;~/.local/bin/mise:ro;
 shared=network;
 sockets=ssh-auth;
 persistent=.ssh;
