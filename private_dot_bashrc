@@ -36,6 +36,11 @@ if [[ $- == *i* ]]; then
     alias psc='ps xawf -eo pid,user,cgroup,args'
     alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
+    # Add XDG_BIN_PATH to $PATH if set
+    if [[ -n "$XDG_BIN_HOME" ]] && [[ ":$PATH:" != *":$XDG_BIN_HOME:"* ]]; then
+        PATH="$XDG_BIN_HOME:$PATH"
+    fi
+
     # Set up direnv hooks to load/unload environment on current folder
     if [[ -x $(type -p direnv) ]]; then
         eval "$(direnv hook bash)"
