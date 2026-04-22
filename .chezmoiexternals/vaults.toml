@@ -1,0 +1,39 @@
+# for excluding externals, add them to ~/.local/share/chezmoi/.chezmoiignore
+
+# speed up daily usage, only check externals if environment variable `ONLINE` is set
+# https://github.com/twpayne/chezmoi/discussions/4178#discussioncomment-11719758
+{{- if not ( not (env "ONLINE") ) }}
+
+# dynamic name resolution for golang based binaries, won't work on Windows
+{{- if and (ne .chezmoi.os "windows") (ne .host.chassis "container") }}
+# Only available for the following architectures
+{{- if or (eq .chezmoi.arch "amd64") (eq .chezmoi.arch "arm64") }}
+# ArchLinux provides those packages already
+{{- if and (ne .host.osId "linux-arch") (ne .host.osId "linux-cachyos") }}
+[".local/bin/gocryptfs"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "rfjakob/gocryptfs" ( printf "gocryptfs_*_%s-static_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "gocryptfs"
+    executable = true
+    private = true
+[".local/bin/gocryptfs-xray"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "rfjakob/gocryptfs" ( printf "gocryptfs_*_%s-static_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "gocryptfs-xray"
+    executable = true
+    private = true
+# TODO: honor $XDG_DATA_HOME
+[".local/share/man/man1/gocryptfs.1"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "rfjakob/gocryptfs" ( printf "gocryptfs_*_%s-static_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "gocryptfs.1"
+    private = true
+[".local/share/man/man1/gocryptfs-xray.1"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "rfjakob/gocryptfs" ( printf "gocryptfs_*_%s-static_%s.tar.gz" .chezmoi.os .chezmoi.arch ) | quote }}
+    path = "gocryptfs-xray.1"
+    private = true
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
