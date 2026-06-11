@@ -1,9 +1,9 @@
 [Context]
-devices=dri;!all;!input;!kvm;!shm;
-features=!bluetooth;!devel;!multiarch;
+devices=dri;!all;!input;!kvm;!shm;!usb;
+features=!bluetooth;!canbus;!devel;!multiarch;!per-app-dev-shm;
 shared=!ipc;!network;
-sockets=wayland;!cups;!fallback-x11;!gpg-agent;!pcsc;!pulseaudio;!session-bus;!ssh-auth;!system-bus;!x11;
-filesystems=!home;!host;!host:reset;
+sockets=wayland;!cups;!fallback-x11;!gpg-agent;!inherit-wayland-socket;!pcsc;!pulseaudio;!session-bus;!ssh-auth;!system-bus;!x11;
+filesystems=!home;!host;!host-etc;!host:reset;
 
 [Session Bus Policy]
 ca.desrt.dconf=none
@@ -16,8 +16,11 @@ org.freedesktop.Flatpak=none
 org.freedesktop.login1=none
 org.freedesktop.Notifications=none
 org.freedesktop.ScreenSaver=none
+org.freedesktop.impl.portal.PermissionStore=none
+org.freedesktop.PowerManagement=none
 org.freedesktop.secrets=none
 org.freedesktop.systemd1=none
+org.freedesktop.Tracker3.Writeback=none
 org.gnome.keyring=none
 org.gnome.ScreenSaver=none
 org.gnome.SessionManager=none
@@ -37,9 +40,22 @@ org.kde.StatusNotifierWatcher=none
 [System Bus Policy]
 org.bluez=none
 org.freedesktop.Avahi=none
+org.freedesktop.Avahi.*=none
+org.freedesktop.home1=none
+org.freedesktop.hostname1=none
+org.freedesktop.import1=none
+org.freedesktop.locale1=none
+org.freedesktop.LogControl1=none
 org.freedesktop.login1=none
+org.freedesktop.machine1=none
+org.freedesktop.network1=none
+org.freedesktop.oom1=none
+org.freedesktop.timesync1=none
+org.freedesktop.timedate1=none
+org.freedesktop.systemd1=none
 org.freedesktop.NetworkManager=none
 org.freedesktop.PolicyKit1=none
 org.freedesktop.systemd1=none
 org.freedesktop.UDisks2=none
 org.freedesktop.UPower=none
+org.freedesktop.fwupd=none
