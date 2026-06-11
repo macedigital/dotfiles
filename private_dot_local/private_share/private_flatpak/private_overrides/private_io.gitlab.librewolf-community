@@ -1,7 +1,7 @@
 [Context]
 shared=network;
 sockets=pulseaudio;
-filesystems=xdg-run/speech-dispatcher/speechd.sock;
+filesystems=xdg-run/speech-dispatcher/speechd.sock:ro;
 
 [Environment]
 GDK_BACKEND=wayland

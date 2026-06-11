@@ -1,5 +1,5 @@
 [Context]
-filesystems=xdg-documents/Calibre Library;/run/media;xdg-run/speech-dispatcher:ro;
+filesystems=xdg-documents/Calibre Library;/run/media;xdg-run/speech-dispatcher/speechd.sock:ro;
 sockets=pulseaudio;
 
 [Environment]
