@@ -1,0 +1,16 @@
+# https://wiki.archlinux.org/title/GTK
+# https://docs.gtk.org/gtk3/class.Settings.html#properties
+[Settings]
+{{- if and (eq (env "XDG_CURRENT_DESKTOP") "niri") (lookPath "dms") }}
+gtk-application-prefer-dark-theme={{ if (eq (output "dms" "ipc" "call" "theme" "getMode" | trim) "dark")}}true{{else}}false{{end}}
+{{- else if and (eq (env "XDG_CURRENT_DESKTOP") "sway") (lookPath "darkman") }}
+gtk-application-prefer-dark-theme={{ if (eq (output "darkman" "get" | trim) "dark" )}}true{{ else }}false{{ end }}
+{{- else }}
+# uncomment to hardcode system color scheme preference
+#gtk-application-prefer-dark-theme=true
+{{- end }}
+gtk-enable-event-sounds=false
+gtk-enable-input-feedback-sounds=false
+gtk-error-bell=false
+gtk-icon-theme-name=Adwaita
+gtk-theme-name=Adwaita
