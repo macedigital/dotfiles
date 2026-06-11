@@ -215,9 +215,9 @@
     executable = true
 [".local/bin/nitropy"]
     type = "archive-file"
-    url = "https://github.com/Nitrokey/pynitrokey/releases/download/v0.11.3/nitropy-v0.11.3-x64-linux-binary.tar.gz"
-    checksum.sha256 = "fb752e9d9b09933ffdabdd8cbe6479fa0d50bde183dee0469083969c43651792"
-    path = "nitropy-v0.11.3-x64-linux-binary"
+    url = "https://github.com/Nitrokey/pynitrokey/releases/download/v0.12.2/nitropy-v0.12.2-x64-linux-binary.tar.gz"
+    checksum.sha256 = "3c6c163075d32d0d34aea6d13573d7b14c0bcb1048ec5ad79759d93123de8296"
+    path = "nitropy-v0.12.2-x64-linux-binary"
     private = true
     executable = true
 [".local/bin/prek"]
