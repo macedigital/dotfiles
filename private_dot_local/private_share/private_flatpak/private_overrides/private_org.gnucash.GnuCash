@@ -1,2 +1,2 @@
 [Context]
-filesystems=xdg-data/gnucash:create;
+filesystems=xdg-data/gnucash:create;xdg-config/gtk-3.0/settings.ini:ro;
